@@ -1,0 +1,130 @@
+/* Body */
+.body-container{
+    background: #FFFDF7 0% 0% no-repeat padding-box;
+}
+
+/* Nav bar */
+.nav-section{
+    display: flex;
+    justify-content: center;
+}
+.nav-items{
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+}
+.nav-items.active{
+    color: #3167FF;
+}
+
+/* Logo section */
+.logo-description-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.logo{
+    max-width: 84px;
+    width: 100%;
+    max-height: 87px;
+    height: 100%;
+}
+.description-head{
+    font-size: 36px;
+    color: #333333;
+    text-align: center;
+    letter-spacing: 0px;
+    max-width: 492px;
+    width: 100%;
+    max-height: 48px;
+    height: 100%;
+}
+.description-text{
+    max-width: 723px;
+    width: 100%;
+    max-height: 43px;
+    height: 100%;
+    text-align: center;
+    letter-spacing: 0px;
+}
+
+
+/* Plan Cards */
+.plan-cards
+{
+    min-height: 312px;
+    height: 100%;
+}
+.plan-gap{
+    max-width: 140px;
+    width: 100%;
+}
+.plan-meals-card{
+    max-height: 307px;
+    height: 100%;
+    max-width: 278px;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.plan-meal-image{
+    max-height: 209px;
+    height: 100%;
+    max-width: 278px;
+    width: 100%;
+}
+.meal-count{
+    font-size: 24px;
+    font-weight: 500;
+}
+.plan-week{
+    font-size: 14px;
+}
+.plan-total-price-text{
+    font-size: 16px;
+}
+.plan-total-price{
+    color: #D75D33;
+}
+.plan-price{
+    font-size: 16px;
+}
+
+/* Getting started section */
+.get-started{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.shipping-text{
+    max-width: 235px;
+    width: 100%;
+    max-height: 19px;
+    height: 100%;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #000000;
+}
+.get-started-btn {
+    max-width: 150px;
+    width: 100%;
+    min-height: 45px;
+    height: 100%;
+    background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    color: white;
+    transition: max-width 0.3s;
+}
+
+.get-started-btn:hover {
+    max-width: 400px;
+    width: 100%;
+}
