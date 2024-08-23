@@ -79,6 +79,9 @@
     max-width: 278px;
     width: 100%;
 }
+.meal-description{
+    line-height:0.5;
+}
 .meal-count{
     font-size: 24px;
     font-weight: 500;
@@ -102,6 +105,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 5px;
+    min-height: 150px;
+    height: 100%;
 }
 .shipping-text{
     max-width: 235px;
