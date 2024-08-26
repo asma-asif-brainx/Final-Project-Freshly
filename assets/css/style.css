@@ -16,6 +16,7 @@
  .steps-container{
     background-color: var(--nav-background);
  }
+
  .header-list.active {
     font-weight: bold;
     color: var(--nav-step-active-color);
@@ -285,6 +286,7 @@
 
 .delivery-day-head{
     font-size: 48px;
+    color: var(--plan-description-head-color);
 }
 .date-container {
     max-height: 300px; 
@@ -373,6 +375,8 @@
 /* Accordian  common questions*/
 .common-question-head{
     font-size: 48px;
+    color: var(--plan-description-head-color);
+
 }
 .accordion-button {
     color: var(--black);
