@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const options = { weekday: 'long', day: 'numeric', month: 'short' };
         return date.toLocaleDateString('en-US', options);
     }
+
     function generateDates() {
         const container = document.querySelector('.date-container');
         const firstDeliverySpan = document.querySelector('.first-delivery-date');
@@ -26,7 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
             dateText.textContent = formatDate(nextMonday);
             const popularText = document.createElement('span');
             popularText.className = 'popular-text';
-            popularText.textContent = 'Most popular';
+            
+            const starSpan = document.createElement('span');
+            starSpan.className = 'star';
+            starSpan.innerHTML = '&#9734;';
+
+            popularText.appendChild(starSpan);
+            popularText.appendChild(document.createTextNode(' Most popular'));
             dateDiv.appendChild(dateText);
             dateDiv.appendChild(popularText);
     
@@ -38,13 +45,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
     
             dateDiv.addEventListener('click', function() {
-                this.classList.toggle('selected'); 
-    
-                if (this === container.children[0]) {
-                    this.querySelector('.popular-text').style.display = this.classList.contains('selected') ? 'inline' : 'none';
-                } else {
-                    this.querySelector('.popular-text').style.display = 'none';
-                }
+                const selectedItems = container.querySelectorAll('.date-item.selected');
+                selectedItems.forEach(item => {
+                    if (item !== this) {
+                        item.classList.remove('selected');
+                    }
+                });
+
+                this.classList.add('selected');
             });
     
             container.appendChild(dateDiv);
