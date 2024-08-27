@@ -41,14 +41,15 @@
 {
     font-family: 'Roboto-Regular';
 }
-.get-started-btn, .delivery-day-head, .common-question-head, .checkout-form-head, .delivery-address-head,
+.get-started-btn, .checkout-form-head, .delivery-address-head,
 .name-feild-label, .fname-input, .lname-input, .full-name-delivery-address-label, .first-address-label, .second-address-label, 
 .city-label, .state-label, .zip-label, .phone-label, .email-label, .checkout-buttton, .total-summary, .order-summary-head, 
 .meals-summary-head, .delivery-date-head-order, .meal-count,  .plan-total-price, .bigger-box-price, .bigger-box-text
 {
     font-family: 'Roboto-Bold';
 }
-.sale-tag , .plan-week, .plan-price , .accordion-button,  .description-head, .plan-total-price-text
+.sale-tag , .plan-week, .plan-price , .accordion-button,  .description-head, .plan-total-price-text, 
+.delivery-day-head, .common-question-head
 {
     font-family: 'Roboto-Medium';
 }
@@ -449,8 +450,6 @@
     border-left: 6px solid var(--red-orange-price); 
 }
 
-
-
 .date-item .popular-text {
     display: none; 
     color: var(--red-orange-price); 
@@ -521,12 +520,16 @@
     background-color: transparent;
     border: none;
     font-weight: 500;
+    padding-left: 0;
+    padding-right: 0;
+
 }
 
 .accordion-button:not(.collapsed) {
     color: var(--red-orange-price);
     background-color: transparent;
     box-shadow: none;
+    border-bottom: 1px solid  var(--accordian-bottom-border);
 }
 .accordion-button::after {
     fill: var(--red-orange-price);
@@ -538,13 +541,15 @@
     border: none;
     border-bottom: 1px solid var(--accordian-bottom-border);
     background-color: var(--background);
+
 }
 .accordian-main-panel {
-    width: 92%; 
+    width: 80%; 
     margin: 0 auto;
 }
 .accordian-description{
-    width: 95%;
+    width: 98%;
+    font-size: 14px;
     margin: auto; 
 }
 .accordian-end-space{

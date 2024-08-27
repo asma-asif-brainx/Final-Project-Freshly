@@ -6,7 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function formatDate(date) {
-        return date.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'short' });
+        const options = { weekday: 'long', day: 'numeric', month: 'short' };
+        const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
+        const [weekday, day, month] = formattedDate.split(' ');
+        return `<strong>${weekday}</strong> ${day} ${month}`;
     }
 
     function generateDates() {
@@ -15,14 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
         let currentDate = new Date();
         let nextMonday = getNextMonday(currentDate);
 
-        firstDeliverySpan.textContent = formatDate(nextMonday);
+        firstDeliverySpan.innerHTML = formatDate(nextMonday);
 
         for (let i = 0; i < 10; i++) {
             const dateDiv = document.createElement('div');
             dateDiv.className = 'date-item';
             const dateText = document.createElement('span');
-            dateText.textContent = formatDate(nextMonday);
-
+           
+            dateText.innerHTML = formatDate(nextMonday); 
             const popularText = document.createElement('span');
             popularText.className = 'popular-text';
             popularText.innerHTML = '&#9734; Most popular';
@@ -73,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $('.next-button-delivery').on('click', function () {
             const selectedDateItem = $('.date-container .selected');
             const selectedDateText = selectedDateItem.find('span').first().text().trim();
-            
+
             localStorage.setItem('selectedDay', selectedDateText);
             console.log(`Day selected: ${selectedDateText}`);
 
