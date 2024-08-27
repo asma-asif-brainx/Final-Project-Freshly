@@ -41,14 +41,14 @@
 {
     font-family: 'Roboto-Regular';
 }
-.description-head, .get-started-btn, .delivery-day-head, .common-question-head, .checkout-form-head, .delivery-address-head,
+.get-started-btn, .delivery-day-head, .common-question-head, .checkout-form-head, .delivery-address-head,
 .name-feild-label, .fname-input, .lname-input, .full-name-delivery-address-label, .first-address-label, .second-address-label, 
 .city-label, .state-label, .zip-label, .phone-label, .email-label, .checkout-buttton, .total-summary, .order-summary-head, 
-.meals-summary-head, .delivery-date-head-order
+.meals-summary-head, .delivery-date-head-order, .meal-count,  .plan-total-price, .bigger-box-price, .bigger-box-text
 {
     font-family: 'Roboto-Bold';
 }
-.sale-tag , .plan-week, .plan-total-price, .plan-price , .accordion-button 
+.sale-tag , .plan-week, .plan-price , .accordion-button,  .description-head, .plan-total-price-text
 {
     font-family: 'Roboto-Medium';
 }
@@ -58,7 +58,7 @@
 .header-list, .sale-tag , .plan-week, .date-item , #delivery-day-value,.meals-summary, .shipping-summary p, .tax-summary ,
 .total-summary, .sms-update-checbox, .delivery-date-head-order, .name-feild-label, .fname-input, .lname-input,
 .full-name-delivery-address-label, .first-address-label, .second-address-label, .city-label, .state-label, 
-.zip-label, .phone-label, .email-label
+.zip-label, .phone-label, .email-label, .shipping-text
 {
     font-size:14px;
 }
@@ -117,7 +117,7 @@
 
 /*----------------------------------------------------------section Body----------------------------------------------------- */
 .sections-container{
-    background:var(--background) 0% 0% no-repeat padding-box;
+    /* background:var(--background) 0% 0% no-repeat padding-box; */
     height: auto;
 }
 
@@ -156,12 +156,9 @@
     text-align: center;
     letter-spacing: 0px;
 }
-.bigger-box-text{
-    font-weight: bold;
-}
+
 .bigger-box-price{
     color: var(--red-orange-price);
-    font-weight: bold;
 }
 
 /* Plan Cards */
@@ -188,7 +185,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden; 
-    border-radius: 20px; 
+    border-radius: 15px; 
     position: relative;
 }
 .sale-tag {
@@ -228,14 +225,9 @@
 }
 .meal-count{
     font-size: 24px;
-    font-weight:bold;
 }
-.plan-week{
-    font-weight:500;
-}
-.plan-total-price-text{
-    font-weight:500;
-}
+
+
 .plan-total-price{
     color: var(--red-orange-price);
 }
@@ -248,7 +240,7 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    min-height: 150px;
+    min-height: 160px;
     height: 100%;
 }
 .shipping-text{
@@ -257,7 +249,6 @@
     max-height: 19px;
     height: 100%;
     text-align: center;
-    font-size: 14px;
     letter-spacing: 0px;
     color: var(--black);
 
@@ -286,25 +277,72 @@
 } 
 
 @media (max-width:980px){
+    .plan-cards{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
     .plan-meals-card{
-        max-width: 180px;
+        max-width: 300px;
+        width: 100%;
+       
+        min-height:300px ;
+        height: 100%;
+    }
+    .plan-meal-image {
+        max-height: 209px;
+        max-width: 300px;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+    .get-started{
+        min-height: 135px;
+        height: 100%;
+    }
+    .get-started-btn{
+        max-width: 76%;
+        width: 100%;
+        max-height: 48px;
+        height: 100%;
+    }
+    .get-started-btn:hover {
+        max-width: 76%;
         width: 100%;
     }
 }
 @media (max-width:767px){
     .plan-cards{
-        max-width: 95%;
+        max-width: 100%;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
+        max-height:530px ;
+        height: 100%;
     }
     .plan-meals-card{
-        max-width: 49%;
+        max-width: 48%;
         width: 100%;
         padding-right: 0;
-
+        min-height:248px ;
+        height: 100%;
     }
+    .plan-meal-image {
+        max-height: 140px;
+        max-width: 278px;
+        width: 100%;
+        height: 100%;
+        object-fit:fill;
+    }
+    .plan-card-img-block {
+        width: 100%;
+        max-height:150px ;
+        height: 100%;
+    }
+
     .description-text{
         font-size: 18px;
         max-height: 150px;
@@ -321,18 +359,25 @@
         align-items: center;
         justify-content: center;
     }
+    .get-started{
+        min-height: 135px;
+        height: 100%;
+    }
     .get-started-btn{
-        max-width: 85%;
+        max-width: 94%;
         width: 100%;
-        max-height: 45px;
+        max-height: 48px;
         height: 100%;
     }
     .get-started-btn:hover {
-        max-width: 95%;
+        max-width: 94%;
         width: 100%;
     }
     .meal-count{
         font-size: 20px;
+    }
+    .sale-tag{
+        font-size: 11px;
     }
 }
 
@@ -489,8 +534,6 @@
         font-size: 30px;
     }
 }
-
-
 
 
 /* ----------------------------------------------------Checkout section----------------------------------------------------- */
