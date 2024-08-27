@@ -9,7 +9,10 @@
     --white:white;
     --date-item-border:#707070;
     --nav-background:#FFFFFF;
+    --deliver-border:#9D9D9D;
+    --order-summary-bodrer:#EDEDED;
 }
+
 @font-face {
     font-family: 'Roboto-Regular';
     src: url('../fonts/Roboto-Regular.ttf') format("truetype");
@@ -31,19 +34,53 @@
     src: url('../fonts/Roboto-Thin.ttf') format("truetype");
 }
 
+/* ----------------------------------------Font families ---------------------------------------------------------*/
+
+.steps-container, .description-text,.shipping-text,  .date-item .popular-text, .accordion-body,
+#delivery-day-value,.meals-summary, .shipping-summary p, .tax-summary, .promo-code-link, .sms-update-checbox
+{
+    font-family: 'Roboto-Regular';
+}
+.description-head, .get-started-btn, .delivery-day-head, .common-question-head, .checkout-form-head, .delivery-address-head,
+.name-feild-label, .fname-input, .lname-input, .full-name-delivery-address-label, .first-address-label, .second-address-label, 
+.city-label, .state-label, .zip-label, .phone-label, .email-label, .checkout-buttton, .total-summary, .order-summary-head, 
+.meals-summary-head, .delivery-date-head-order
+{
+    font-family: 'Roboto-Bold';
+}
+.sale-tag , .plan-week, .plan-total-price, .plan-price , .accordion-button 
+{
+    font-family: 'Roboto-Medium';
+}
+
+/* ----------------------------------------Font size ---------------------------------------------------------*/
+
+.header-list, .sale-tag , .plan-week, .date-item , #delivery-day-value,.meals-summary, .shipping-summary p, .tax-summary ,
+.total-summary, .sms-update-checbox, .delivery-date-head-order, .name-feild-label, .fname-input, .lname-input,
+.full-name-delivery-address-label, .first-address-label, .second-address-label, .city-label, .state-label, 
+.zip-label, .phone-label, .email-label
+{
+    font-size:14px;
+}
+
+.plan-total-price-text, .plan-price,.get-started-btn, .checkout-buttton
+{
+    font-size:16px;
+}
+
+/* -------------------------------------------body-container------------------------------------------- */
 
 .body-container{
     background-color: var(--background);
 }
 
- /* --------------------------------------------Jquery steps css------------------------------------------ */
+/* --------------------------------------------Jquery steps css------------------------------------------ */
 
- .steps-container{
+.steps-container{
     background-color: var(--nav-background);
-    font-family: 'Roboto-Regular';
- }
+}
 
- .header-list.active {
+.header-list.active {
     font-weight: bold;
     color: var(--nav-step-active-color);
 }
@@ -63,14 +100,13 @@
 }
 .header-list{
     list-style-type: none;
-    font-size: 14px;
     font-weight: 500;
 }
 .header-list:not(.active):hover {
     text-decoration: underline;
 }
 
-/* seperator */
+/* ----------------------------------------------------------seperator---------------------------------------------- */
 
 .nav-seperator
 {
@@ -111,7 +147,6 @@
     width: 100%;
     max-height: 48px;
     height: 100%;
-    font-family: 'Roboto-Bold';
 }
 .description-text{
     max-width: 723px;
@@ -120,7 +155,6 @@
     height: 100%;
     text-align: center;
     letter-spacing: 0px;
-    font-family: 'Roboto-Regular';
 }
 .bigger-box-text{
     font-weight: bold;
@@ -163,11 +197,8 @@
     left: 10px;
     background-color: #FFFFFF; 
     color:#333333;
-    font-size: 14px;
     border-radius: 15px; 
     z-index: 10;
-    font-family: 'Roboto-Medium';
-
 }
 .plan-meal-image {
     max-height: 209px;
@@ -200,23 +231,15 @@
     font-weight:bold;
 }
 .plan-week{
-    font-size: 14px;
     font-weight:500;
-    font-family: 'Roboto-Medium';
 }
 .plan-total-price-text{
-    font-size: 16px;
     font-weight:500;
 }
 .plan-total-price{
     color: var(--red-orange-price);
-    font-family: 'Roboto-Medium';
 }
-.plan-price{
-    font-size: 16px;
-    font-family: 'Roboto-Medium';
 
-}
 
 /* Getting started section */
 .get-started{
@@ -237,7 +260,6 @@
     font-size: 14px;
     letter-spacing: 0px;
     color: var(--black);
-    font-family: 'Roboto-Regular';
 
 }
 .get-started-btn {
@@ -248,10 +270,8 @@
     background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat;
     border-radius: 4px;
     border: none;
-    color: white;
+    color: var(--white);
     transition: max-width 0.3s;
-    font-size: 16px;
-    font-family: 'Roboto-Bold';
 }
 .get-started-btn:hover {
     max-width: 400px;
@@ -323,7 +343,6 @@
 .delivery-day-head{
     font-size: 48px;
     color: var(--plan-description-head-color);
-    font-family: 'Roboto-Bold';
 }
 .date-container {
     max-height: 300px; 
@@ -339,13 +358,12 @@
     border-top: 1px solid var(--date-item-border); 
     border-bottom: 1px solid var(--date-item-border);
     border-left: 1px solid var(--date-item-border);
-    font-size: 14px;
     max-height: 40px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #FFFFFF;
+    background-color: var(--nav-background);
 }
 .date-item:not(.selected):hover {
     transform: translateX(4px);
@@ -359,7 +377,6 @@
     color: var(--red-orange-price); 
     font-size: 12px;
     text-align: right;
-    font-family: 'Roboto-Regular';
 }
 .date-item.selected .popular-text {
     display: none; 
@@ -419,18 +436,14 @@
 .common-question-head{
     font-size: 48px;
     color: var(--plan-description-head-color);
-    font-family: 'Roboto-Bold';
 }
 .accordion-button {
     color: var(--black);
     background-color: transparent;
     border: none;
     font-weight: 500;
-    font-family: 'Roboto-Medium';
 }
-.accordion-body{
-    font-family: 'Roboto-Regular';
-}
+
 .accordion-button:not(.collapsed) {
     color: var(--red);
     background-color: transparent;
@@ -484,7 +497,6 @@
 
 .checkout-form-head{
     font-size: 23px;
-    font-family: 'Roboto-Bold';
 }
 
 .form-column{
@@ -492,15 +504,15 @@
     justify-content: center;
 }
 .form-container{
-    max-width: 60%;
+    max-width: 591px;
     width: 100%;
-    max-height: 860px;
+    min-height: 860px;
     height: 100%;
-    background-color:#FFFFFF ;
+    background-color:var(--nav-background);
+    border: 1px solid var(--order-summary-bodrer);
 }
 .delivery-address-head{
     font-size: 18px;
-    font-family: 'Roboto-Bold';
 }
 .name-label-group{
     display: flex;
@@ -517,31 +529,55 @@
     min-width: 176px;
     width: 100%;
 }
-
-
-
-
+.delivery-address-head{
+    font-size: 18px;
+}
+.custom-input{
+    border: 1px solid var(--deliver-border);
+    border-radius: 4px;
+    min-height: 35px;
+    height: 100%;
+}
+.name-group, .full-name-delivery-address-group, .address-line-one-group, .address-line-two-group, .city-group, .phone-group
+,.email-group
+{
+    min-height: 75px;
+    height: 100%;
+}
+.custom-label{
+    min-height: 28px;
+    height: 100%;
+}
+.checkout-buttton{
+    background: transparent linear-gradient(100deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: none;
+    border-radius: 4px;
+    color: var(--white);
+    min-height:45px ;
+    height: 100%;
+}
 
 /* Order summary */
 .card-order-summary{
-    background-color: #FFFFFF;
-    max-width: 450px;
+    background-color: var(--nav-background);
+    max-width: 400px;
     width: 100%;
+    border: 1px solid var(--order-summary-bodrer);
 }
 .promo-code-link{
     color:#3167FF;
     font-size: 15px;
-    font-family: 'Roboto-Regular';
-}
-.delivery-date-head-order{
-    font-size: 14px;
-    font-family: 'Roboto-Bold' ;
 }
 .delivery-div{
-    border: 1px solid #9D9D9D; 
+    border: 1px solid var(--deliver-border); 
     border-radius:5px ;
-    max-width: 420px;
+    max-width: 380px;
     width: 100%;
     min-height: 20px;
     height: 100%;
 }
+.order-summary-head, .meals-summary-head{
+    font-size: 23px;
+}
+

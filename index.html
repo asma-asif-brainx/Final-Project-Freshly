@@ -326,130 +326,150 @@
             <!------------------------------------ Checkout Section 4 ------------------------------------------------------->
             <section data-step="checkout-step">
             
-                <div class="row me-0 d-flex flex-md-row">
-                    <div class="form-column col-md-7 d-flex flex-column">
+                <div class="row me-0  mt-4 d-flex flex-md-row">
+                    
+                    <div class="form-column col-md-7 d-flex flex-column align-items-end justify-content-end ">
+                        
                         <p class="checkout-form-head">Checkout</p>
 
                         <!------------------------------------- Checkout form container----------------------------------------------->
-                        <div class="form-container">
-                            <p class="delivery-address-head">Delivery Address</p>
+                        <div class="form-container px-5">
+                            <p class="delivery-address-head mt-3">Delivery Address</p>
 
                             <form id="checkout-form">
                                 <div class="name-group">
                                     <div class="row">
                                         <div class="col-6">
-                                            <label class="name-feild-label" for="fname">First Name</label>
+                                            <label class="custom-label name-feild-label" for="fname">First Name</label>
                                         </div>
                                         <div class="col-6">
-                                            <label class="name-feild-label" for="lname">Last Name</label>
+                                            <label class="custom-label name-feild-label" for="lname">Last Name</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <input class="fname-input w-100" id="fname" type="text" name="fname">
+                                            <input class="custom-input fname-input w-100" id="fname" type="text" name="fname">
                                         </div>
                                         <div class="col-6">
-                                            <input class="lname-input w-100" id="lname" type="text" name="lname">
+                                            <input class="custom-input lname-input w-100" id="lname" type="text" name="lname">
                                         </div>
                                     </div>
                                 </div>
                 
-                                <div class="mb-3">
-                                    <label class="full-name-delivery-address-label" for="full-delivery-address">Full Name for Delivery Address</label>
-                                    <input class="full-name-delivery-address-input input-block-height w-100" id="full-delivery-address" name="full-delivery-address" type="text">
+                                <div class="mb-3 full-name-delivery-address-group">
+                                    <label class="custom-label full-name-delivery-address-label" for="full-delivery-address">Full Name for Delivery Address</label>
+                                    <input class="custom-input full-name-delivery-address-input input-block-height w-100" id="full-delivery-address" name="full-delivery-address" type="text">
                                 </div>
                 
-                                <div class="mb-3">
-                                    <label class="first-address-label">Address Line 1</label>
-                                    <input class="first-address-input input-block-height w-100" name="first-address-name" type="text">
+                                <div class="mb-3 address-line-one-group">
+                                    <label class="custom-label first-address-label">Address Line 1</label>
+                                    <input class="custom-input first-address-input input-block-height w-100" name="first-address-name" type="text">
                                 </div>
                 
-                                <div class="mb-3">
-                                    <label class="second-address-label">Address Line 2 (optional)</label>
-                                    <input class="second-address-input input-block-height w-100" name="second-address-name" type="text">
+                                <div class="mb-3 address-line-two-group">
+                                    <label class="custom-label second-address-label">Address Line 2 (optional)</label>
+                                    <input class="custom-input second-address-input input-block-height w-100" name="second-address-name" type="text">
                                 </div>
                 
                                 <div class="city-group">
                                     <div class="row">
                                         <div class="col-4">
-                                            <label class="city-label" for="city">City</label>
+                                            <label class="custom-label city-label" for="city">City</label>
                                         </div>
                                         <div class="col-4">
-                                            <label class="state-label">State</label>
+                                            <label class="custom-label state-label">State</label>
                                         </div>
                                         <div class="col-4">
-                                            <label class="zip-label">Zip <a href="#">change</a></label>
+                                            <label class="custom-label zip-label">Zip <a href="#">change</a></label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-4">
-                                            <input class="city input-block-height w-100" id="city" name="city" type="text">
+                                            <input class="custom-input city input-block-height w-100" id="city" name="city" type="text">
                                         </div>
                                         <div class="col-4">
-                                            <input class="state input-block-height w-100" name="state" type="text">
+                                            <input class="custom-input state input-block-height w-100" name="state" type="text">
                                         </div>
                                         <div class="col-4">
-                                            <input class="zip input-block-height w-100" name="zip" type="text">
+                                            <input class="custom-input zip input-block-height w-100" name="zip" type="text">
                                         </div>
                                     </div>
                                 </div>
                 
-                                <div class="mb-3">
-                                    <label class="phone-label" for="phone">Phone</label>
-                                    <input class="ph input-block-height w-100" id="phone" name="phone" type="text">
+                                <div class="mb-3 phone-group">
+                                    <label class="custom-label phone-label" for="phone">Phone</label>
+                                    <input class="custom-input ph input-block-height w-100" id="phone" name="phone" type="text">
                                 </div>
                 
-                                <div class="mb-3">
-                                    <label class="email-label" for="email">Email (We require your email to send you receipts and order updates)</label>
-                                    <input class="email-field input-block-height w-100" id="email" name="email" type="email">
+                                <label class="sms-update-checbox mb-3">
+                                    <input type="checkbox" value="sms-updates">
+                                    Receive SMS text message updates on my orders
+                                </label>
+
+                                <div class="mb-3 email-group">
+                                    <label class="custom-label email-label" for="email">Email (We require your email to send you receipts and order updates)</label>
+                                    <input class="custom-input email-field input-block-height w-100" id="email" name="email" type="email">
                                 </div>
                 
-                                <button type="button" class=" w-100">Checkout</button>
+                                <hr>
+
+                                <button type="button" class="checkout-buttton mt-2 w-100">Checkout</button>
                             </form>
                         </div>
                     </div>
                 
                     <div class="col-md-5">
-                        <h1>Order Summary</h1>
+                        <h1 class="order-summary-head mb-4">Order Summary</h1>
 
                         <div class="card-order-summary">
-                            <a class="promo-code-link" href="">+ Add Promo Code</a>
+                            <div class="promo-code-container mt-2"><a class="ps-2 promo-code-link" href="">+ Add Promo Code</a></div>
                             <hr>
-                            <p class="delivery-date-head-order">Delivery Date</p>
+                            <p class="delivery-date-head-order ps-2">Delivery Date</p>
 
-                            <div class="delivery-div">
+                            <div class="delivery-div mx-2">
                                 <p id="delivery-day-value" class="ps-3 mt-1 mb-2"></p>
                             </div>
 
                             <hr>
 
                             <div>
-                                <p>Meals</p>
+                                <p class="meals-summary ps-2">Meals <span class="meals-price-sum"></span></p>
                             </div>
 
                             <hr>
 
                             <div>
-                                <p>Shipping</p>
+                                <p class="shipping-summary ps-2">Shipping<span class="shipping-price-sum"></span></p>
                             </div>
 
                             <hr>
 
                             <div>
-                                <p>Tax</p>
+                                <p class="tax-summary ps-2">Tax<span class="tax-price-sum"></span></p>
                             </div>
 
                             <hr>
 
                             <div>
-                                <p>Total</p>
+                                <p class="total-summary ps-2">Total<span class="total-price-sum"></span></p>
                             </div>
 
 
                         </div>
+
+
+                        <h1 class="meals-summary-head my-3">My Meals</h1>
+                       
+                        <div class="">
+                             <!-- Cards of meals will be displayed here -->
+                        </div>
                     </div>
+
+
+
                 </div>
                 
+            <hr class="mt-5">
 
                 <!-------------------------------- Accordian checkout page ----------------------------------------------->
                 <div>
