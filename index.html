@@ -27,16 +27,20 @@
 <body class="body-container">
     <div id="wizard">
        <!--------------------------------- Navigation for steps --------------------------------->
-       <ul class="step-steps steps-container d-flex align-items-center justify-content-center pt-2 pb-2 mb-0">
-            <li class="header-list" data-step-target="plan-step">Plans </li>
-                <i class="fa fa-angle-right mx-2" aria-hidden="true"></i>
-            <li class="header-list" data-step-target="day-step">Day</li>
-                <i class="fa fa-angle-right mx-2" aria-hidden="true"></i>            
-            <li class="header-list" data-step-target="meals-step">Meals </li>
-                <i class="fa fa-angle-right mx-2" aria-hidden="true"></i>
-            <li class="header-list" data-step-target="checkout-step">Checkout</li>
-        </ul>
+       <div class="nav-container"> 
+            <ul class="step-steps steps-container d-flex align-items-center justify-content-center gap-3 pt-2 pb-2 mb-0">
+                <li class="header-list" data-step-target="plan-step">Plans </li>
+                <span> > </span>
+                <li class="header-list" data-step-target="day-step">Day</li>
+                <span> > </span>
+                <li class="header-list" data-step-target="meals-step">Meals </li>
+                <span> > </span>
+                <li class="header-list" data-step-target="checkout-step">Checkout</li>
+            </ul>
+        </div>
+
         <hr class="nav-seperator">
+
         <div class="sections-container">
             <!------------------------------------------------ Plan Section ------------------------------------------------------->
             <section data-step="plan-step" class="active">
@@ -44,7 +48,7 @@
                 <div class="logo-description-section">
                     <img class="logo mt-3" src="assets/images/logo.svg">
                     <h1 class="description-head mt-3 mb-3">Flexible plans that fits your life</h1>
-                    <p class="description-text  mb-4">We offer anywhere from 4–12 meals per week, starting at <span class="bigger-box-price">$11.49/meal</span>.
+                    <p class="description-text  mb-md-4 mb-1">We offer anywhere from 4–12 meals per week, starting at <span class="bigger-box-price">$11.49/meal</span>.
                         <span class="bigger-box-text"> The bigger your box, the more you’ll save </span> — and 
                         you can always pause, cancel, or change your plan at any time.</p>
                 </div>

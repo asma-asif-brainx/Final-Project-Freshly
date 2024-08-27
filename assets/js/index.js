@@ -97,6 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const currentStep = localStorage.getItem('currentStep') || 'plan-step';
 
             if (steps.indexOf(targetStep) <= steps.indexOf(currentStep)) {
+                //  targetStep.addClass('enabled-active-pointer');
+                // targetStep.addClass('enabled-underline');
                 showSection(targetStep);
             }
         });
