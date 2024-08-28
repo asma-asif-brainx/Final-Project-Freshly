@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function generateDates() {
         const container = document.querySelector('.date-container');
-        const firstDeliverySpan = document.querySelector('.first-delivery-date');
+       const firstDeliverySpan = document.querySelector('.first-delivery-date');
         let currentDate = new Date();
         let nextMonday = getNextMonday(currentDate);
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const dateDiv = document.createElement('div');
             dateDiv.className = 'date-item';
             const dateText = document.createElement('span');
-           
+           dateText.className='date-text-item';
             dateText.innerHTML = formatDate(nextMonday); 
             const popularText = document.createElement('span');
             popularText.className = 'popular-text';
@@ -46,6 +46,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
                 this.classList.add('selected');
+
+              
+                const selectedDateText = this.querySelector('span').innerHTML;
+                firstDeliverySpan.innerHTML = selectedDateText;
+
             });
 
             container.appendChild(dateDiv);
@@ -72,18 +77,31 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+
     function setupDayStep() {
         $('.next-button-delivery').on('click', function () {
             const selectedDateItem = $('.date-container .selected');
             const selectedDateText = selectedDateItem.find('span').first().text().trim();
-
+    
             localStorage.setItem('selectedDay', selectedDateText);
-            console.log(`Day selected: ${selectedDateText}`);
+
+            displayDeliveryDay(selectedDateText);
 
             showSection('meals-step');
             localStorage.setItem('currentStep', 'meals-step');
         });
     }
+
+    function displayDeliveryDay(selectedDateText){
+        const displayDeliveryDay= document.getElementById('delivery-day-value');
+        if (displayDeliveryDay) {
+            displayDeliveryDay.textContent = selectedDateText;
+        }
+        else {
+            displayDeliveryDay.textContent = 'No value found in local storage.';
+        }
+    }
+
 
     function setupMealsStep() {
         $('.meal-step-next-button').on('click', function () {
@@ -108,18 +126,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    function displayDeliveryDay(){
-        const storedValue = localStorage.getItem('selectedDay');
-
-        const displayDeliveryDay= document.getElementById('delivery-day-value');
-
-        if (storedValue) {
-            displayDeliveryDay.textContent = storedValue;
-        } else {
-            displayDeliveryDay.textContent = 'No value found in local storage.';
-        }
-    }
-
     localStorage.setItem('currentStep', 'plan-step');
     showSection('plan-step');
 
@@ -131,6 +137,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setupStepNavigation();
 
-    displayDeliveryDay();
+    const storedValue = localStorage.getItem('selectedDay');
+    if (storedValue) {
+        displayDeliveryDay(storedValue)
+    }
 
 });
