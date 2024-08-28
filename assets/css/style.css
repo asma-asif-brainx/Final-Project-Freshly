@@ -41,7 +41,7 @@
 {
     font-family: 'Roboto-Regular';
 }
-.get-started-btn, .checkout-form-head, .delivery-address-head,
+.checkout-form-head, .delivery-address-head,
 .name-feild-label, .fname-input, .lname-input, .full-name-delivery-address-label, .first-address-label, .second-address-label, 
 .city-label, .state-label, .zip-label, .phone-label, .email-label, .checkout-buttton, .total-summary, .order-summary-head, 
 .meals-summary-head, .delivery-date-head-order, .meal-count,  .plan-total-price, .bigger-box-price, .bigger-box-text
@@ -49,7 +49,7 @@
     font-family: 'Roboto-Bold';
 }
 .sale-tag , .plan-week, .plan-price , .accordion-button,  .description-head, .plan-total-price-text, 
-.delivery-day-head, .common-question-head
+.delivery-day-head, .common-question-head ,.get-started-btn
 {
     font-family: 'Roboto-Medium';
 }
@@ -169,8 +169,8 @@
 .description-text{
     max-width: 723px;
     width: 100%;
-    max-height: 43px;
-    height: 100%;
+    /* max-height: 43px;
+    height: 100%; */
     text-align: center;
     letter-spacing: 0px;
 }
@@ -443,6 +443,60 @@
 
 
 
+/* ----------------------------------------------------Meals section----------------------------------------------------- */
+
+
+
+.meal-card {
+    border: 1px solid #DFDFDF;
+}
+
+.meal-card img {
+    max-width: 100%;
+    max-height: 165px;
+    height: 100%;
+
+}
+.meal-details {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    justify-content: center;
+    align-items: center;
+}
+.special-meal-div{
+    background-color: black;
+    color: white;
+}
+
+.meal-name{
+    font-family: 'Roboto-Bold';
+    font-size: 14px;
+}
+
+.meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
+    font-family: 'Roboto-Regular';
+    font-size: 12px;
+    color: #707070;
+}
+.add-btn{
+    font-size: 14px;
+    max-width: 65px;
+    width: 100%;
+    min-height: 35px;
+    height: 100%;
+    color: var(--white);
+
+    background: transparent linear-gradient(135deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 4px;
+    border: none;
+}
+
+
+
+
+
 
 /* ----------------------------------------------------Checkout section----------------------------------------------------- */
 
@@ -538,6 +592,11 @@
 
 
 
+
+
+
+
+
 @media (max-width:1024px){
     .plan-meals-card{
         max-width: 209px;
@@ -562,8 +621,8 @@
     .description-text {
         max-width: 600px;
         width: 100%;
-        max-height: 65px;
-        height: 100%;
+        /* max-height: 65px;
+        height: 100%; */
     }
     .plan-meals-card{
         max-width: 300px;
@@ -586,7 +645,7 @@
     .get-started-btn{
         max-width: 76%;
         width: 100%;
-        max-height: 48px;
+        min-height: 52px;
         height: 100%;
     }
     .get-started-btn:hover {
@@ -631,11 +690,13 @@
     }
 
     .description-text{
-        font-size: 20px;
-        max-height: 150px;
-        height: 100%;
-        max-width: 388px;
+        font-size: 18px;
+        /* max-height: 150px;
+        height: 100%; */
+        max-width: 95%;
+        min-width: 350px;
         width: 100%;
+        padding: 10px;
     }
     .description-head{
         max-height: 85px;
@@ -654,7 +715,7 @@
     .get-started-btn{
         max-width: 94%;
         width: 100%;
-        max-height: 48px;
+        min-height: 52px;
         height: 100%;
     }
     .get-started-btn:hover {
@@ -706,7 +767,8 @@
         font-size: 31px;
     }
     .description-text {
-        max-width: 296px;
+        max-width: 300px;
+        min-width: unset;
         width: 100%;
         font-size: 15px;
     }

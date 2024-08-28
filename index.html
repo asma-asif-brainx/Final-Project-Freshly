@@ -58,7 +58,7 @@
                     <div class="plan-cards gap-md-3 gap-2 ">
                         <div id="four-meals" class="col-md-3 col-xs-6 plan-meals-card mb-0 mb-xs-4 gap-4 ">
                             <div class="plan-card-img-block">
-                                <div class="sale-tag px-2">Save upto $10</div>
+                                <div class="sale-tag px-2">Save upto 10$</div>
                                 <img class="plan-meal-image" src="assets/images/4-meals.png">
                             </div>
                             <div class="meal-description mt-md-2 mt-0 ">
@@ -100,7 +100,7 @@
                     </div>
                 </div>
                 <!------------------------------------Get started button section------------------------------------------------------->
-                <div class="get-started">
+                <div class="get-started mb-3">
                     <p class="shipping-text">Shipping and tax added at checkout</p>
                     <button class="get-started-btn" type="button">Get Started</button>
                 </div>
@@ -318,7 +318,40 @@
 
             <!------------------------------------ Meals Section 3 ------------------------------------------------------->
             <section data-step="meals-step">
-                <p>This is the Meals section. </p>
+                
+                <div class="row m-0">
+                    <div class="col-md-9">
+                      <div class="row m-0" id="meal-cards-container">
+                        <!-- Meal cards will be dynamically inserted here -->
+                      </div>
+                    </div>
+                  
+                    <!-------------------------- Add to cart ------------------>
+                    <div class="col-md-3"> 
+                      <p>This is add to cart side</p>
+                    </div>
+                  </div>
+                  
+                  <!---------------------- Template for meal card ------------------------>
+                  <template id="meal-card-template">
+                    <div class="col-md-3 w-25 p-1">
+                      <div class="meal-card">
+                        <img class="meal-image" src="" alt="">
+                        <div class="meal-info mt-2">
+                          <h4 class="meal-name mx-2 mb-1"></h4>
+                          <p class="meal-speciality mx-2"></p>
+                          <div class="meal-details mx-2 mb-2">
+                            <p class="meal-gluten mb-0"></p>
+                            <p class="meal-calories mb-0"></p>
+                            <p class="meal-carbs mb-0"></p>
+                            <p class="meal-protein mb-0"></p>
+                            <button class="add-btn">+ Add</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </template>
+
 
 
                 <div class="next-button-meal mt-1">
@@ -326,6 +359,31 @@
                 </div>
 
             </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <!------------------------------------ Checkout Section 4 ------------------------------------------------------->
             <section data-step="checkout-step">

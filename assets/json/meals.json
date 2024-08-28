@@ -1,0 +1,97 @@
+[
+    {
+      "name": "Mix Veggies",
+      "imagePath": "../assets/images/1@2x.png",
+      "speciality": "with Cabbage, Carrots & Chicken",
+      "gluten": "Gluten Free",
+      "calories": "530 cals",
+      "carbs": "35 carbs",
+      "protein": "22 protiens",
+      "price":10,
+      "special-meal":false
+    },
+    {
+      "name": "Protein-Packed Chicken Salad",
+      "imagePath": "../assets/images/2@2x.png",
+      "speciality": "with Fruits & Seeds",
+      "gluten": "Gluten Free",
+      "calories": "90 cals",
+      "carbs": "52 carbs",
+      "protein": "46 protiens",
+      "price":20,
+      "special-meal":false
+    },
+    {
+      "name": "Super-Grain Snacks Bowl",
+      "imagePath": "../assets/images/3@2x.png",
+      "speciality": "with Avocado & Veggies",
+      "gluten": "Gluten Free",
+      "calories": "600 cals",
+      "carbs": "50 carbs",
+      "protein": "12 protiens",
+      "price":15,
+      "special-meal":true
+    },
+    {
+      "name": "Stir Fried Rice Noodles Bowl",
+      "imagePath": "../assets/images/4@2x.png",
+      "speciality": "with Mushroom & Spanish Pepper",
+      "gluten": "Gluten Free",
+      "calories": "43 cals",
+      "carbs": "35 carbs",
+      "protein": "6 protiens",
+      "price":5,
+      "special-meal":false
+
+
+    },
+    {
+      "name": "Cauliflower Pilaf",
+      "imagePath": "../assets/images/5@2x.png",
+      "speciality": "with Chickpea & Cheese",
+      "gluten": "Gluten Free",
+      "calories": "10 cals",
+      "carbs": "35 carbs",
+      "protein": "33 protiens",
+      "price":25,
+      "special-meal":false
+
+    },
+    {
+      "name": "Keto-Friendly Pasta Bowl",
+      "imagePath": "../assets/images/6@2x.png",
+      "speciality": "Keto-Friendly Pasta Bowl",
+      "gluten": "Gluten Free",
+      "calories": "73 cals",
+      "carbs": "35 carbs",
+      "protein": "4 protiens",
+      "price":28,
+      "special-meal":false
+
+    },
+    {
+      "name": "Vegetable Soup Bowl",
+      "imagePath": "../assets/images/7@2x.png",
+      "speciality": "with Chicken & Sweet Kabu",
+      "gluten": "Gluten Free",
+      "calories": "80 cals",
+      "carbs": "52 carbs",
+      "protein": "32 protiens",
+      "price":30,
+      "special-meal":false
+
+    },
+    {
+      "name": "Kashmiri Rice",
+      "imagePath": "../assets/images/8@2x.png",
+      "speciality": "with Chicken & Coconut",
+      "gluten": "Gluten Free",
+      "calories": "100 cals",
+      "carbs": "35 carbs",
+      "protein": "57 protiens",
+      "price":10,
+      "special-meal":false
+
+    }
+  ]
+  
