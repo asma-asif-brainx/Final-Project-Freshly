@@ -26,7 +26,8 @@ $(document).ready(function () {
             localStorage.setItem('selectedDay', selectedDateText);
 
             displayDeliveryDay(selectedDateText);
-
+            updateMealsSection(selectedDateText);
+            
             showSection('meals-step');
             localStorage.setItem('currentStep', 'meals-step');
         });
@@ -41,9 +42,23 @@ $(document).ready(function () {
         }
     }
 
+    function updateMealsSection(selectedDateText) {
+        const displayDeliveryDayCart = document.getElementById('delivery-date-cart');
+        if (displayDeliveryDayCart) {
+            displayDeliveryDayCart.textContent = selectedDateText;
+        } else {
+            console.error("Element with id 'delivery-date-cart' not found.");
+        }
+    }
+
     function setupMealsStep() {
         $('.meal-step-next-button').on('click', function () {
+            const displayDeliveryDayCart = document.getElementById('delivery-date-cart');
+            
+            console.log("hhk" , localStorage.getItem('selectedDay'));
+            displayDeliveryDayCart.textContent = localStorage.getItem('selectedDay');
             showSection('checkout-step');
+
             localStorage.setItem('currentStep', 'checkout-step');
         });
     }

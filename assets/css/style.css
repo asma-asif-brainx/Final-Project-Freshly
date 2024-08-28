@@ -464,10 +464,6 @@
     justify-content: center;
     align-items: center;
 }
-.special-meal-div{
-    background-color: black;
-    color: white;
-}
 
 .meal-name{
     font-family: 'Roboto-Bold';
@@ -476,14 +472,28 @@
 
 .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
     font-family: 'Roboto-Regular';
-    font-size: 12px;
+    font-size: 10px;
     color: #707070;
+}
+.special-meal-div {
+    background-color: #000; 
+}
+.special-meal-div .meal-name,
+.special-meal-div .meal-speciality{
+    color: #FFFFFF; 
+}
+.special-meal-div .meal-gluten,
+.special-meal-div .meal-calories,
+.special-meal-div .meal-carbs,
+.special-meal-div .meal-protein,
+.special-meal-div .meal-speciality {
+    color: #FFFFFF;
 }
 .add-btn{
     font-size: 14px;
     max-width: 65px;
     width: 100%;
-    min-height: 35px;
+    min-height: 33px;
     height: 100%;
     color: var(--white);
 
@@ -493,6 +503,38 @@
     border: none;
 }
 
+
+
+/* Cart */
+
+.add-to-cart-container{
+    border:1px solid #00000029;
+    padding: 0;
+    background-color: #FFFFFF;
+    position: fixed;
+    right: 0;
+    min-height: 772px;
+    height: 100%;
+   
+}
+.my-delivery-cart, .clear-all{
+    font-size: 12px;
+}
+.my-delivery-cart{
+    margin-bottom: 0;
+}
+.delivery-date-cart-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#delivery-date-cart{
+    font-family: 'Roboto-Medium';
+}
+
+.clear-all{
+
+}
 
 
 

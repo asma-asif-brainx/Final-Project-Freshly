@@ -321,14 +321,23 @@
                 
                 <div class="row m-0">
                     <div class="col-md-9">
-                      <div class="row m-0" id="meal-cards-container">
+                      <div class="row m-0 mt-2" id="meal-cards-container">
                         <!-- Meal cards will be dynamically inserted here -->
                       </div>
                     </div>
                   
                     <!-------------------------- Add to cart ------------------>
-                    <div class="col-md-3"> 
-                      <p>This is add to cart side</p>
+                    <div class="col-md-3 add-to-cart-container"> 
+                        
+                        <div class="delivery-date-cart-div px-2">
+                            <p class="my-delivery-cart mt-2">My delivery for:
+                                <span class="" id="delivery-date-cart"></span> 
+                            </p>
+                            <a class="clear-all mt-2">Clear all</a>
+                        </div>
+
+                        <hr class="">
+
                     </div>
                   </div>
                   
@@ -340,7 +349,7 @@
                         <div class="meal-info mt-2">
                           <h4 class="meal-name mx-2 mb-1"></h4>
                           <p class="meal-speciality mx-2"></p>
-                          <div class="meal-details mx-2 mb-2">
+                          <div class="meal-details mx-2 mb-1">
                             <p class="meal-gluten mb-0"></p>
                             <p class="meal-calories mb-0"></p>
                             <p class="meal-carbs mb-0"></p>

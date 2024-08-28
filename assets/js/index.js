@@ -58,77 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
     generateDates();
 
 
-
-
-    // fetch('../assets//json/meals.json')
-    // .then(response => response.json())
-    // .then(data => {
-    //     // Process the data and display it
-    //     const container = document.getElementById('meals-container');
-        
-    //     data.forEach(meal => {
-    //         const mealDiv = document.createElement('div');
-    //         mealDiv.innerHTML = `
-    //             <h2>${meal.name}</h2>
-    //             <img src=${meal.imagePath}>
-    //             <p>${meal.speciality}</p>
-    //             <p>Gluten Free: ${meal.glutenFree ? 'Yes' : 'No'}</p>
-    //             <p>Calories: ${meal.calories}</p>
-    //             <p>Carbs: ${meal.carbs}g</p>
-    //             <p>Protein: ${meal.protein}g</p>
-    //         `;
-    //         container.appendChild(mealDiv);
-    //     });
-    // })
-    // .catch(error => console.error('Error loading JSON:', error));
-
-
-
-
-
-
-
-    // fetch('../assets/json/meals.json') // Adjust path if needed
-    //   .then(response => {
-    //     if (!response.ok) {
-    //       throw new Error('Network response was not ok');
-    //     }
-    //     return response.json();
-    //   })
-    //   .then(data => {
-    //     const container = document.getElementById('meal-cards-container');
-    //     data.forEach(meal => {
-    //       const card = document.createElement('div');
-    //       card.className = 'col-md-3 w-25 p-1';
-    //       card.innerHTML = `
-    //         <div class="meal-card">
-    //             <img class="meal-image"  src="${meal.imagePath}" alt="${meal.name}">
-    //             <div class="${meal.specialMeal ? 'special-meal-div' : ''}">                    
-    //                 <h4 class="meal-name mx-2">${meal.name}</h4>
-    //                 <p class="meal-speciality mx-2">${meal.speciality}</p>
-    //                 <div class="meal-details mx-2 mb-2">
-    //                     <p class="meal-gluten mb-0">${meal.gluten}</p>
-    //                     <p class="meal-calories mb-0"> ${meal.calories}</p>
-    //                     <p class="meal-carbs mb-0">${meal.carbs}</p>
-    //                     <p class="meal-protein mb-0"> ${meal.protein}</p>
-    //                     <button class="add-btn">+ Add</button>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //       `;
-    //       container.appendChild(card);
-    //     });
-  
-  
-    //   })
-    //   .catch(error => {
-    //     console.error('Error loading JSON:', error);
-    //   });
-  
   
 
 
-    fetch('../assets/json/meals.json') 
+    fetch('../assets/json/meals.json')  
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
