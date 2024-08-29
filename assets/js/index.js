@@ -91,6 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextButton = document.querySelector('.next-btn-cart');
     if (mealCart.length === mealCountLimit) {
       nextButton.classList.remove('disabled');
+      const readyText= document.querySelector('.enter-msg-cart');
+      readyText.textContent='Ready to go!';
     } else {
       nextButton.classList.add('disabled');
     }
