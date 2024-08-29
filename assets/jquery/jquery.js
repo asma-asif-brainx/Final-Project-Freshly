@@ -52,10 +52,9 @@ $(document).ready(function () {
     }
 
     function setupMealsStep() {
-        $('.meal-step-next-button').on('click', function () {
+        $('.next-btn-cart').on('click', function () {
             const displayDeliveryDayCart = document.getElementById('delivery-date-cart');
             
-            console.log("hhk" , localStorage.getItem('selectedDay'));
             displayDeliveryDayCart.textContent = localStorage.getItem('selectedDay');
             showSection('checkout-step');
 

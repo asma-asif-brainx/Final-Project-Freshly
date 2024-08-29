@@ -90,7 +90,6 @@
     min-height: 60px;
     height: 100%;
 }
-
 .header-list.active {
     font-weight: bold;
     color: var(--nav-step-active-color);
@@ -99,7 +98,6 @@
     display: flex;
     justify-content: center;
 }
-
 #wizard section {
     display: none;
 }
@@ -122,7 +120,6 @@
 .enabled-underline{
     text-decoration: underline;
 }
-
 
 /* ----------------------------------------------------------seperator---------------------------------------------- */
 
@@ -174,12 +171,11 @@
     text-align: center;
     letter-spacing: 0px;
 }
-
 .bigger-box-price{
     color: var(--red-orange-price);
 }
 
-/* Plan Cards */
+/* ------------------Plan Cards ---------------------*/
 .plan-cards{
     display: flex;
     flex-direction: row;
@@ -198,7 +194,6 @@
     justify-content: center;
     text-align: center;
 }
-
 .plan-card-img-block {
     width: 100%;
     height: 100%;
@@ -223,35 +218,27 @@
     transition: transform 0.3s ease-in-out; 
     object-fit: cover; 
 }
-
 .plan-card-img-block:hover .plan-meal-image {
     transform: scale(1.1); 
 }
-
 .plan-meals-card:nth-last-child(-n+3) .plan-card-img-block:hover .plan-meal-image {
     animation: blink-once 0.04s steps(1, start); 
 }
-
 @keyframes blink-once {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
-
-
 .meal-description{
     line-height:0.5;
 }
 .meal-count{
     font-size: 24px;
 }
-
-
 .plan-total-price{
     color: var(--red-orange-price);
 }
 
-
-/* Getting started section */
+/* ---------------------Getting started section--------------------- */
 .get-started{
     display: flex;
     flex-direction: column;
@@ -269,7 +256,6 @@
     text-align: center;
     letter-spacing: 0px;
     color: var(--black);
-
 }
 .get-started-btn {
     max-width: 150px;
@@ -289,7 +275,7 @@
 
 /*--------------------------------------------------------  Day Section -------------------------------------------------------- */
 
-/* Delivery dates slider */
+/*----------- Delivery dates slider--------------- */
 
 .delivery-day-head{
     font-size: 48px;
@@ -316,19 +302,15 @@
     justify-content: space-between;
     background-color: var(--nav-background);
 }
-
 .date-item {
     transition: transform 0.4s ease; 
 }
-
 .date-item:not(.selected):hover {
     transform: translateX(4px);
 }
-
 .date-item.selected {
     border-left: 6px solid var(--red-orange-price); 
 }
-
 .date-item .popular-text {
     display: none; 
     color: var(--red-orange-price); 
@@ -341,11 +323,9 @@
 .date-item:first-child .popular-text {
     display: inline;
 }
-
 .date-container::-webkit-scrollbar {
      width: 9px; 
 }
-
 .date-container::-webkit-scrollbar-track {
     border-radius: 10px;
     background-color: #F9F9F9;
@@ -382,14 +362,13 @@
     font-size: 12px;
     font-weight: 700;
 }
-
 .dates-accordian-seperator{
     max-width: 80%;
     width: 100%;
     margin: auto;
 }
 
-/* Accordian  common questions*/
+/* ------------------Accordian  common questions--------------------*/
 .common-question-head{
     font-size: 48px;
     color: var(--plan-description-head-color);
@@ -401,9 +380,7 @@
     font-weight: 500;
     padding-left: 0;
     padding-right: 0;
-
 }
-
 .accordion-button:not(.collapsed) {
     color: var(--red-orange-price);
     background-color: transparent;
@@ -420,7 +397,6 @@
     border: none;
     border-bottom: 1px solid var(--accordian-bottom-border);
     background-color: var(--background);
-
 }
 .accordian-main-panel {
     width: 80%; 
@@ -435,27 +411,19 @@
     min-height: 300px;
     height: 100%;
 }
-
 .accordion-button.collapsed{
     min-height: 60px;
     height: 100%;
 }
 
-
-
 /* ----------------------------------------------------Meals section----------------------------------------------------- */
-
-
-
 .meal-card {
     border: 1px solid #DFDFDF;
 }
-
 .meal-card img {
     max-width: 100%;
     max-height: 165px;
     height: 100%;
-
 }
 .meal-details {
     display: flex;
@@ -464,12 +432,10 @@
     justify-content: center;
     align-items: center;
 }
-
 .meal-name{
     font-family: 'Roboto-Bold';
     font-size: 14px;
 }
-
 .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
     font-family: 'Roboto-Regular';
     font-size: 10px;
@@ -496,45 +462,40 @@
     min-height: 33px;
     height: 100%;
     color: var(--white);
-
     background: transparent linear-gradient(135deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 4px;
     border: none;
 }
 
-
-
-/* Cart */
+/* -----------------------Cart----------------------- */
 
 .add-to-cart-container {
     border: 1px solid #00000029;
     padding: 0;
     background-color: #FFFFFF;
-    position: fixed; /* Ensure the whole container stays in place */
+    position: fixed; 
     right: 0;
     max-height: 735px;
     height: 100%;
-    width: 100%; /* Adjust the width as needed */
-    max-width: 320px; /* Or whatever width you want for the cart */
+    width: 100%; 
+    max-width: 320px; 
     display: flex;
     flex-direction: column;
 }
-
 .cart-items-container {
     overflow-y: auto;
-    flex-grow: 1; /* Allows this container to take up available space */
-    position: relative; /* Parent for the absolute positioning of subtotal */
+    flex-grow: 1; 
+    position: relative; 
 }
-
 .subtotal-container {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #f9f9f9; /* Optional: Different background for visibility */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: Shadow for visibility */
-    z-index: 10; /* Ensure it stays on top */
+    background-color: #f9f9f9; 
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+    z-index: 10; 
     border-radius: 15px 15px 0 0; 
     max-height: 135px;
     height: 100%;
@@ -544,7 +505,6 @@
     font-size: 13px;
     font-family: 'Roboto-Regular';
 }
-
 .next-btn-cart{
     background: transparent linear-gradient(105deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
     max-width: 95%;
@@ -560,18 +520,14 @@
 #meals-count-cart{
     font-family: 'Roboto-Bold';
 }
-
 .enter-msg-cart{
     color: var(--red-orange-price);
     font-size: 12px;
-
 }
-
 #subtotal-cart-price{
     color: var(--red-orange-price);
     font-family: 'Roboto-Medium';
 }
-
 .my-delivery-cart, .clear-all{
     font-size: 12px;
 }
@@ -586,36 +542,23 @@
 #delivery-date-cart{
     font-family: 'Roboto-Medium';
 }
-
 .cart-order-summary-head{
     font-family: 'Roboto-Medium';
 }
 .order-summary-cart{
     font-size: 13px;
 }
-
 .cart-shipping{
     font-size: 12px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* ----------------------------------------------------Checkout section----------------------------------------------------- */
 
+/* ----------------------------- Checkout form ----------------------------- */
 .checkout-form-head{
     font-size: 23px;
 }
-
 .form-column{
     display: flex;
     justify-content: center;
@@ -636,7 +579,6 @@
     flex-direction: row;
     gap:10px
 }
-
 .name-field-group{
     display: flex;
     flex-direction: row;
@@ -675,7 +617,7 @@
     height: 100%;
 }
 
-/* Order summary */
+/*------------------------------ Order summary ----------------------------- */
 .card-order-summary{
     background-color: var(--nav-background);
     max-width: 400px;
@@ -698,17 +640,6 @@
     font-size: 23px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width:1024px){
     .plan-meals-card{
         max-width: 209px;
@@ -727,7 +658,6 @@
     .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
         font-size: 7px;
     }
-
     .add-btn {
         font-size: 9px;
         min-width: 38px;
@@ -746,7 +676,6 @@
     .meal-name {
         font-size: 11px;
     }
-   
 } 
 
 @media (max-width:980px){
@@ -759,13 +688,10 @@
     .description-text {
         max-width: 600px;
         width: 100%;
-        /* max-height: 65px;
-        height: 100%; */
     }
     .plan-meals-card{
         max-width: 300px;
-        width: 100%;
-       
+        width: 100%;   
         min-height:300px ;
         height: 100%;
     }
@@ -790,9 +716,6 @@
         max-width: 76%;
         width: 100%;
     }
-
-
-
     .add-btn {
         font-size: 9px;
         min-width: 38px;
@@ -817,20 +740,12 @@
     .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
         font-size: 10px;
     }
-
-
-
-
-
 }
-
-
 
 @media (max-width:767px){
     .logo{
         min-height: 112px;
         height: 100%;
-    
     }
     .plan-cards{
         max-width: 100%;
@@ -861,11 +776,8 @@
         max-height:150px ;
         height: 100%;
     }
-
     .description-text{
         font-size: 18px;
-        /* max-height: 150px;
-        height: 100%; */
         max-width: 95%;
         min-width: 350px;
         width: 100%;
@@ -931,8 +843,7 @@
         font-size: 31px;
     }
 
-
-    /* Meals page */
+    /* --------------------Meals page----------------- */
     .add-to-cart-container {
         min-height: 150px;
         max-height: 13%;
@@ -941,7 +852,6 @@
         width: 100%;
         bottom: 0;
         border-radius: 15px 15px 0 0; 
-      
     }
     .subtotal-container {
         top: 0;
@@ -977,15 +887,8 @@
     }
     .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
         font-size: 14px;
-
     }
-
-    
- 
-
 }
-
-
 
 @media (max-width:330px){
     .description-head {
@@ -1026,8 +929,7 @@
     }
     .common-question-head{
         font-size: 26px;
-    }
-    
+    } 
     .accordion-button{
         font-size: 12px;
     }
@@ -1039,10 +941,7 @@
         height: 100%;
         font-size: 14px;
     }
-
-
-     /* Meals page */
-
+     /*-------------------- Meals page------------------ */
     .meal-details{
         gap:10px;
     }
