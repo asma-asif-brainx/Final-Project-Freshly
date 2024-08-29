@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
 
 
-    fetch('../assets/json/meals.json')  
+    fetch('assets/json/meals.json')  
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
