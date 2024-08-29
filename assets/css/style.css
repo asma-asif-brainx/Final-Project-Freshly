@@ -699,6 +699,20 @@
     .meal-name {
         font-size: 11px;
     }
+
+    /* Checkout section */
+    .form-container {
+        max-width: 447px;
+        width: 100%;
+    }
+    .card-order-summary {
+        max-width: 300px;
+        width: 100%;
+    }
+    .delivery-div {
+        max-width: 274px;
+        width: 100%;
+    }
 } 
 
 @media (max-width:980px){
@@ -910,6 +924,25 @@
     }
     .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
         font-size: 14px;
+    }
+
+    .form-column {
+        order: 2;
+    }
+    .order-checkout-container{
+        order: 1;
+padding-right: 0;
+    }
+
+    .card-order-summary {
+        max-width: 400px;
+        width: 100%;
+        margin: auto;
+
+    }
+    .form-container {
+        max-width: 400px;
+        width: 100%;
     }
 }
 
