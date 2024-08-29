@@ -507,16 +507,71 @@
 
 /* Cart */
 
-.add-to-cart-container{
-    border:1px solid #00000029;
+.add-to-cart-container {
+    border: 1px solid #00000029;
     padding: 0;
     background-color: #FFFFFF;
-    position: fixed;
+    position: fixed; /* Ensure the whole container stays in place */
     right: 0;
-    min-height: 772px;
+    max-height: 735px;
     height: 100%;
-   
+    width: 100%; /* Adjust the width as needed */
+    max-width: 320px; /* Or whatever width you want for the cart */
+    display: flex;
+    flex-direction: column;
 }
+
+.cart-items-container {
+    overflow-y: auto;
+    flex-grow: 1; /* Allows this container to take up available space */
+    position: relative; /* Parent for the absolute positioning of subtotal */
+}
+
+.subtotal-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f9f9f9; /* Optional: Different background for visibility */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: Shadow for visibility */
+    z-index: 10; /* Ensure it stays on top */
+    border-radius: 15px 15px 0 0; 
+    max-height: 135px;
+    height: 100%;
+    padding: 10px;
+}
+.subtotal-text{
+    font-size: 13px;
+    font-family: 'Roboto-Regular';
+}
+
+.next-btn-cart{
+    background: transparent linear-gradient(105deg, #AF2081 0%, #533174 100%) 0% 0% no-repeat padding-box;
+    max-width: 95%;
+    width: 100%;
+     min-height: 40px;
+     height: 100%;
+     color :var(--white);
+     border: none;   
+}
+.next-btn-cart.disabled{
+    opacity: 0.5;
+}
+#meals-count-cart{
+    font-family: 'Roboto-Bold';
+}
+
+.enter-msg-cart{
+    color: var(--red-orange-price);
+    font-size: 12px;
+
+}
+
+#subtotal-cart-price{
+    color: var(--red-orange-price);
+    font-family: 'Roboto-Medium';
+}
+
 .my-delivery-cart, .clear-all{
     font-size: 12px;
 }
@@ -531,6 +586,27 @@
 #delivery-date-cart{
     font-family: 'Roboto-Medium';
 }
+
+.cart-order-summary-head{
+    font-family: 'Roboto-Medium';
+}
+.order-summary-cart{
+    font-size: 13px;
+}
+
+.cart-shipping{
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -793,6 +869,58 @@
     .delivery-day-head{
         font-size: 31px;
     }
+
+
+    /* Meals page */
+    .add-to-cart-container {
+        min-height: 150px;
+        max-height: 13%;
+        height: 100%;
+        max-width: 100%;
+        width: 100%;
+        bottom: 0;
+        border-radius: 15px 15px 0 0; 
+      
+    }
+    .subtotal-container {
+        top: 0;
+        max-height: 150px;
+        height: 100%;
+    }
+    .next-btn-cart{
+        min-height: 55px;
+        height: 100%;
+    }
+    .meal-card{
+        min-height: 315px;
+        height: 100%;
+    }
+    .meal-card img {
+        max-width: 100%;
+        width: 100%;
+        max-height: 187px;
+        height: 100%;
+        object-fit: cover;
+    }
+    .meal-carbs{
+        font-size: 12px;
+    }
+    .meal-details{
+        gap:35px;
+    }
+    .meal-speciality{
+        margin-bottom: 0;
+    }
+    .meal-name {
+        font-size: 20px;
+    }
+    .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
+        font-size: 14px;
+
+    }
+
+    
+ 
 
 }
 
