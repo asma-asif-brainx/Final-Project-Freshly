@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  
   // Date items rendering in delivery day section
   function getNextMonday(date) {
       const day = date.getDay();
@@ -80,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function () {
     return 0; 
   }
 
+    
+
   let mealCart = [];
 
   function addToCart(meal) {
@@ -91,8 +94,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextButton = document.querySelector('.next-btn-cart');
     if (mealCart.length === mealCountLimit) {
       nextButton.classList.remove('disabled');
-      const readyText= document.querySelector('.enter-msg-cart');
-      readyText.textContent='Ready to go!';
+      // const readyText= document.querySelector('.enter-msg-cart');
+      // readyText.textContent ='Ready to go!';
     } else {
       nextButton.classList.add('disabled');
     }
@@ -150,11 +153,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateOrderSummary() {
-    const mealCount = mealCart.length;
+
+    const mealCount = getMealCountFromStorage();
     const mealsCountCart = document.getElementById('meals-count-cart');
+    mealsCountCart.textContent = `${mealCount} items`;
+
     const subtotalCartPrice = document.getElementById('subtotal-cart-price');
     const pricePerMeal = 10; 
-    mealsCountCart.textContent = `${mealCount} items`;
+  
     subtotalCartPrice.textContent = `$${mealCount * pricePerMeal}`;
     const nextButton = document.querySelector('.next-btn-cart');
     nextButton.classList.toggle('disabled', mealCount === 0);
@@ -196,5 +202,6 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => {
       console.error('Error loading JSON:', error);
     });
+
 
 });
