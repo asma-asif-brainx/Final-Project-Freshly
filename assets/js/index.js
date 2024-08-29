@@ -99,23 +99,51 @@ document.addEventListener('DOMContentLoaded', function () {
   function renderCart() {
     const cartContainer = document.querySelector('.meal-cards-added-cart');
     cartContainer.innerHTML = ''; 
-    mealCart.forEach(meal => {
-      const clone = createMealCard(meal);
+    mealCart.forEach((meal, index) => {
+      const clone = createMealCard(meal, index);
       cartContainer.appendChild(clone);
     });
     updateOrderSummary();
   }
 
-  function createMealCard(meal) {
+  function addDuplicateToCart(meal) {
+    const mealCountLimit = getMealCountFromStorage();
+  
+    if (mealCart.length < mealCountLimit) {
+      mealCart.push(meal);
+      renderCart();
+    }
+  
+    const nextButton = document.querySelector('.next-btn-cart');
+    nextButton.classList.toggle('disabled', mealCart.length !== mealCountLimit);
+  }
+  
+  function removeFromCart(index) {
+    mealCart.splice(index, 1); 
+    renderCart();
+  
+    const nextButton = document.querySelector('.next-btn-cart');
+    nextButton.classList.toggle('disabled', mealCart.length !== getMealCountFromStorage());
+  }
+  
+  function createMealCard(meal, index) {
     const card = document.createElement('div');
-    card.className = 'col-lg-3 col-md-6 col-sm-6 col-12 p w-xl-25 w-lg-25 w-md-25 w-sm-100 w-xs-100 p-1';
+    card.className = 'cart-meals col-md-12 col-sm-6 col-12 p w-xl-25 w-lg-25 w-md-25 w-sm-100 w-xs-100 p-1';
     card.innerHTML = `
-      <div class="meal-card">
-        <img class="meal-image" src="${meal.imagePath}" alt="${meal.name}">
-        <div class="meal-info mt-2">
-          <h4 class="meal-name mx-2 mb-1 mt-md-0 mt-3">${meal.name}</h4>
+      <div class="row cart-meal-card mx-0">
+        <img class="col-6 cart-meal-img p-1 pe-0" src="${meal.imagePath}" alt="${meal.name}">
+        <div class="col-5 cart-meal-info meal-info mt-2 p-0  me-3 d-flex justify-content-between align-items-center">
+          <h4 class="cart-meal-name meal-name mx-2 mb-1 mt-md-0 mt-3 ">${meal.name}</h4>
         </div>
+        <div class="col-1 meal-controls d-flex flex-column align-items-end">
+            <button class=" meal-control-plus btn  btn-sm meal-minus" data-index="${index}">-</button>
+            <button class="meal-control-minus btn  btn-sm meal-plus" data-index="${index}">+</button>
+          </div>
       </div>`;
+    
+    card.querySelector('.meal-minus').addEventListener('click', () => removeFromCart(index));
+    card.querySelector('.meal-plus').addEventListener('click', () => addDuplicateToCart(meal));
+  
     return card;
   }
 

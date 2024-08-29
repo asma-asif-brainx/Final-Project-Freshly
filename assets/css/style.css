@@ -551,7 +551,30 @@
 .cart-shipping{
     font-size: 12px;
 }
+.cart-meal-card{
+    max-height: 60px;
+    height: 100%;
+}
+.cart-meal-img {
+    max-width: 40%;
+    max-height: 60px;
+    height: 100%;
+}
+.cart-meal-card{
+    background-color: #F3F3F3;
+}
+.cart-meal-name{
+    font-size: 13px;
+    font-family: 'Roboto-Medium';
+}
 
+
+.meal-control-plus, .meal-control-minus{
+    font-size: 18px;
+    padding: 0;
+    color: #717171;
+    font-weight: 700;
+}
 
 /* ----------------------------------------------------Checkout section----------------------------------------------------- */
 
