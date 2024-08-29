@@ -58,8 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
     generateDates();
 
 
-  
-
 
     fetch('assets/json/meals.json')  
   .then(response => {
