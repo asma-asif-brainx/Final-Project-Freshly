@@ -102,12 +102,15 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function renderCart() {
+   
     const cartContainer = document.querySelector('.meal-cards-added-cart');
     cartContainer.innerHTML = ''; 
     mealCart.forEach((meal, index) => {
       const clone = createMealCard(meal, index);
       cartContainer.appendChild(clone);
     });
+    const countSpan = document.querySelector('.cart-item-count');
+    countSpan.textContent = mealCart.length;
     updateOrderSummary();
   }
 
@@ -188,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
         clone.querySelector('.meal-speciality').textContent = meal.speciality;
         clone.querySelector('.meal-gluten').textContent = meal.gluten;
         clone.querySelector('.meal-calories').textContent = ` ${meal.calories}`;
-        clone.querySelector('.meal-carbs').textContent = ` ${meal.carbs}g`;
+        clone.querySelector('.meal-carbs').textContent = ` ${meal.carbs}`;
         clone.querySelector('.meal-protein').textContent = ` ${meal.protein}`;
 
         if (meal.specialMeal) {
@@ -202,6 +205,5 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => {
       console.error('Error loading JSON:', error);
     });
-
 
 });

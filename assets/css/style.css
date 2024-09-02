@@ -320,6 +320,9 @@
 .date-item.selected .popular-text {
     display: none; 
 }
+.date-text-item{
+    padding: 15px;
+}
 .date-item:first-child .popular-text {
     display: inline;
 }
@@ -567,8 +570,19 @@
     font-size: 13px;
     font-family: 'Roboto-Medium';
 }
-
-
+.cart-icon-container{
+    border: 1px solid #EDEDED;
+    border-radius: 14px;
+    min-width: 24%;
+    min-height: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-item-count {
+    color: black;
+}
 .meal-control-plus, .meal-control-minus{
     font-size: 18px;
     padding: 0;
@@ -586,10 +600,20 @@
     display: flex;
     justify-content: center;
 }
+.checkout-form-summary-head{
+    left: 0;
+    justify-content:space-evenly;
+}
+.checkout-form-head{
+    transform: translateX(-200px);
+}
+.order-summary-head{
+    transform: translateX(-15px);
+}
 .form-container{
     max-width: 591px;
     width: 100%;
-    min-height: 860px;
+    min-height: 930px;
     height: 100%;
     background-color:var(--nav-background);
     border: 1px solid var(--order-summary-bodrer);
@@ -640,6 +664,17 @@
     height: 100%;
 }
 
+.error-message {
+    color: red;
+    font-size: 0.875em; /* Smaller font size for error messages */
+    margin-top: 4px; /* Add margin to separate from the input field */
+    display: block; /* Ensure error message appears on a new line */
+    position: absolute; /* Position error messages absolutely */
+}
+
+
+
+
 /*------------------------------ Order summary ----------------------------- */
 .card-order-summary{
     background-color: var(--nav-background);
@@ -662,6 +697,7 @@
 .order-summary-head, .meals-summary-head{
     font-size: 23px;
 }
+
 
 @media (max-width:1024px){
     .plan-meals-card{
@@ -713,6 +749,9 @@
         max-width: 274px;
         width: 100%;
     }
+    .error-message {
+        font-size: 10px;
+    }
 } 
 
 @media (max-width:980px){
@@ -763,7 +802,7 @@
     }
     .add-to-cart-container {
         width: 100%;
-        max-width: 275px;
+        max-width: 34%;
         min-height: 500px;
         max-height: 600px;
         height: 100%;
@@ -944,6 +983,19 @@ padding-right: 0;
         max-width: 400px;
         width: 100%;
     }
+    .error-message {
+        font-size: 9px;
+    }
+    .checkout-form-summary-head{
+       
+        justify-content:left;
+    }
+    .checkout-form-head{
+        transform: translateX(0);
+    }
+    .order-summary-head{
+        transform: translateX(-0);
+    }
 }
 
 @media (max-width:330px){
@@ -1001,4 +1053,14 @@ padding-right: 0;
     .meal-details{
         gap:10px;
     }
+}
+
+
+@media (min-width:1300px) and (max-width:1600px){
+    .add-to-cart-container {
+        max-height: 91%;
+        height: 100%;
+        width: 100%;
+        max-width: 360px;
+}
 }
