@@ -11,10 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
     <!------------------------------------ Jquery------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
-
     <script src="assets/jquery/jquery.js"></script>
 
     <!------------------------------------Font awesome ------------------------------------------------------->
@@ -25,24 +24,25 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="body-container">
-    <!-- <div id="wizard"> -->
+    <div id="wizard">
        <!--------------------------------- Navigation for steps --------------------------------->
-       <div class="step-app" id="pageSteps"> 
-            <div class="nav-container">
-                <ul class="step-steps steps-container d-flex align-items-center justify-content-center gap-3 pt-2 pb-2 mb-0">
-                    <li class="header-list" data-step-target="plan-step">Plans  </li>
-                    <li class="header-list" data-step-target="day-step">Day </li>
-                    <li class="header-list" data-step-target="meals-step">Meals </li>
-                    <li class="header-list" data-step-target="checkout-step">Checkout </li>
-                </ul>
-            </div>
-        <!-- </div> -->
+       <div class="nav-container"> 
+            <ul class="step-steps steps-container d-flex align-items-center justify-content-center gap-3 pt-2 pb-2 mb-0">
+                <li class="header-list" data-step-target="plan-step">Plans </li>
+                <span> > </span>
+                <li class="header-list" data-step-target="day-step">Day</li>
+                <span> > </span>
+                <li class="header-list" data-step-target="meals-step">Meals </li>
+                <span> > </span>
+                <li class="header-list" data-step-target="checkout-step">Checkout</li>
+            </ul>
+        </div>
 
-            <hr class="nav-seperator">
-            <div class="step-content">
-        <!-- <div class="sections-container "> -->
+        <hr class="nav-seperator">
+
+        <div class="sections-container">
             <!------------------------------------------------ Plan Section ------------------------------------------------------->
-            <section data-step="plan-step" class=" step-tab-panel active">
+            <section data-step="plan-step" class="active">
             <!------------------------------------ Logo and description section------------------------------------------------------->
                 <div class="logo-description-section">
                     <img class="logo mt-3" src="assets/images/logo.svg">
@@ -108,7 +108,7 @@
             </section>
 
             <!------------------------------------ Day Section ------------------------------------------------------->
-            <section data-step="day-step" class=" step-tab-panel" >
+            <section data-step="day-step">
                 <p class="delivery-day-head text-center pt-md-5 pt-4">Choose your delivery day</p>
 
                 <div class="container mt-md-5 mt-0">
@@ -125,6 +125,13 @@
                     <p class="first-delivery-text">First Delivery Date: <span class="first-delivery-date"></span></p>
                 </div>
 
+                <!-- Template for date items -->
+                <template id="date-template">
+                    <div class="date-item">
+                        <span class="date-text-item"><!-- Date will be inserted here --></span>
+                        <span class="popular-text">&#9734; Most popular</span>
+                    </div>
+                </template>
 
                 <hr class="dates-accordian-seperator">
 
@@ -317,15 +324,8 @@
             </section>
 
 
-
-
-
-
-
-
-
             <!------------------------------------ Meals Section 3 ------------------------------------------------------->
-            <section data-step="meals-step" class=" step-tab-panel">
+            <section data-step="meals-step">
                 
                 <div class="row m-0">
                     <div class="col-lg-9 col-md-8 col-12 mb-md-0 pb-md-0 mb-5 pb-5">
@@ -355,13 +355,13 @@
                                 <p class="cart-order-summary-head">Order Summary</p>
 
                                 <div class="d-flex flex-row justify-content-between"> 
-                                    <p class="order-cart-meal-count mb-1">100 Meals</p>
-                                    <span id="meals-sum-price">$</span>
+                                    <p class="order-cart-meal-count mb-1"></p>
+                                    <span id="meals-sum-price"></span>
                                 </div>
 
                                 <div class="d-flex flex-row justify-content-between">
                                     <p class="subtotal-text-order-cart mb-1">Subtotal </p>
-                                    <span id="subtotal-order-price">$</span>
+                                    <span id="subtotal-order-price"></span>
                                 </div>
 
                             </div>
@@ -372,7 +372,8 @@
                         <div class="subtotal-container">
                             <div class="subtotal-row d-flex flex-row justify-content-between">
                                 <p class="mt-1 subtotal-text">Subtotal <span id="subtotal-cart-price">$</span></p>
-                               <div class="cart-icon-container">
+
+                                <div class="cart-icon-container">
                                     <img class="cart-icon" src="assets/images/cart-icon.png">
                                     <span class="cart-item-count badge"></span>
                                 </div>
@@ -411,46 +412,17 @@
                   </template>
             </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <!------------------------------------ Checkout Section 4 ------------------------------------------------------->
-            <section data-step="checkout-step" class=" step-tab-panel">
+            <section data-step="checkout-step">
             
                 <div class="row me-0  mt-4 d-flex flex-md-row">
                     
-                    <div class="checkout-form-summary-head d-lg-flex flex-md-row  d-none">
+                    <div class="form-column col-md-7 col-12 d-flex flex-column align-items-end justify-content-end ">
+                        
                         <p class="checkout-form-head">Checkout</p>
-                        <h1 class="order-summary-head mb-4">Order Summary</h1>
-                    </div>
 
-                       <p class="checkout-form-head d-block d-md-none ">Checkout</p>
-                        <div class="form-column col-md-7 col-12 d-flex flex-column align-items-end justify-content-end ">
-                         
                         <!------------------------------------- Checkout form container----------------------------------------------->
                         <div class="form-container px-5">
-
                             <p class="delivery-address-head mt-3">Delivery Address</p>
 
                             <form id="checkout-form">
@@ -471,12 +443,9 @@
                                             <input class="custom-input lname-input w-100" id="lname" type="text" name="lname">
                                         </div>
                                     </div>
-                                    <!-- <div class-name-error>
-                                        <span id="fname-error"></span>
-                                        <span id="lname-error"></span>
-                                    </div> -->
                                 </div>
                 
+                                
                                 <div class="mb-3 full-name-delivery-address-group mt-3">
                                     <label class="custom-label full-name-delivery-address-label" for="full-delivery-address">Full Name for Delivery Address</label>
                                     <input class="custom-input full-name-delivery-address-input input-block-height w-100" id="full-delivery-address" name="full-delivery-address" type="text">
@@ -485,6 +454,7 @@
                                     <label class="custom-label full-name-delivery-address-label" for="full-delivery-address">Full Name for Delivery Address</label>
                                     <input class="custom-input full-name-delivery-address-input input-block-height w-100" id="full-delivery-address" name="full-delivery-address" type="text">
                                 </div>
+                
                                 <div class="mb-3 address-line-one-group">
                                     <label class="custom-label first-address-label">Address Line 1</label>
                                     <input class="custom-input first-address-input input-block-height w-100" name="first-address-name" type="text">
@@ -543,7 +513,7 @@
                     </div>
                 
                     <div class="order-checkout-container col-md-5 col-12">
-                        <!-- <h1 class="order-summary-head mb-4">Order Summary</h1> -->
+                        <h1 class="order-summary-head mb-4">Order Summary</h1>
 
                         <div class="card-order-summary">
                             <div class="promo-code-container mt-2"><a class="ps-2 promo-code-link" href="">+ Add Promo Code</a></div>
@@ -553,34 +523,23 @@
                             <div class="delivery-div mx-2">
                                 <p id="delivery-day-value" class="ps-3 mt-1 mb-2"></p>
                             </div>
-
                             <hr>
-
                             <div>
-                                <p class="meals-summary ps-2">Meals <span class="meals-price-sum"></span></p>
+                                <p class="meals-summary ps-2">Meals <span class="meals-price-sum"> </span></p>
                             </div>
-
                             <hr>
-
                             <div>
-                                <p class="shipping-summary ps-2">Shipping<span class="shipping-price-sum"></span></p>
+                                <p class="shipping-summary ps-2">Shipping<span class="shipping-price-sum">$8.99</span></p>
                             </div>
-
                             <hr>
-
                             <div>
-                                <p class="tax-summary ps-2">Tax<span class="tax-price-sum"></span></p>
+                                <p class="tax-summary ps-2">Tax<span class="tax-price-sum">$10.99</span></p>
                             </div>
-
                             <hr>
-
                             <div>
                                 <p class="total-summary ps-2">Total<span class="total-price-sum"></span></p>
                             </div>
-
-
                         </div>
-
 
                         <h1 class="meals-summary-head my-3">My Meals</h1>
                        
@@ -588,9 +547,6 @@
                              <!-- Cards of meals will be displayed here -->
                         </div>
                     </div>
-
-
-
                 </div>
                 
             <hr class="mt-5">
@@ -785,124 +741,10 @@
             </section>
         </div>
     </div>
-</div>
 
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('checkout-form');
-        const submitButton = document.querySelector('.checkout-buttton');
-    
-        const errorMessages = {
-            requiredField: "This field is required",
-            emails: "Please enter valid email addresses.",
-            emailDuplicate: "Duplicate emails not allowed.",
-            contact: "Contact number must be 11 digits or 12 digits with a leading plus sign (+).",
-            name: "Name must only contain letters (a-z, A-Z)."
-        };
-    
-        const validateName = value => /^[a-zA-Z]+$/.test(value);
+    <script>
+        // document.addEventListener('DOMContentLoaded', () => {
         
-        const validateEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    
-        const validateEmails = value => {
-            const emailList = value.split(',').map(email => email.trim());
-            const uniqueEmails = new Set(emailList);
-            const hasDuplicates = emailList.length !== uniqueEmails.size;
-            const allEmailsValid = emailList.every(email => validateEmail(email));
-            return { hasDuplicates, allEmailsValid };
-        };
-    
-        const validateContact = value => {
-            const contactPattern = /^\+?\d{11,12}$/;
-            return contactPattern.test(value) && (value.startsWith('+') ? value.length === 12 : value.length === 11);
-        };
-    
-        const validators = {
-            fname: value => validateName(value) ? '' : errorMessages.name,
-            lname: value => validateName(value) ? '' : errorMessages.name,
-            email: value => {
-                const { hasDuplicates, allEmailsValid } = validateEmails(value);
-                if (hasDuplicates) return errorMessages.emailDuplicate;
-                if (!allEmailsValid) return errorMessages.emails;
-                return '';
-            },
-            phone: value => validateContact(value) ? '' : errorMessages.contact,
-        };
-    
-        const showErrorMessage = (input, message) => {
-            let errorSpan = input.nextElementSibling;
-            if (!errorSpan || errorSpan.tagName !== 'SPAN') {
-                errorSpan = document.createElement('span');
-                errorSpan.className = 'error-message';
-                input.parentNode.insertBefore(errorSpan, input.nextSibling);
-            }
-            errorSpan.innerText = message;
-        };
-    
-        const clearErrorMessage = input => {
-            let errorSpan = input.nextElementSibling;
-            if (errorSpan && errorSpan.tagName === 'SPAN') {
-                errorSpan.innerText = '';
-            }
-        };
-    
-        const validateField = event => {
-            const input = event.target;
-            const value = input.value.trim();
-            const id = input.id;
-    
-            if (requiredFields.includes(id) && !value) {
-                showErrorMessage(input, errorMessages.requiredField);
-                return;
-            }
-    
-            const errorMessage = validators[id] ? validators[id](value) : '';
-            if (errorMessage) {
-                showErrorMessage(input, errorMessage);
-            } else {
-                clearErrorMessage(input);
-            }
-    
-            validateForm();
-        };
-    
-        const validateForm = () => {
-            const firstName = document.getElementById('fname').value;
-            const lastName = document.getElementById('lname').value;
-            const emails = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-    
-            const { hasDuplicates, allEmailsValid } = validateEmails(emails);
-    
-            const isFormValid = validateName(firstName) &&
-                validateName(lastName) &&
-                !hasDuplicates &&
-                allEmailsValid &&
-                validateContact(phone);
-    
-            submitButton.disabled = !isFormValid;
-        };
-    
-        const requiredFields = ['fname', 'lname', 'email'];
-        form.querySelectorAll('input').forEach(input => {
-            input.addEventListener('focus', () => clearErrorMessage(input));
-            input.addEventListener('blur', validateField);
-        });
-    
-        form.addEventListener('submit', event => {
-            if (submitButton.disabled) {
-                event.preventDefault();
-                alert("Please correct the errors in the form.");
-            } else {
-                alert("Form validated successfully!");
-            }
-        });
-    });
-
-                                
     </script>
-        
 </body>
 </html>
