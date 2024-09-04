@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   });
 
-// ------------------------ Date items rendering in day section ------------------------
+  // ------------------------ Date items rendering in day section ------------------------
   function getNextMonday(date) {
       const day = date.getDay();
       const diff = (7 - day + 1) % 7;
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
   generateDates();
 
-// ------------------------------Meals cards rendering in cart and meals/checkout section ------------------------------
+  // ------------------------------Meals cards rendering in cart and meals/checkout section ------------------------------
   function getMealCountFromStorage() {
     const selectedMealCount = localStorage.getItem('selectedMealCount');
     if (selectedMealCount) {
@@ -205,15 +205,16 @@ document.addEventListener('DOMContentLoaded', function () {
       renderCart();
       calculatePrice();
     }  
-
     const nextButton = document.querySelector('.next-btn-cart');
     const readyText= document.querySelector('.enter-msg-cart');
 
     if (mealCart.length === mealCountLimit) {
       nextButton.classList.remove('disabled');
+      nextButton.removeAttribute('disabled');
       readyText.textContent ='Ready to go!';
     } else {
       nextButton.classList.add('disabled');
+      nextButton.setAttribute('disabled', 'true');
     }
   }
 
@@ -240,6 +241,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     const nextButton = document.querySelector('.next-btn-cart');
     nextButton.classList.toggle('disabled', mealCart.length !== mealCountLimit);
+    const readyText= document.querySelector('.enter-msg-cart');
+
+      if (mealCart.length === mealCountLimit) {
+        nextButton.removeAttribute('disabled');
+        readyText.textContent ='Ready to go!';
+      } else {
+          nextButton.setAttribute('disabled', 'true');
+      }
   }
   
   function removeFromCart(index) {
@@ -250,6 +259,11 @@ document.addEventListener('DOMContentLoaded', function () {
   
     const nextButton = document.querySelector('.next-btn-cart');
     nextButton.classList.toggle('disabled', mealCart.length !== getMealCountFromStorage());
+     if (mealCart.length === getMealCountFromStorage()) {
+        nextButton.removeAttribute('disabled');
+      } else {
+          nextButton.setAttribute('disabled', 'true');
+      }
 
     const mealsText= document.querySelector('.enter-msg-cart');
     mealsText.innerHTML = `Please add total <span id="meals-count-cart"> </span> to continue`;
@@ -258,19 +272,15 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   
   function createMealCard(meal, index) {
-    const card = document.createElement('div');
-    card.className = 'cart-meals col-md-12 col-sm-6 col-12 p w-xl-25 w-lg-25 w-md-25 w-sm-100 w-xs-100 p-1';
-    card.innerHTML = `
-      <div class="row cart-meal-card mx-0">
-        <img class="col-6 cart-meal-img p-1 pe-0" src="${meal.imagePath}" alt="${meal.name}">
-        <div class="col-5 cart-meal-info meal-info mt-2 p-0  me-3 d-flex justify-content-between align-items-center">
-          <h4 class="cart-meal-name meal-name mx-2 mb-1 mt-md-0 mt-3 ">${meal.name}</h4>
-        </div>
-        <div class="col-1 meal-controls d-flex flex-column align-items-end">
-            <button class=" meal-control-plus btn  btn-sm meal-minus" data-index="${index}">-</button>
-            <button class="meal-control-minus btn  btn-sm meal-plus" data-index="${index}">+</button>
-          </div>
-      </div>`;
+    const template = document.getElementById('selected-meal-template');
+    const card = template.content.cloneNode(true).firstElementChild;
+    
+    card.querySelector('.cart-meal-img').src = meal.imagePath;
+    card.querySelector('.cart-meal-img').alt = meal.name;
+    card.querySelector('.cart-meal-name').textContent = meal.name;
+    
+    card.querySelector('.meal-minus').dataset.index = index;
+    card.querySelector('.meal-plus').dataset.index = index;
     
     card.querySelector('.meal-minus').addEventListener('click', () => removeFromCart(index));
     card.querySelector('.meal-plus').addEventListener('click', () => addDuplicateToCart(meal));
@@ -360,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         summaryMealCardContainer.appendChild(mealCard);
     });
-}
+ }
 
   function toggleOrderSummaryVisibilty(){
     const orderSummaryCart = document.querySelector('.order-summary-cart');
@@ -385,27 +395,25 @@ document.addEventListener('DOMContentLoaded', function () {
         addToCartContainer.classList.add('expanded');
         addToCartContainer.classList.remove('collapsed');
     }
-}
+ }
 
-function hideCart() {
-    const cartItemsContainer = document.querySelector('.cart-items-container');
-    const addToCartContainer = document.querySelector('.add-to-cart-container');
-  
-    if (cartItemsContainer.classList.contains('show')) {
-        cartItemsContainer.classList.remove('show');
-        cartItemsContainer.classList.add('hide');
-        addToCartContainer.classList.add('collapsed');
-        addToCartContainer.classList.remove('expanded');
-    }
-}
+ function hideCart() {
+  const cartItemsContainer = document.querySelector('.cart-items-container');
+  const addToCartContainer = document.querySelector('.add-to-cart-container');
 
-const cartIcon = document.querySelector('.cart-icon');
-cartIcon.addEventListener('click', showCart);
+  if (cartItemsContainer.classList.contains('show')) {
+      cartItemsContainer.classList.remove('show');
+      cartItemsContainer.classList.add('hide');
+      addToCartContainer.classList.add('collapsed');
+      addToCartContainer.classList.remove('expanded');
+  }
+ }
 
-const cartDownArrow = document.querySelector('.cart-down-arrow');
-cartDownArrow.addEventListener('click', hideCart);
+  const cartIcon = document.querySelector('.cart-icon');
+  cartIcon.addEventListener('click', showCart);
 
-
+  const cartDownArrow = document.querySelector('.cart-down-arrow');
+  cartDownArrow.addEventListener('click', hideCart);
 
   //  ------------------------------ Fetch meals json data  ------------------------------
   fetch('assets/json/meals.json')

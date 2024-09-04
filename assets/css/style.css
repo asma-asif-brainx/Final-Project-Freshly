@@ -709,7 +709,6 @@
 .error-message {
     color: red;
     font-size: 0.875em; 
-    margin-top: 4px; 
     display: block;
     position: absolute; 
 }
@@ -1159,6 +1158,11 @@
         max-width: 93%;
         width: 100%;
         margin: auto;
+    }
+
+    .form-container {
+        min-height: 1160px;
+        height: 100%;
     }
 }
 
