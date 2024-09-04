@@ -207,12 +207,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }  
 
     const nextButton = document.querySelector('.next-btn-cart');
+    const readyText= document.querySelector('.enter-msg-cart');
+
     if (mealCart.length === mealCountLimit) {
       nextButton.classList.remove('disabled');
-
-      const readyText= document.querySelector('.enter-msg-cart');
       readyText.textContent ='Ready to go!';
-      
     } else {
       nextButton.classList.add('disabled');
     }
@@ -375,6 +374,38 @@ document.addEventListener('DOMContentLoaded', function () {
         cartShipping.classList.add('hidden');
     }
   }
+
+  function showCart() {
+    const cartItemsContainer = document.querySelector('.cart-items-container');
+    const addToCartContainer = document.querySelector('.add-to-cart-container');
+  
+    if (cartItemsContainer.classList.contains('hide')) {
+        cartItemsContainer.classList.remove('hide');
+        cartItemsContainer.classList.add('show');
+        addToCartContainer.classList.add('expanded');
+        addToCartContainer.classList.remove('collapsed');
+    }
+}
+
+function hideCart() {
+    const cartItemsContainer = document.querySelector('.cart-items-container');
+    const addToCartContainer = document.querySelector('.add-to-cart-container');
+  
+    if (cartItemsContainer.classList.contains('show')) {
+        cartItemsContainer.classList.remove('show');
+        cartItemsContainer.classList.add('hide');
+        addToCartContainer.classList.add('collapsed');
+        addToCartContainer.classList.remove('expanded');
+    }
+}
+
+const cartIcon = document.querySelector('.cart-icon');
+cartIcon.addEventListener('click', showCart);
+
+const cartDownArrow = document.querySelector('.cart-down-arrow');
+cartDownArrow.addEventListener('click', hideCart);
+
+
 
   //  ------------------------------ Fetch meals json data  ------------------------------
   fetch('assets/json/meals.json')

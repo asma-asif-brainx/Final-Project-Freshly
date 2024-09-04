@@ -63,15 +63,16 @@ $(document).ready(function () {
   }
 
   function setupMealsStep() {
-      $('.next-btn-cart').on('click', function () {
+    $('.next-btn-cart').on('click', function () {
+      console.log($(this).is(':disabled')); 
+      if (!$(this).is(':disabled')) {
           const displayDeliveryDayCart = document.getElementById('delivery-date-cart');
-          
           displayDeliveryDayCart.textContent = localStorage.getItem('selectedDay');
           showSection('checkout-step');
-
           localStorage.setItem('currentStep', 'checkout-step');
-      });
-  }
+      }
+    });
+   }
 
   function setupStepNavigation() {
       const steps = ['plan-step', 'day-step', 'meals-step', 'checkout-step'];
