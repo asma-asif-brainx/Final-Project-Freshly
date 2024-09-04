@@ -635,7 +635,7 @@
 /* ----------------------------- Checkout form ----------------------------- */
 .checkout-form-head{
     font-size: 23px;
-    transform: translateX(45px);
+    transform: translateX(52px);
 }
 .form-column{
     display: flex;

@@ -1,114 +1,114 @@
 document.addEventListener('DOMContentLoaded', function () {
     
-  // ------------------checkout Form validation---------------------
-  const form = document.getElementById('checkout-form');
-  const submitButton = document.querySelector('.checkout-buttton');
+ // ------------------checkout Form validation---------------------
+ const form = document.getElementById('checkout-form');
+ const submitButton = document.querySelector('.checkout-buttton');
 
-  const errorMessages = {
-      requiredField: "This field is required",
-      emails: "Please enter valid email addresses.",
-      emailDuplicate: "Duplicate emails not allowed.",
-      contact: "Contact number must be 11 digits or 12 digits with a leading plus sign (+).",
-      name: "Name must only contain letters (a-z, A-Z)."
-  };
+ const errorMessages = {
+     requiredField: "This field is required",
+     emails: "Please enter valid email addresses.",
+     emailDuplicate: "Duplicate emails not allowed.",
+     contact: "Contact number must be 11 digits or 12 digits with a leading plus sign (+).",
+     name: "Name must only contain letters (a-z, A-Z)."
+ };
 
-  const validateName = value => /^[a-zA-Z]+$/.test(value);
-  
-  const validateEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+ const validateName = value => /^[a-zA-Z]+$/.test(value);
+ 
+ const validateEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
-  const validateEmails = value => {
-      const emailList = value.split(',').map(email => email.trim());
-      const uniqueEmails = new Set(emailList);
-      const hasDuplicates = emailList.length !== uniqueEmails.size;
-      const allEmailsValid = emailList.every(email => validateEmail(email));
-      return { hasDuplicates, allEmailsValid };
-  };
+ const validateEmails = value => {
+     const emailList = value.split(',').map(email => email.trim());
+     const uniqueEmails = new Set(emailList);
+     const hasDuplicates = emailList.length !== uniqueEmails.size;
+     const allEmailsValid = emailList.every(email => validateEmail(email));
+     return { hasDuplicates, allEmailsValid };
+ };
 
-  const validateContact = value => {
-      const contactPattern = /^\+?\d{11,12}$/;
-      return contactPattern.test(value) && (value.startsWith('+') ? value.length === 12 : value.length === 11);
-  };
+ const validateContact = value => {
+     const contactPattern = /^\+?\d{11,12}$/;
+     return contactPattern.test(value) && (value.startsWith('+') ? value.length === 12 : value.length === 11);
+ };
 
-  const validators = {
-      fname: value => validateName(value) ? '' : errorMessages.name,
-      lname: value => validateName(value) ? '' : errorMessages.name,
-      email: value => {
-          const { hasDuplicates, allEmailsValid } = validateEmails(value);
-          if (hasDuplicates) return errorMessages.emailDuplicate;
-          if (!allEmailsValid) return errorMessages.emails;
-          return '';
-      },
-      phone: value => validateContact(value) ? '' : errorMessages.contact,
-  };
+ const validators = {
+     fname: value => validateName(value) ? '' : errorMessages.name,
+     lname: value => validateName(value) ? '' : errorMessages.name,
+     email: value => {
+         const { hasDuplicates, allEmailsValid } = validateEmails(value);
+         if (hasDuplicates) return errorMessages.emailDuplicate;
+         if (!allEmailsValid) return errorMessages.emails;
+         return '';
+     },
+     phone: value => validateContact(value) ? '' : errorMessages.contact,
+ };
 
-  const showErrorMessage = (input, message) => {
-      let errorSpan = input.nextElementSibling;
-      if (!errorSpan || errorSpan.tagName !== 'SPAN') {
-          errorSpan = document.createElement('span');
-          errorSpan.className = 'error-message';
-          input.parentNode.insertBefore(errorSpan, input.nextSibling);
-      }
-      errorSpan.innerText = message;
-  };
+ const showErrorMessage = (input, message) => {
+     let errorSpan = input.nextElementSibling;
+     if (!errorSpan || errorSpan.tagName !== 'SPAN') {
+         errorSpan = document.createElement('span');
+         errorSpan.className = 'error-message';
+         input.parentNode.insertBefore(errorSpan, input.nextSibling);
+     }
+     errorSpan.innerText = message;
+ };
 
-  const clearErrorMessage = input => {
-      let errorSpan = input.nextElementSibling;
-      if (errorSpan && errorSpan.tagName === 'SPAN') {
-          errorSpan.innerText = '';
-      }
-  };
+ const clearErrorMessage = input => {
+     let errorSpan = input.nextElementSibling;
+     if (errorSpan && errorSpan.tagName === 'SPAN') {
+         errorSpan.innerText = '';
+     }
+ };
 
-  const validateField = event => {
-      const input = event.target;
-      const value = input.value.trim();
-      const id = input.id;
+ const validateField = event => {
+     const input = event.target;
+     const value = input.value.trim();
+     const id = input.id;
 
-      if (requiredFields.includes(id) && !value) {
-          showErrorMessage(input, errorMessages.requiredField);
-          return;
-      }
+     if (requiredFields.includes(id) && !value) {
+         showErrorMessage(input, errorMessages.requiredField);
+         return;
+     }
 
-      const errorMessage = validators[id] ? validators[id](value) : '';
-      if (errorMessage) {
-          showErrorMessage(input, errorMessage);
-      } else {
-          clearErrorMessage(input);
-      }
+     const errorMessage = validators[id] ? validators[id](value) : '';
+     if (errorMessage) {
+         showErrorMessage(input, errorMessage);
+     } else {
+         clearErrorMessage(input);
+     }
 
-      validateForm();
-  };
+     validateForm();
+ };
 
-  const validateForm = () => {
-    const firstName = document.getElementById('fname').value;
-    const lastName = document.getElementById('lname').value;
-    const emails = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
+ const validateForm = () => {
+   const firstName = document.getElementById('fname').value;
+   const lastName = document.getElementById('lname').value;
+   const emails = document.getElementById('email').value;
+   const phone = document.getElementById('phone').value;
 
-    const { hasDuplicates, allEmailsValid } = validateEmails(emails);
+   const { hasDuplicates, allEmailsValid } = validateEmails(emails);
 
-    const isFormValid = validateName(firstName) &&
-        validateName(lastName) &&
-        !hasDuplicates &&
-        allEmailsValid &&
-        validateContact(phone);
+   const isFormValid = validateName(firstName) &&
+       validateName(lastName) &&
+       !hasDuplicates &&
+       allEmailsValid &&
+       validateContact(phone);
 
-    submitButton.disabled = !isFormValid;
-  };
+   submitButton.disabled = !isFormValid;
+ };
 
-  const requiredFields = ['fname', 'lname', 'email'];
-  form.querySelectorAll('input').forEach(input => {
-      input.addEventListener('focus', () => clearErrorMessage(input));
-      input.addEventListener('blur', validateField);
-  });
+ const requiredFields = ['fname', 'lname', 'email'];
+ form.querySelectorAll('input').forEach(input => {
+     input.addEventListener('focus', () => clearErrorMessage(input));
+     input.addEventListener('blur', validateField);
+ });
 
-  form.addEventListener('submit', event => {
-      if (submitButton.disabled) {
-          event.preventDefault();
-          alert("Please correct the errors in the form.");
-      } else {
-          alert("Form validated successfully!");
-      }
-  });
+ form.addEventListener('submit', event => {
+     if (submitButton.disabled) {
+         event.preventDefault();
+         alert("Please correct the errors in the form.");
+     } else {
+         alert("Form validated successfully!");
+     }
+ });
 
   // ------------------------ Date items rendering in day section ------------------------
   function getNextMonday(date) {
