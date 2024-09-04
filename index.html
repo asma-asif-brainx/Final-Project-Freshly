@@ -351,7 +351,7 @@
                                     <!--selected meal cards will be added to cart here  -->
                             </div>
 
-                            <div class="order-summary-cart px-2">
+                            <div class="order-summary-cart px-2 hidden">
                                 <p class="cart-order-summary-head">Order Summary</p>
 
                                 <div class="d-flex flex-row justify-content-between"> 
@@ -365,7 +365,7 @@
                                 </div>
 
                             </div>
-                            <p class="cart-shipping text-center">Tax and shipping calculated at checkout</p>
+                            <p class="cart-shipping text-center hidden">Tax and shipping calculated at checkout</p>
 
                         </div>
 
@@ -375,7 +375,7 @@
 
                                 <div class="cart-icon-container">
                                     <img class="cart-icon" src="assets/images/cart-icon.png">
-                                    <span class="cart-item-count badge"></span>
+                                    <span class="cart-item-count badge">0</span>
                                 </div>
                             </div>
 
@@ -547,12 +547,26 @@
 
                         <h1 class="meals-summary-head my-3">My Meals</h1>
                        
-                        <div class="">
+                        <div class="summary-meal-card">
                              <!-- Cards of meals will be displayed here -->
                         </div>
                     </div>
                 </div>
                 
+
+                <template id="order-summary-meal-template">
+                    <div class="order-summary-meal-card d-flex flex-row  align-items-center gap-3" >
+                        <div class="order-summary-meal-card-content d-flex flex-row justify-content-center align-items-center">
+                            <p class="count-same-meal-added px-3 mb-0"></p>
+                            <img class="order-meal-summary-img" src="">
+                        </div>
+                        <div class="order-summary-meal-name-group d-flex flex-column">
+                            <p class="order-summary-meal-name mb-0"></p>
+                            <p class="summary-order-speciality mb-0"></p>
+                        </div>
+                    </div>
+                </template>
+
             <hr class="mt-5">
 
                 <!-------------------------------- Accordian checkout page ----------------------------------------------->

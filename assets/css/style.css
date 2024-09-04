@@ -108,14 +108,21 @@
     list-style-type: none;
     font-weight: 500;
 }
-/* .header-list:not(.active):hover {
+.header-list:not(.active):hover {
     text-decoration: underline;
 }
-#wizard .steps-container .header-list {
-    cursor: pointer;
-} */
-.enabled-active-pointer{
-    cursor: pointer;
+.header-list {
+    cursor: default; 
+}
+.header-list.previous,
+.header-list.active {
+    cursor: pointer; 
+}
+.header-list.previous:hover {
+    text-decoration: underline;
+}
+.header-list:not(.previous):hover {
+    text-decoration: none; 
 }
 .enabled-underline{
     text-decoration: underline;
@@ -376,8 +383,6 @@
 .accordion-button::after ,.accordion-button:not(.collapsed)::after{
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' stroke='%23D75D33' stroke-width='2' width='20' height='12'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E%0A");
 }
-
-
 .common-question-head{
     font-size: 48px;
     color: var(--plan-description-head-color);
@@ -587,7 +592,25 @@
     justify-content: center;
 }
 .cart-item-count {
-    color: black;
+    color: var(--red-orange-price);
+}
+.hidden {
+    display: none;
+}
+.meal-card {
+    position: relative; 
+}
+.special-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--red-orange-price);
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 0 5px 0 0; 
+    z-index: 10;
+    transform: translateY(-96px);
 }
 .meal-control-plus, .meal-control-minus{
     font-size: 18px;
@@ -669,17 +692,13 @@
     min-height:45px ;
     height: 100%;
 }
-
 .error-message {
     color: red;
-    font-size: 0.875em; /* Smaller font size for error messages */
-    margin-top: 4px; /* Add margin to separate from the input field */
-    display: block; /* Ensure error message appears on a new line */
-    position: absolute; /* Position error messages absolutely */
+    font-size: 0.875em; 
+    margin-top: 4px; 
+    display: block;
+    position: absolute; 
 }
-
-
-
 
 /*------------------------------ Order summary ----------------------------- */
 .card-order-summary{
@@ -703,7 +722,40 @@
 .order-summary-head, .meals-summary-head{
     font-size: 23px;
 }
-
+.order-summary-meal-card{
+    max-width: 77%;
+    width: 100%;
+    min-height: 77px;
+    height: 100%;
+    background-color: var(--nav-background);
+    border: 1px solid  #D5D5D5;
+}
+.order-summary-meal-card-content{
+    max-width: 120px;
+    width: 100%;
+    max-height: 90px;
+    height: 100%;
+}
+.order-meal-summary-img{
+    min-width: 83px;
+    width: 100%;
+    min-height: 62px;
+    height: 100%;
+}
+.count-same-meal-added, .order-summary-meal-name{
+    font-family: 'Roboto-Bold';
+    font-size: 14px;
+}
+.summary-order-speciality{
+    font-family: 'Roboto-Regular';
+    color: #707070;
+    font-size: 12px;
+}
+.special-meal{
+    background-color: #000000;
+    color: white;
+    border: 1px solid #000000;
+}
 
 @media (max-width:1024px){
     .plan-meals-card{
@@ -970,20 +1022,17 @@
     .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
         font-size: 14px;
     }
-
     .form-column {
         order: 2;
     }
     .order-checkout-container{
         order: 1;
-padding-right: 0;
+        padding-right: 0;
     }
-
     .card-order-summary {
         max-width: 400px;
         width: 100%;
         margin: auto;
-
     }
     .form-container {
         max-width: 400px;
@@ -1068,5 +1117,5 @@ padding-right: 0;
         height: 100%;
         width: 100%;
         max-width: 360px;
-}
+    }
 }

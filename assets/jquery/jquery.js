@@ -5,6 +5,17 @@ $(document).ready(function () {
 
       $('.header-list').removeClass('active');
       $(`.header-list[data-step-target="${targetStep}"]`).addClass('active');
+
+
+         // Mark previous steps
+         const steps = ['plan-step', 'day-step', 'meals-step', 'checkout-step'];
+         const currentIndex = steps.indexOf(targetStep);
+         
+         steps.forEach((step, index) => {
+             if (index <= currentIndex) {
+                 $(`.header-list[data-step-target="${step}"]`).addClass('previous');
+             }
+         });
   }
 
   function setupPlanCardClick() {

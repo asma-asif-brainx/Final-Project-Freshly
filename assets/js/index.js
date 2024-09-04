@@ -2,117 +2,115 @@ document.addEventListener('DOMContentLoaded', function () {
     
   // ------------------checkout Form validation---------------------
   const form = document.getElementById('checkout-form');
-        const submitButton = document.querySelector('.checkout-buttton');
-    
-        const errorMessages = {
-            requiredField: "This field is required",
-            emails: "Please enter valid email addresses.",
-            emailDuplicate: "Duplicate emails not allowed.",
-            contact: "Contact number must be 11 digits or 12 digits with a leading plus sign (+).",
-            name: "Name must only contain letters (a-z, A-Z)."
-        };
-    
-        const validateName = value => /^[a-zA-Z]+$/.test(value);
-        
-        const validateEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    
-        const validateEmails = value => {
-            const emailList = value.split(',').map(email => email.trim());
-            const uniqueEmails = new Set(emailList);
-            const hasDuplicates = emailList.length !== uniqueEmails.size;
-            const allEmailsValid = emailList.every(email => validateEmail(email));
-            return { hasDuplicates, allEmailsValid };
-        };
-    
-        const validateContact = value => {
-            const contactPattern = /^\+?\d{11,12}$/;
-            return contactPattern.test(value) && (value.startsWith('+') ? value.length === 12 : value.length === 11);
-        };
-    
-        const validators = {
-            fname: value => validateName(value) ? '' : errorMessages.name,
-            lname: value => validateName(value) ? '' : errorMessages.name,
-            email: value => {
-                const { hasDuplicates, allEmailsValid } = validateEmails(value);
-                if (hasDuplicates) return errorMessages.emailDuplicate;
-                if (!allEmailsValid) return errorMessages.emails;
-                return '';
-            },
-            phone: value => validateContact(value) ? '' : errorMessages.contact,
-        };
-    
-        const showErrorMessage = (input, message) => {
-            let errorSpan = input.nextElementSibling;
-            if (!errorSpan || errorSpan.tagName !== 'SPAN') {
-                errorSpan = document.createElement('span');
-                errorSpan.className = 'error-message';
-                input.parentNode.insertBefore(errorSpan, input.nextSibling);
-            }
-            errorSpan.innerText = message;
-        };
-    
-        const clearErrorMessage = input => {
-            let errorSpan = input.nextElementSibling;
-            if (errorSpan && errorSpan.tagName === 'SPAN') {
-                errorSpan.innerText = '';
-            }
-        };
-    
-        const validateField = event => {
-            const input = event.target;
-            const value = input.value.trim();
-            const id = input.id;
-    
-            if (requiredFields.includes(id) && !value) {
-                showErrorMessage(input, errorMessages.requiredField);
-                return;
-            }
-    
-            const errorMessage = validators[id] ? validators[id](value) : '';
-            if (errorMessage) {
-                showErrorMessage(input, errorMessage);
-            } else {
-                clearErrorMessage(input);
-            }
-    
-            validateForm();
-        };
-    
-        const validateForm = () => {
-            const firstName = document.getElementById('fname').value;
-            const lastName = document.getElementById('lname').value;
-            const emails = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-    
-            const { hasDuplicates, allEmailsValid } = validateEmails(emails);
-    
-            const isFormValid = validateName(firstName) &&
-                validateName(lastName) &&
-                !hasDuplicates &&
-                allEmailsValid &&
-                validateContact(phone);
-    
-            submitButton.disabled = !isFormValid;
-        };
-    
-        const requiredFields = ['fname', 'lname', 'email'];
-        form.querySelectorAll('input').forEach(input => {
-            input.addEventListener('focus', () => clearErrorMessage(input));
-            input.addEventListener('blur', validateField);
-        });
-    
-        form.addEventListener('submit', event => {
-            if (submitButton.disabled) {
-                event.preventDefault();
-                alert("Please correct the errors in the form.");
-            } else {
-                alert("Form validated successfully!");
-            }
-        });
-    
+  const submitButton = document.querySelector('.checkout-buttton');
+
+  const errorMessages = {
+      requiredField: "This field is required",
+      emails: "Please enter valid email addresses.",
+      emailDuplicate: "Duplicate emails not allowed.",
+      contact: "Contact number must be 11 digits or 12 digits with a leading plus sign (+).",
+      name: "Name must only contain letters (a-z, A-Z)."
+  };
+
+  const validateName = value => /^[a-zA-Z]+$/.test(value);
   
-  // ------------------------Date items rendering in day section ------------------------
-  
+  const validateEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+  const validateEmails = value => {
+      const emailList = value.split(',').map(email => email.trim());
+      const uniqueEmails = new Set(emailList);
+      const hasDuplicates = emailList.length !== uniqueEmails.size;
+      const allEmailsValid = emailList.every(email => validateEmail(email));
+      return { hasDuplicates, allEmailsValid };
+  };
+
+  const validateContact = value => {
+      const contactPattern = /^\+?\d{11,12}$/;
+      return contactPattern.test(value) && (value.startsWith('+') ? value.length === 12 : value.length === 11);
+  };
+
+  const validators = {
+      fname: value => validateName(value) ? '' : errorMessages.name,
+      lname: value => validateName(value) ? '' : errorMessages.name,
+      email: value => {
+          const { hasDuplicates, allEmailsValid } = validateEmails(value);
+          if (hasDuplicates) return errorMessages.emailDuplicate;
+          if (!allEmailsValid) return errorMessages.emails;
+          return '';
+      },
+      phone: value => validateContact(value) ? '' : errorMessages.contact,
+  };
+
+  const showErrorMessage = (input, message) => {
+      let errorSpan = input.nextElementSibling;
+      if (!errorSpan || errorSpan.tagName !== 'SPAN') {
+          errorSpan = document.createElement('span');
+          errorSpan.className = 'error-message';
+          input.parentNode.insertBefore(errorSpan, input.nextSibling);
+      }
+      errorSpan.innerText = message;
+  };
+
+  const clearErrorMessage = input => {
+      let errorSpan = input.nextElementSibling;
+      if (errorSpan && errorSpan.tagName === 'SPAN') {
+          errorSpan.innerText = '';
+      }
+  };
+
+  const validateField = event => {
+      const input = event.target;
+      const value = input.value.trim();
+      const id = input.id;
+
+      if (requiredFields.includes(id) && !value) {
+          showErrorMessage(input, errorMessages.requiredField);
+          return;
+      }
+
+      const errorMessage = validators[id] ? validators[id](value) : '';
+      if (errorMessage) {
+          showErrorMessage(input, errorMessage);
+      } else {
+          clearErrorMessage(input);
+      }
+
+      validateForm();
+  };
+
+  const validateForm = () => {
+    const firstName = document.getElementById('fname').value;
+    const lastName = document.getElementById('lname').value;
+    const emails = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    const { hasDuplicates, allEmailsValid } = validateEmails(emails);
+
+    const isFormValid = validateName(firstName) &&
+        validateName(lastName) &&
+        !hasDuplicates &&
+        allEmailsValid &&
+        validateContact(phone);
+
+    submitButton.disabled = !isFormValid;
+  };
+
+  const requiredFields = ['fname', 'lname', 'email'];
+  form.querySelectorAll('input').forEach(input => {
+      input.addEventListener('focus', () => clearErrorMessage(input));
+      input.addEventListener('blur', validateField);
+  });
+
+  form.addEventListener('submit', event => {
+      if (submitButton.disabled) {
+          event.preventDefault();
+          alert("Please correct the errors in the form.");
+      } else {
+          alert("Form validated successfully!");
+      }
+  });
+
+// ------------------------ Date items rendering in day section ------------------------
   function getNextMonday(date) {
       const day = date.getDay();
       const diff = (7 - day + 1) % 7;
@@ -152,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
       span.innerHTML = formatDate(date);
   }
 
-
   function createDateDiv(template, date, isSelected) {
     const dateDiv = template.content.cloneNode(true).firstElementChild;
     const dateText = dateDiv.querySelector('.date-text-item');
@@ -183,7 +180,6 @@ document.addEventListener('DOMContentLoaded', function () {
   
   generateDates();
 
-  
 // ------------------------------Meals cards rendering in cart and meals/checkout section ------------------------------
   function getMealCountFromStorage() {
     const selectedMealCount = localStorage.getItem('selectedMealCount');
@@ -196,20 +192,18 @@ document.addEventListener('DOMContentLoaded', function () {
     return 0; 
   }
 
-
   let mealCart = [];
   let price;
   let numOfSpecialMeals;
   let subtotal;
 
-
   function addToCart(meal) {
     const mealCountLimit = getMealCountFromStorage();
     if (mealCart.length < mealCountLimit) {
       mealCart.push(meal);
+      toggleOrderSummaryVisibilty()
       renderCart();
       calculatePrice();
-
     }  
 
     const nextButton = document.querySelector('.next-btn-cart');
@@ -241,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
     if (mealCart.length < mealCountLimit) {
       mealCart.push(meal);
+      toggleOrderSummaryVisibilty()
       renderCart();
       calculatePrice();
     }
@@ -250,6 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
   function removeFromCart(index) {
     mealCart.splice(index, 1); 
+    toggleOrderSummaryVisibilty()
     renderCart();
     calculatePrice();
   
@@ -317,17 +313,15 @@ document.addEventListener('DOMContentLoaded', function () {
     subtotalCartPrice.textContent = "$" + subtotal;
   }
 
-
   document.querySelector('.clear-all').addEventListener('click', () => clearCart());
-
   function clearCart(){
     mealCart = [];
     document.querySelector('.meal-cards-added-cart').innerHTML = "";
+    toggleOrderSummaryVisibilty()
     calculatePrice();
   }
 
   document.querySelector('.next-btn-cart').addEventListener('click', () => checkoutMealPrice());
-
   function checkoutMealPrice(){
     const mealSum = document.querySelector('.meals-price-sum');
     mealSum.innerHTML = "$" + subtotal;
@@ -337,8 +331,52 @@ document.addEventListener('DOMContentLoaded', function () {
     totalCheckoutCost.innerHTML = "$" + cost;
   }
 
-  //  ------------------------------ Fetch meals json data  ------------------------------
+  document.querySelector('.next-btn-cart').addEventListener('click', () => renderMealSummary());
+  function renderMealSummary() {
+    const summaryMealCardContainer = document.querySelector('.summary-meal-card');
+    summaryMealCardContainer.innerHTML = '';
 
+    const template = document.getElementById('order-summary-meal-template').content;
+    const mealSummary = {}; 
+
+    mealCart.forEach(meal => {
+        if (mealSummary[meal.name]) {
+            mealSummary[meal.name].count += 1;
+        } else {
+            mealSummary[meal.name] = { ...meal, count: 1 };
+        }
+    });
+
+    Object.values(mealSummary).forEach(meal => {
+        const mealCard = template.cloneNode(true);
+
+        mealCard.querySelector('.count-same-meal-added').textContent = meal.count;
+        mealCard.querySelector('.order-meal-summary-img').src = meal.imagePath;
+        mealCard.querySelector('.order-summary-meal-name').textContent = meal.name;
+        mealCard.querySelector('.summary-order-speciality').textContent = meal.speciality;
+
+        if (meal.specialMeal) {
+          mealCard.querySelector('.order-summary-meal-card').classList.add('special-meal');
+        }
+
+        summaryMealCardContainer.appendChild(mealCard);
+    });
+}
+
+  function toggleOrderSummaryVisibilty(){
+    const orderSummaryCart = document.querySelector('.order-summary-cart');
+    const cartShipping = document.querySelector('.cart-shipping');
+
+    if (mealCart.length > 0) {
+      orderSummaryCart.classList.remove('hidden');
+      cartShipping.classList.remove('hidden');
+    } else {
+        orderSummaryCart.classList.add('hidden');
+        cartShipping.classList.add('hidden');
+    }
+  }
+
+  //  ------------------------------ Fetch meals json data  ------------------------------
   fetch('assets/json/meals.json')
     .then(response => {
       if (!response.ok) {
@@ -373,6 +411,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (meal.specialMeal) {
           card.querySelector('.meal-info').classList.add('special-meal-div');
+
+          const specialTag = document.createElement('div');
+          specialTag.classList.add('special-tag');
+          specialTag.textContent = '+ $11.49';
+
+          const mealSpecialImgParent = mealImgPath.parentElement;
+          mealSpecialImgParent.style.position = 'relative'; 
+          mealSpecialImgParent.appendChild(specialTag);
         }
         card.querySelector('.add-btn').addEventListener('click', () => addToCart(meal));
 
