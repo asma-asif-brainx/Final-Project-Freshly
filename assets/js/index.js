@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const totalCheckoutCost = document.querySelector('.total-price-sum');
     const cost = parseFloat(subtotal) + 8.99 + 10.99;
-    totalCheckoutCost.innerHTML = "$" + cost;
+    totalCheckoutCost.innerHTML = "$" + cost.toFixed(2);
   }
 
   document.querySelector('.next-btn-cart').addEventListener('click', () => renderMealSummary());

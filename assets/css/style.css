@@ -121,12 +121,10 @@
 .header-list.previous:hover {
     text-decoration: underline;
 }
-.header-list:not(.previous):hover {
+.header-list:not(.previous):hover  , .header-list.active:hover {
     text-decoration: none; 
 }
-.enabled-underline{
-    text-decoration: underline;
-}
+
 
 /* ----------------------------------------------------------seperator---------------------------------------------- */
 
@@ -610,6 +608,9 @@
     font-size: 12px;
     border-radius: 0 5px 0 0; 
     transform: translateY(-96px);
+    height: 25px;
+    width: 73px;
+    text-align: center;
 }
 .meal-control-plus, .meal-control-minus{
     font-size: 18px;
@@ -780,6 +781,15 @@
 .clear-all {
     cursor: pointer;
 }
+.total-price-sum{
+    color: var(--red-orange-price);
+
+}
+.meals-price-sum , .shipping-price-sum , .tax-price-sum , .total-price-sum{
+    font-size: 14px;
+    font-family: 'Roboto-Bold';
+}
+
 @media (max-width:1024px){
     .plan-meals-card{
         max-width: 209px;
