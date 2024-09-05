@@ -487,7 +487,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const cartDownArrow = document.querySelector('.cart-down-arrow');
   cartDownArrow.addEventListener('click', hideCart);
 
-
   document.querySelector('.next-button-delivery').addEventListener('click', () => cartMessage());
   function cartMessage() {
     let cartMessage = document.getElementById('meals-count-cart');

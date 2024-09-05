@@ -196,7 +196,12 @@
 .bigger-box-price{
     color: var(--red-orange-price);
 }
-
+/* .form-container{
+    position: relative;
+}
+.checkout-form-head {
+    position: absolute;
+} */
 /* ------------------Plan Cards ---------------------*/
 .plan-cards{
     display: flex;
@@ -513,13 +518,19 @@
     overflow-y: auto;
     flex-grow: 1; 
     position: relative; 
+
+}
+.meal-cards-added-cart {
+    max-height: 400px;
+    height: auto;
+    overflow-y: auto;  
 }
 .subtotal-container {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--date-container); 
+    background-color: var(--nav-background); 
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
     z-index: 10; 
     border-radius: 15px 15px 0 0; 
@@ -828,9 +839,9 @@
         font-size: 23px;
         transform: translateX(140px);
     }
-    .meal-details{
+    /* .meal-details{
         gap:25px
-    }
+    } */
     .meal-card img {
         max-height: 217px;
         height: 100%;
@@ -855,17 +866,27 @@
         max-width: 454px;
         width: 100%;
     }
+    .meal-cards-added-cart {
+        max-height: 550px;
+        height: auto;
+        overflow-y: auto;  
+    }
 }
 
 @media (min-width:1300px) and (max-width:1495px){
-    .meal-details {
+    /* .meal-details {
         gap: 5px;
-    }
+    } */
     .add-to-cart-container{
         max-height: 93%;
         height: 100%;
         max-width: 25%;
         width: 100%;
+    }
+    .meal-cards-added-cart {
+        max-height: 320px;
+        height: auto;
+        overflow-y: auto;  
     }
 }
 
@@ -912,6 +933,11 @@
     .cart-meal-card {
         min-height: 60px;
         height: 100%;
+    }
+    .meal-cards-added-cart {
+        max-height: 200px;
+        height: auto;
+        overflow-y: auto;  
     }
     /* --------Checkout section---------- */
     .form-container {
@@ -1003,9 +1029,9 @@
     .meal-name {
         font-size: 13px;
     }
-    .meal-details {
-        gap: 16px;
-    }
+    /* .meal-details {
+         gap: 16px;
+    } */
     .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
         font-size: 10px;
     }
@@ -1019,6 +1045,11 @@
         transform: translateY(-100px);
     }
 
+    .meal-cards-added-cart {
+        max-height: 70%;
+        height: auto;
+        overflow-y: auto;  
+    }
     .fname-input, .lname-input{
         min-width: 166px;
         width: 100%;
@@ -1116,7 +1147,10 @@
         height: 100%;
     }
 
-
+    .accordian-end-space {
+        min-height: 170px;
+        height: 100%;
+    }
     .next-button-delivery{
         max-width:93%;
         width: 100%;
@@ -1153,7 +1187,7 @@
         font-size: 12px;
     }
     .meal-details{
-        gap:25px;
+        gap:16px;
     }
     .meal-speciality{
         margin-bottom: 0;
@@ -1195,6 +1229,11 @@
     }
     .cart-items-container.show {
         display: block;
+     }
+     .cart-items-container.show + .subtotal-container{
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
      }
      .cart-items-container.hide {
         display: none;
@@ -1250,6 +1289,14 @@
     .form-container {
         min-height: 1130px;
         height: 100%;
+    }
+    .meal-cards-added-cart {
+        max-height: 210px;
+        height: auto;
+        overflow-y: auto;  
+    }
+    .add-to-cart-container.expanded{
+        border-radius: 0;
     }
 }
 
