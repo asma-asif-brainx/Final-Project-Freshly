@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     
  // ------------------checkout Form validation---------------------
- const form = document.getElementById('checkout-form');
- const submitButton = document.querySelector('.checkout-buttton');
 
+ const form = document.getElementById('checkout-form');
+ const submitButton = document.getElementById('checkout-btn');
+ 
  const errorMessages = {
      requiredField: "This field is required",
      emails: "Please enter valid email addresses.",
@@ -11,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
      contact: "Contact number must be 11 digits or 12 digits with a leading plus sign (+).",
      name: "Name must only contain letters (a-z, A-Z)."
  };
-
+ 
  const validateName = value => /^[a-zA-Z]+$/.test(value);
  
  const validateEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
+ 
  const validateEmails = value => {
      const emailList = value.split(',').map(email => email.trim());
      const uniqueEmails = new Set(emailList);
@@ -23,12 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
      const allEmailsValid = emailList.every(email => validateEmail(email));
      return { hasDuplicates, allEmailsValid };
  };
-
+ 
  const validateContact = value => {
      const contactPattern = /^\+?\d{11,12}$/;
      return contactPattern.test(value) && (value.startsWith('+') ? value.length === 12 : value.length === 11);
  };
-
+ 
  const validators = {
      fname: value => validateName(value) ? '' : errorMessages.name,
      lname: value => validateName(value) ? '' : errorMessages.name,
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
      },
      phone: value => validateContact(value) ? '' : errorMessages.contact,
  };
-
+ 
  const showErrorMessage = (input, message) => {
      let errorSpan = input.nextElementSibling;
      if (!errorSpan || errorSpan.tagName !== 'SPAN') {
@@ -50,58 +51,71 @@ document.addEventListener('DOMContentLoaded', function () {
      }
      errorSpan.innerText = message;
  };
-
+ 
  const clearErrorMessage = input => {
      let errorSpan = input.nextElementSibling;
      if (errorSpan && errorSpan.tagName === 'SPAN') {
          errorSpan.innerText = '';
      }
  };
-
+ 
  const validateField = event => {
      const input = event.target;
      const value = input.value.trim();
      const id = input.id;
-
-     if (requiredFields.includes(id) && !value) {
+ 
+     if (requiredFields.includes(id) && value === '') {
          showErrorMessage(input, errorMessages.requiredField);
          return;
      }
-
+ 
      const errorMessage = validators[id] ? validators[id](value) : '';
      if (errorMessage) {
          showErrorMessage(input, errorMessage);
      } else {
          clearErrorMessage(input);
      }
-
+ 
      validateForm();
  };
-
+ 
  const validateForm = () => {
-   const firstName = document.getElementById('fname').value;
-   const lastName = document.getElementById('lname').value;
-   const emails = document.getElementById('email').value;
-   const phone = document.getElementById('phone').value;
-
-   const { hasDuplicates, allEmailsValid } = validateEmails(emails);
-
-   const isFormValid = validateName(firstName) &&
-       validateName(lastName) &&
-       !hasDuplicates &&
-       allEmailsValid &&
-       validateContact(phone);
-
-   submitButton.disabled = !isFormValid;
+     const firstName = document.getElementById('fname').value.trim();
+     const lastName = document.getElementById('lname').value.trim();
+     const emails = document.getElementById('email').value.trim();
+     const phone = document.getElementById('phone').value.trim();
+ 
+     console.log('Input Values:', { firstName, lastName, emails, phone });
+ 
+     const { hasDuplicates, allEmailsValid } = validateEmails(emails);
+ 
+     const isFormValid = validateName(firstName) &&
+         validateName(lastName) &&
+         !hasDuplicates &&
+         allEmailsValid &&
+         validateContact(phone);
+ 
+     console.log('Form Validation:', {
+         firstNameValid: validateName(firstName),
+         lastNameValid: validateName(lastName),
+         emailsValid: !hasDuplicates && allEmailsValid,
+         contactValid: validateContact(phone),
+     });
+ 
+     submitButton.disabled = !isFormValid;
+     console.log('Button disabled:', submitButton.disabled);
  };
+ 
+ const requiredFields = ['fname', 'lname', 'email', 'phone']; 
+ const inputFields = form.querySelectorAll('input');
 
- const requiredFields = ['fname', 'lname', 'email'];
- form.querySelectorAll('input').forEach(input => {
-     input.addEventListener('focus', () => clearErrorMessage(input));
-     input.addEventListener('blur', validateField);
+ inputFields.forEach(input => {
+  input.addEventListener('focus', () => clearErrorMessage(input));
+  input.addEventListener('blur', validateField);
  });
-
+ 
  form.addEventListener('submit', event => {
+     console.log("Submit event triggered");
      if (submitButton.disabled) {
          event.preventDefault();
          alert("Please correct the errors in the form.");
@@ -285,6 +299,18 @@ document.addEventListener('DOMContentLoaded', function () {
     card.querySelector('.meal-minus').addEventListener('click', () => removeFromCart(index));
     card.querySelector('.meal-plus').addEventListener('click', () => addDuplicateToCart(meal));
   
+    if (meal.specialMeal) {
+      const specialTag = document.createElement('div');
+      specialTag.classList.add('special-tag-cart'); 
+      specialTag.textContent = '+ $11.49'; 
+      
+      const mealImgParent = card.querySelector('.cart-meal-img').parentElement;
+      mealImgParent.style.position = 'relative'; 
+      mealImgParent.appendChild(specialTag);
+
+      card.querySelector('.cart-meal-card').classList.add('special-bacground');
+    }
+
     return card;
   }
 
@@ -364,7 +390,15 @@ document.addEventListener('DOMContentLoaded', function () {
         mealCard.querySelector('.order-summary-meal-name').textContent = meal.name;
         mealCard.querySelector('.summary-order-speciality').textContent = meal.speciality;
 
-        if (meal.specialMeal) {
+        if (meal.specialMeal) { 
+          const specialTag = document.createElement('div');
+          specialTag.classList.add('special-summary-tag'); 
+          specialTag.textContent = '+ $11.49'; 
+          
+          const mealImgParent = mealCard.querySelector('.order-meal-summary-img').parentElement;
+          mealImgParent.style.position = 'relative'; 
+          mealImgParent.appendChild(specialTag);
+
           mealCard.querySelector('.order-summary-meal-card').classList.add('special-meal');
         }
 

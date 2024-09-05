@@ -64,7 +64,6 @@ $(document).ready(function () {
 
   function setupMealsStep() {
     $('.next-btn-cart').on('click', function () {
-      console.log($(this).is(':disabled')); 
       if (!$(this).is(':disabled')) {
           const displayDeliveryDayCart = document.getElementById('delivery-date-cart');
           displayDeliveryDayCart.textContent = localStorage.getItem('selectedDay');

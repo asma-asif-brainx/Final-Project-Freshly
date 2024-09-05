@@ -606,7 +606,44 @@
     height: 25px;
     width: 73px;
     text-align: center;
+    font-family: 'Roboto-Bold';
 }
+
+.special-tag-cart {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--red-orange-price);
+    padding: 5px;
+    font-size: 12px;
+    font-family: 'Roboto-Bold';
+    color: var(--white);
+    max-width: 73px;
+    width: 100%;
+    transform: translate(4px, -4px);
+  }
+
+  .special-bacground{
+    background-color: var(--black);
+    color: var(--white);
+  }
+  .special-bacground .meal-control-minus, .special-bacground .meal-control-plus{
+    color: var(--white);
+  }
+
+  .special-summary-tag{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--red-orange-price);
+    padding: 3px;
+    font-size: 12px;
+    font-family: 'Roboto-Bold';
+    color: var(--white);
+    max-width: 60px;
+    width: 100%;
+    transform: translateX(38px);
+  }
 .meal-control-plus, .meal-control-minus{
     font-size: 18px;
     padding: 0;
@@ -688,6 +725,10 @@
 .custom-label{
     min-height: 28px;
     height: 100%;
+}
+.checkout-buttton:disabled{
+
+    opacity: 0.5;
 }
 .checkout-buttton{
     background: transparent linear-gradient(100deg, var(--btn-purple) 0%, var(--btn-dark-blue-purple) 100%) 0% 0% no-repeat padding-box;
