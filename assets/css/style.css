@@ -392,6 +392,10 @@
     margin: auto;
 }
 
+.date-item{
+    max-width: 99%;
+    width: 100%;
+}
 /* ------------------Accordian  common questions--------------------*/
 
 .accordion-button::after ,.accordion-button:not(.collapsed)::after{
