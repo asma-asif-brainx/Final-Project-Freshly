@@ -10,10 +10,17 @@ document.addEventListener('DOMContentLoaded', function () {
      emails: "Please enter valid email addresses.",
      emailDuplicate: "Duplicate emails not allowed.",
      contact: "Contact number must be 11 digits or 12 digits with a leading plus sign (+).",
-     name: "Name must only contain letters (a-z, A-Z)."
+     name: "Name must only contain letters (a-z, A-Z).",
+     fullName: "Full name must contain alphabets (a-z, A-Z).",
+     city: "City must only contain letters (a-z, A-Z).",
+     state: "State must only contain letters (a-z, A-Z).",
+     zip: "Zip must contain exactly 5 digits from 0-9.",
+     address: "Address must contain only alphabets (a-z, A-Z), digits (0-9), and special characters (#, _)."
  };
  
  const validateName = value => /^[a-zA-Z]+$/.test(value);
+ const validateAddress = value => /^[a-zA-Z0-9#_]+$/.test(value);
+ const validateZip = value => /^\d{5}$/.test(value);
  
  const validateEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
  
@@ -33,13 +40,20 @@ document.addEventListener('DOMContentLoaded', function () {
  const validators = {
      fname: value => validateName(value) ? '' : errorMessages.name,
      lname: value => validateName(value) ? '' : errorMessages.name,
+     'full-delivery-address': value => validateName(value) ? '' : errorMessages.fullName,
+     'full-delivery-address-two': value => validateName(value) ? '' : errorMessages.fullName,
+     city: value => validateName(value) ? '' : errorMessages.city,
+     state: value => validateName(value) ? '' : errorMessages.state,
+     zip: value => validateZip(value) ? '' : errorMessages.zip,
+     'first-address-name': value => validateAddress(value) ? '' : errorMessages.address,
+     'second-address-name': value => validateAddress(value) ? '' : errorMessages.address,
      email: value => {
          const { hasDuplicates, allEmailsValid } = validateEmails(value);
          if (hasDuplicates) return errorMessages.emailDuplicate;
          if (!allEmailsValid) return errorMessages.emails;
          return '';
      },
-     phone: value => validateContact(value) ? '' : errorMessages.contact,
+     phone: value => validateContact(value) ? '' : errorMessages.contact
  };
  
  const showErrorMessage = (input, message) => {
@@ -62,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
  const validateField = event => {
      const input = event.target;
      const value = input.value.trim();
-     const id = input.id;
+     const id = input.id || input.name;
  
      if (requiredFields.includes(id) && value === '') {
          showErrorMessage(input, errorMessages.requiredField);
@@ -84,40 +98,52 @@ document.addEventListener('DOMContentLoaded', function () {
      let lastName = document.getElementById('lname').value.trim();
      let emails = document.getElementById('email').value.trim();
      let phone = document.getElementById('phone').value.trim();
-  
+     let fullName1 = document.getElementById('full-delivery-address').value.trim();
+     let fullName2 = document.getElementById('full-delivery-address-two').value.trim();
+     let city = document.getElementById('city').value.trim();
+     let state = document.getElementById('state').value.trim();
+     let zip = document.getElementById('zip').value.trim();
+     let address1 = document.getElementsByName('first-address-name')[0].value.trim();
+     let address2 = document.getElementsByName('second-address-name')[0].value.trim();
+ 
      const { hasDuplicates, allEmailsValid } = validateEmails(emails);
  
      const isFormValid = validateName(firstName) &&
          validateName(lastName) &&
+         validateName(fullName1) &&
+         validateName(fullName2) &&
+         validateName(city) &&
+         validateName(state) &&
+         validateZip(zip) &&
+         validateContact(phone) &&
+         validateAddress(address1) &&
+         validateAddress(address2) &&
          !hasDuplicates &&
-         allEmailsValid &&
-         validateContact(phone);
- 
-     console.log('Form Validation:', {
-         firstNameValid: validateName(firstName),
-         lastNameValid: validateName(lastName),
-         emailsValid: !hasDuplicates && allEmailsValid,
-         contactValid: validateContact(phone),
-     });
+         allEmailsValid;
  
      submitButton.disabled = !isFormValid;
  };
  
- const requiredFields = ['fname', 'lname', 'email', 'phone']; 
+ const requiredFields = ['fname', 'lname', 'full-delivery-address', 'full-delivery-address-two', 'city', 'state', 'zip', 'phone', 'email', 'first-address-name', 'second-address-name'];
  const inputFields = form.querySelectorAll('input');
-
+ 
  inputFields.forEach(input => {
-  input.addEventListener('focus', () => clearErrorMessage(input));
-  input.addEventListener('blur', validateField);
+     input.addEventListener('focus', () => clearErrorMessage(input));
+     input.addEventListener('blur', validateField);
+ });
+ 
+ const zipInput = document.getElementById('zip');
+ const changeZipLink = document.getElementById('change-zip');
+ 
+ changeZipLink.addEventListener('click', function (event) {
+     event.preventDefault();
+     zipInput.value = '';
+     zipInput.focus();
  });
  
  form.addEventListener('submit', event => {
-     console.log("Submit event triggered");
      if (submitButton.disabled) {
          event.preventDefault();
-         console("Please correct the errors in the form.");
-     } else {
-         console("Form validated successfully!");
      }
  });
 
@@ -222,10 +248,15 @@ document.addEventListener('DOMContentLoaded', function () {
     if (mealCart.length === mealCountLimit) {
       nextButton.classList.remove('disabled');
       nextButton.removeAttribute('disabled');
-      readyText.textContent ='Ready to go!';
+      readyText.innerHTML = '<span id="meals-count-cart">Ready to go!</span>';
     } else {
       nextButton.classList.add('disabled');
       nextButton.setAttribute('disabled', 'true');
+
+      readyText.innerHTML = 'Please add <span id="meals-count-cart">' 
+      + (mealCountLimit - mealCart.length) + ' more' 
+      + '</span> meals.';
+
     }
   }
 
@@ -256,30 +287,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (mealCart.length === mealCountLimit) {
         nextButton.removeAttribute('disabled');
-        readyText.textContent ='Ready to go!';
+        readyText.innerHTML = '<span id="meals-count-cart">Ready to go!</span>';
+
       } else {
           nextButton.setAttribute('disabled', 'true');
+
+        readyText.innerHTML = 'Please add <span id="meals-count-cart">' 
+        + (mealCountLimit - mealCart.length) + ' more' 
+      + '</span> meals.';
       }
   }
   
   function removeFromCart(index) {
+    const mealCountLimit = getMealCountFromStorage();
     mealCart.splice(index, 1); 
     toggleOrderSummaryVisibilty()
     renderCart();
     calculatePrice();
   
     const nextButton = document.querySelector('.next-btn-cart');
+    const readyText= document.querySelector('.enter-msg-cart');
+
     nextButton.classList.toggle('disabled', mealCart.length !== getMealCountFromStorage());
      if (mealCart.length === getMealCountFromStorage()) {
         nextButton.removeAttribute('disabled');
+       
       } else {
           nextButton.setAttribute('disabled', 'true');
       }
 
-    const mealsText= document.querySelector('.enter-msg-cart');
-    mealsText.innerHTML = `Please add total <span id="meals-count-cart"> </span> to continue`;
-
-    updateOrderSummary();
+    readyText.innerHTML = 'Please add <span id="meals-count-cart">' 
+    + (mealCountLimit - mealCart.length) + ' more' 
+    + '</span> meals.';
   }
   
   function createMealCard(meal, index) {
@@ -349,6 +388,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function clearCart(){
     mealCart = [];
     document.querySelector('.meal-cards-added-cart').innerHTML = "";
+    const countSpan = document.querySelector('.cart-item-count');
+    countSpan.textContent = mealCart.length;
     toggleOrderSummaryVisibilty()
     calculatePrice();
   }
@@ -453,6 +494,7 @@ document.addEventListener('DOMContentLoaded', function () {
     cartMessage.textContent = getMealCountFromStorage() + ' items';
 
   }
+
   //  ------------------------------ Fetch meals json data  ------------------------------
   fetch('assets/json/meals.json')
     .then(response => {
