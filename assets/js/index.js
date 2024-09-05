@@ -80,13 +80,11 @@ document.addEventListener('DOMContentLoaded', function () {
  };
  
  const validateForm = () => {
-     const firstName = document.getElementById('fname').value.trim();
-     const lastName = document.getElementById('lname').value.trim();
-     const emails = document.getElementById('email').value.trim();
-     const phone = document.getElementById('phone').value.trim();
- 
-     console.log('Input Values:', { firstName, lastName, emails, phone });
- 
+     let firstName = document.getElementById('fname').value;
+     let lastName = document.getElementById('lname').value.trim();
+     let emails = document.getElementById('email').value.trim();
+     let phone = document.getElementById('phone').value.trim();
+  
      const { hasDuplicates, allEmailsValid } = validateEmails(emails);
  
      const isFormValid = validateName(firstName) &&
@@ -103,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
      });
  
      submitButton.disabled = !isFormValid;
-     console.log('Button disabled:', submitButton.disabled);
  };
  
  const requiredFields = ['fname', 'lname', 'email', 'phone']; 
@@ -118,9 +115,9 @@ document.addEventListener('DOMContentLoaded', function () {
      console.log("Submit event triggered");
      if (submitButton.disabled) {
          event.preventDefault();
-         alert("Please correct the errors in the form.");
+         console("Please correct the errors in the form.");
      } else {
-         alert("Form validated successfully!");
+         console("Form validated successfully!");
      }
  });
 
@@ -449,6 +446,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const cartDownArrow = document.querySelector('.cart-down-arrow');
   cartDownArrow.addEventListener('click', hideCart);
 
+
+  document.querySelector('.next-button-delivery').addEventListener('click', () => cartMessage());
+  function cartMessage() {
+    let cartMessage = document.getElementById('meals-count-cart');
+    cartMessage.textContent = getMealCountFromStorage() + ' items';
+
+  }
   //  ------------------------------ Fetch meals json data  ------------------------------
   fetch('assets/json/meals.json')
     .then(response => {
