@@ -196,12 +196,7 @@
 .bigger-box-price{
     color: var(--red-orange-price);
 }
-/* .form-container{
-    position: relative;
-}
-.checkout-form-head {
-    position: absolute;
-} */
+
 /* ------------------Plan Cards ---------------------*/
 .plan-cards{
     display: flex;
@@ -692,7 +687,8 @@
 /* ----------------------------- Checkout form ----------------------------- */
 .checkout-form-head{
     font-size: 23px;
-    transform: translateX(52px);
+    left: 20%;
+    position: relative;
 }
 .form-column{
     display: flex;
@@ -837,17 +833,10 @@
     }
     .checkout-form-head{
         font-size: 23px;
-        transform: translateX(140px);
     }
-    /* .meal-details{
-        gap:25px
-    } */
     .meal-card img {
         max-height: 217px;
         height: 100%;
-    }
-    .checkout-form-head{
-        transform: translateX(225px);
     }
     .form-container{
         max-width: 800px;
@@ -871,6 +860,10 @@
         height: auto;
         overflow-y: auto;  
     }
+    .checkout-form-head {
+        left: 28%;
+        position: relative;
+    }
 }
 
 @media (min-width:1300px) and (max-width:1495px){
@@ -888,9 +881,17 @@
         height: auto;
         overflow-y: auto;  
     }
+    .checkout-form-head {
+        left: 30%;
+        position: relative;
+    }
 }
 
 @media (max-width:1024px){
+    .checkout-form-head{
+        left: 25%;
+        position: relative;
+    }
     .plan-meals-card{
         max-width: 209px;
         width: 100%;
@@ -1038,9 +1039,6 @@
     .cart-items-container {
         display: block;
      }
-     .checkout-form-head {
-        transform: translateX(20px);
-     }
      .special-tag {
         transform: translateY(-100px);
     }
@@ -1053,6 +1051,10 @@
     .fname-input, .lname-input{
         min-width: 166px;
         width: 100%;
+    }
+    .checkout-form-head{
+        left: 5%;
+        position: relative;
     }
 }
 
@@ -1221,9 +1223,7 @@
        
         justify-content:left;
     }
-    .checkout-form-head{
-        transform: translateX(0);
-    }
+
     .order-summary-head{
         transform: translateX(-0);
     }
@@ -1297,6 +1297,10 @@
     }
     .add-to-cart-container.expanded{
         border-radius: 0;
+    }
+    .checkout-form-head{
+        left: 0;
+        position:unset;
     }
 }
 
