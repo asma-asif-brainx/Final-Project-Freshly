@@ -24,6 +24,7 @@
     --special-black:#000;
 }
 
+/* --------------------------------------------------------Font face----------------------------------------------------------- */
 @font-face {
     font-family: 'Roboto-Regular';
     src: url('../fonts/Roboto-Regular.ttf') format("truetype");
@@ -46,36 +47,30 @@
 }
 
 /* ----------------------------------------Font families ---------------------------------------------------------*/
-
 .steps-container, .description-text,.shipping-text,  .date-item .popular-text, .accordion-body,
-#delivery-day-value,.meals-summary, .shipping-summary p, .tax-summary, .promo-code-link, .sms-update-checbox, .meal-gluten,
- .meal-calories, .meal-carbs, .meal-protein, .meal-speciality, .subtotal-text, .summary-order-speciality,
-  .order-cart-meal-count, #meals-sum-price, .subtotal-text-order-cart, .my-delivery-cart , .cart-shipping, .summary-order-speciality,
-  .enter-msg-cart, .fname-input, .lname-input, .custom-input
+#delivery-day-value,.meals-summary, .shipping-summary p, .tax-summary, .promo-code-link, .sms-update-checbox, 
+.meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality, .subtotal-text, .summary-order-speciality,
+.order-cart-meal-count, #meals-sum-price, .subtotal-text-order-cart, .my-delivery-cart , .cart-shipping, .summary-order-speciality,
+.enter-msg-cart, .fname-input, .lname-input, .custom-input
 {
     font-family: 'Roboto-Regular';
 }
-.checkout-form-head, .delivery-address-head,
-.name-feild-label,  .full-name-delivery-address-label, .first-address-label, .second-address-label, 
-.city-label, .state-label, .zip-label, .phone-label, .email-label, .checkout-buttton, .total-summary, .order-summary-head, 
-.meals-summary-head, .delivery-date-head-order, .meal-count,  .plan-total-price, .bigger-box-price, .bigger-box-text, .meal-name,
-#meals-count-cart, .count-same-meal-added, .order-summary-meal-name, .meals-price-sum , .shipping-price-sum , 
-.tax-price-sum , .total-price-sum, .cart-order-summary-head, #subtotal-order-price, .cart-meal-name, .next-btn-cart, .first-delivery-date,
-#meals-count-cart
+.checkout-form-head, .delivery-address-head, .name-feild-label,  .full-name-delivery-address-label, 
+.first-address-label, .second-address-label, .city-label, .state-label, .zip-label, .phone-label, .email-label, .checkout-buttton,
+.total-summary, .order-summary-head, .meals-summary-head, .delivery-date-head-order, .meal-count,  .plan-total-price, .bigger-box-price,
+.bigger-box-text, .meal-name, #meals-count-cart, .count-same-meal-added, .order-summary-meal-name, .meals-price-sum ,
+.shipping-price-sum , .tax-price-sum , .total-price-sum, .cart-order-summary-head, #subtotal-order-price, .cart-meal-name,
+.next-btn-cart, .first-delivery-date, #meals-count-cart
 {
     font-family: 'Roboto-Bold';
 }
-.sale-tag , .plan-week, .plan-price , .accordion-button,  .description-head, .plan-total-price-text, 
-.delivery-day-head, .common-question-head ,.get-started-btn, .next-button-delivery, #delivery-date-cart,.header-list.active,
-.first-delivery-text
+.sale-tag , .plan-week, .plan-price , .accordion-button,  .description-head, .plan-total-price-text, .delivery-day-head,
+.common-question-head ,.get-started-btn, .next-button-delivery, #delivery-date-cart,.header-list.active, .first-delivery-text
 {
     font-family: 'Roboto-Medium';
 }
 
-
-
 /* ----------------------------------------Font size ---------------------------------------------------------*/
-
 .header-list, .sale-tag , .plan-week, .date-item , #delivery-day-value,.meals-summary, .shipping-summary p, .tax-summary ,
 .total-summary, .sms-update-checbox, .delivery-date-head-order, .name-feild-label, .fname-input, .lname-input,
 .full-name-delivery-address-label, .first-address-label, .second-address-label, .city-label, .state-label, 
@@ -85,19 +80,17 @@
 {
     font-size:14px;
 }
-
 .plan-total-price-text, .plan-price,.get-started-btn, .checkout-buttton
 {
     font-size:16px;
 }
-/* -------------------------------------------body-container------------------------------------------- */
 
+/* -------------------------------------------body-container------------------------------------------- */
 .body-container{
     background-color: var(--background);
 }
 
 /* --------------------------------------------Jquery steps css------------------------------------------ */
-
 .nav-container{
     display: flex;
     justify-content: center;
@@ -146,9 +139,7 @@
     text-decoration: none; 
 }
 
-
-/* ----------------------------------------------------------seperator---------------------------------------------- */
-
+/* ----------------------------------------------------------seperator------------------------------------------------------- */
 .nav-seperator
 {
     max-width: 100%;
@@ -161,9 +152,8 @@
     height: auto;
 }
 
-/*--------------------------------------------------------  Plan Section -------------------------------------------------------- */
-
-/* Logo section */
+/*--------------------------------------------------------Plan Section-------------------------------------------------------- */
+/* ------Logo section------*/
 .logo-description-section{
     display: flex;
     flex-direction: column;
@@ -198,7 +188,7 @@
     color: var(--red-orange-price);
 }
 
-/* ------------------Plan Cards ---------------------*/
+/* ------------------Plan Cards ----------------*/
 .plan-cards{
     display: flex;
     flex-direction: row;
@@ -298,9 +288,7 @@
 }
 
 /*--------------------------------------------------------  Day Section -------------------------------------------------------- */
-
 /*----------- Delivery dates slider--------------- */
-
 .delivery-day-head{
     font-size: 48px;
     color: var(--plan-description-head-color);
@@ -322,12 +310,12 @@
     border-left: 1px solid var(--date-item-border);
     max-height: 46px;
     height: 100%;
+    max-width: 99%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: var(--nav-background);
-}
-.date-item {
     transition: transform 0.4s ease; 
 }
 .date-item:not(.selected):hover {
@@ -395,12 +383,7 @@
     margin: auto;
 }
 
-.date-item{
-    max-width: 99%;
-    width: 100%;
-}
 /* ------------------Accordian  common questions--------------------*/
-
 .accordion-button::after ,.accordion-button:not(.collapsed)::after{
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' stroke='%23D75D33' stroke-width='2' width='24' height='20'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E%0A");
 }
@@ -421,6 +404,10 @@
     background-color: transparent;
     box-shadow: none;
     border-bottom: 1px solid  var(--accordian-bottom-border);
+}
+.accordion-button.collapsed{
+    min-height: 70px;
+    height: 100%;
 }
 .accordion-button::after {
     fill: var(--red-orange-price);
@@ -446,14 +433,11 @@
     min-height: 300px;
     height: 100%;
 }
-.accordion-button.collapsed{
-    min-height: 70px;
-    height: 100%;
-}
 
 /* ----------------------------------------------------Meals section----------------------------------------------------- */
 .meal-card {
     border: 1px solid  var(--meal-border);
+    position: relative; 
 }
 .meal-card img {
     max-width: 100%;
@@ -499,14 +483,13 @@
 .add-btn:disabled{
     opacity: 0.7;
 }
-
 .meal-control-plus:active , .meal-control-minus:active, .btn:active:focus-visible:focus:focus-within , .btn{
     border: none;
     box-shadow: none;
     outline: none;
 }
-/* -----------------------Cart----------------------- */
 
+/* -----------------------Meal Cart----------------------- */
 .add-to-cart-container {
     border: 1px solid var(--checkout-btn);
     padding: 0;
@@ -523,8 +506,8 @@
 .cart-items-container {
     overflow-y: auto;
     flex-grow: 1; 
-    position: relative; 
-
+    position: relative;
+    display: block; 
 }
 .meal-cards-added-cart {
     max-height: 400px;
@@ -578,7 +561,6 @@
     justify-content: space-between;
     align-items: center;
 }
-
 .order-summary-cart{
     font-size: 13px;
 }
@@ -588,14 +570,12 @@
 .cart-meal-card{
     min-height: 75px;
     height: 100%;
+    background-color: var(--cart-meal-bg);
 }
 .cart-meal-img {
     max-width: 35%;
     min-height: 60px;
     height: 100%;
-}
-.cart-meal-card{
-    background-color: var(--cart-meal-bg);
 }
 .cart-icon-container{
     border: 1px solid var(--order-summary-bodrer);
@@ -614,9 +594,6 @@
 .hidden {
     display: none;
 }
-.meal-card {
-    position: relative; 
-}
 .special-tag {
     position: absolute;
     bottom: 0;
@@ -632,7 +609,6 @@
     text-align: center;
     font-family: 'Roboto-Bold';
 }
-
 .special-tag-cart {
     position: absolute;
     bottom: 0;
@@ -646,17 +622,15 @@
     width: 100%;
     transform: translate(4px, -4px);
     text-align: center;
-  }
-
-  .special-bacground{
+}
+.special-bacground{
     background-color: var(--black);
     color: var(--white);
-  }
-  .special-bacground .meal-control-minus, .special-bacground .meal-control-plus{
+}
+.special-bacground .meal-control-minus, .special-bacground .meal-control-plus{
     color: var(--white);
-  }
-
-  .special-summary-tag{
+}
+.special-summary-tag{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -668,16 +642,12 @@
     max-width: 60px;
     width: 100%;
     transform: translateX(38px);
-  }
+}
 .meal-control-plus, .meal-control-minus{
     font-size: 18px;
     padding: 0;
     color:var(--blackish-grey);
     font-weight: 700;
-}
-
-.cart-items-container {
-    display: block;
 }
 .meal-details p {
     position: relative;
@@ -694,7 +664,6 @@
 }
  
 /* ----------------------------------------------------Checkout section----------------------------------------------------- */
-
 /* ----------------------------- Checkout form ----------------------------- */
 .checkout-form-head{
     font-size: 23px;
@@ -734,16 +703,12 @@
     min-width: 176px;
     width: 100%;
 }
-.delivery-address-head{
-    font-size: 18px;
-}
 .custom-input{
     border: 1px solid var(--deliver-border);
     border-radius: 4px;
     min-height: 35px;
     padding: 5px;
 }
-
 .checkout-buttton:disabled{
 
     opacity: 0.5;
@@ -808,7 +773,6 @@
     color: var(--date-item-border);
     font-size: 12px;
 }
-
 .order-summary-meal-card{
     max-width: 370px;
     width: 100%;
@@ -848,7 +812,6 @@
     height: 100%;
 }
 
-
 @media screen and (min-width:1500px) and (max-width:1980px){
     .add-to-cart-container {
         max-height: 93%;
@@ -858,6 +821,8 @@
     }
     .checkout-form-head{
         font-size: 23px;
+        left: 36%;
+        position: relative;
     }
     .meal-card img {
         max-height: 217px;
@@ -867,7 +832,6 @@
         max-width: 64%;
         width: 100%;
     }
-
     .card-order-summary{
         max-width: 454px;
         width: 100%;
@@ -884,10 +848,6 @@
         max-height: 550px;
         height: auto;
         overflow-y: auto;  
-    }
-    .checkout-form-head {
-        left: 36%;
-        position: relative;
     }
     .promo-code-input {
         max-width: 430px;
@@ -1090,7 +1050,6 @@
      .special-tag {
         transform: translateY(-100px);
     }
-
     .meal-cards-added-cart {
         max-height: 70%;
         height: auto;
@@ -1112,7 +1071,7 @@
         max-width: 95%;
         width: 100%;
         min-height: 910px;
-    height: 100%;
+        height: 100%;
     }
 }
 
@@ -1206,7 +1165,6 @@
         min-height: 70px;
         height: 100%;
     }
-
     .accordian-end-space {
         min-height: 100px;
         height: 100%;
@@ -1273,6 +1231,8 @@
     .form-container {
         max-width: 400px;
         width: 100%;
+        min-height: 1145px;
+        height: 100%;
     }
     .error-message {
         font-size: 9px;
@@ -1281,7 +1241,6 @@
        
         justify-content:left;
     }
-
     .order-summary-head{
         transform: translateX(-0);
     }
@@ -1343,10 +1302,6 @@
         max-width: 93%;
         width: 100%;
         margin: auto;
-    }
-    .form-container {
-        min-height: 1145px;
-        height: 100%;
     }
     .meal-cards-added-cart {
         max-height: 210px;
