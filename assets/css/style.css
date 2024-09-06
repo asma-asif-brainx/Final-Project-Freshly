@@ -215,6 +215,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    cursor: pointer;
 }
 .plan-card-img-block {
     width: 100%;
@@ -311,6 +312,7 @@
     overflow-y: auto;
     border: none;
     margin: auto;
+    cursor: pointer;
 }
 .date-item {
     padding: 10px;
@@ -492,6 +494,9 @@
     box-shadow: 0px 3px 6px var(--checkout-btn);
     border-radius: 4px;
     border: none;
+}
+.add-btn:disabled{
+    opacity: 0.7;
 }
 
 .meal-control-plus:active , .meal-control-minus:active, .btn:active:focus-visible:focus:focus-within , .btn{
@@ -776,6 +781,18 @@
     color: var(--nav-step-active-color);
     font-size: 15px;
 }
+.promo-code-container {
+    display: flex;
+    align-items: center;
+}
+.promo-code-input {
+    padding: 5px;
+    border: 1px solid var(--deliver-border);
+    border-radius: 4px;
+    max-width: 150px;
+    width: 100%;
+    font-size: 14px;
+}
 .delivery-div{
     border: 1px solid var(--deliver-border); 
     border-radius:5px ;
@@ -977,6 +994,9 @@
     .fname-input, .lname-input{
         min-width: 170px;
         width: 100%;
+    }
+    .promo-code-link {
+        font-size: 13px;
     }
 } 
 
@@ -1306,6 +1326,9 @@
     .checkout-form-head{
         left: 0;
         position:unset;
+    }
+    .promo-code-input{
+        font-size: 12px;
     }
 }
 

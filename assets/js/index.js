@@ -257,15 +257,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }  
     const nextButton = document.querySelector('.next-btn-cart');
     const readyText= document.querySelector('.enter-msg-cart');
+    const addButtons = document.querySelectorAll('.add-btn');
 
     if (mealCart.length === mealCountLimit) {
       nextButton.classList.remove('disabled');
       nextButton.removeAttribute('disabled');
       readyText.innerHTML = '<span id="meals-count-cart">Ready to go!</span>';
+      addButtons.forEach(button => {
+        button.setAttribute('disabled', 'true');
+      });
+
     } else {
       nextButton.classList.add('disabled');
       nextButton.setAttribute('disabled', 'true');
-
+      addButtons.forEach(button => {
+        button.removeAttribute('disabled');
+      });
       readyText.innerHTML = 'Please add <span id="meals-count-cart">' 
       + (mealCountLimit - mealCart.length) + ' more' 
       + '</span> meals.';
@@ -297,13 +304,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextButton = document.querySelector('.next-btn-cart');
     nextButton.classList.toggle('disabled', mealCart.length !== mealCountLimit);
     const readyText= document.querySelector('.enter-msg-cart');
+    const addButtons = document.querySelectorAll('.add-btn');
 
       if (mealCart.length === mealCountLimit) {
         nextButton.removeAttribute('disabled');
+        addButtons.forEach(button => {
+          button.setAttribute('disabled', 'true');
+        });
         readyText.innerHTML = '<span id="meals-count-cart">Ready to go!</span>';
 
       } else {
           nextButton.setAttribute('disabled', 'true');
+          addButtons.forEach(button => {
+            button.removeAttribute('disabled');
+          });
 
         readyText.innerHTML = 'Please add <span id="meals-count-cart">' 
         + (mealCountLimit - mealCart.length) + ' more' 
@@ -320,13 +334,20 @@ document.addEventListener('DOMContentLoaded', function () {
   
     const nextButton = document.querySelector('.next-btn-cart');
     const readyText= document.querySelector('.enter-msg-cart');
+    const addButtons = document.querySelectorAll('.add-btn');
 
     nextButton.classList.toggle('disabled', mealCart.length !== getMealCountFromStorage());
      if (mealCart.length === getMealCountFromStorage()) {
         nextButton.removeAttribute('disabled');
+        addButtons.forEach(button => {
+          button.setAttribute('disabled', 'true');
+        });
        
       } else {
           nextButton.setAttribute('disabled', 'true');
+          addButtons.forEach(button => {
+            button.removeAttribute('disabled');
+          });
       }
 
     readyText.innerHTML = 'Please add <span id="meals-count-cart">' 
@@ -511,6 +532,21 @@ document.addEventListener('DOMContentLoaded', function () {
     cartMessage.textContent = getMealCountFromStorage() + ' items';
 
   }
+
+  const promoCodeLink = document.querySelector('.promo-code-link');
+  const promoCodeInput = document.querySelector('.promo-code-input');
+
+  promoCodeLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      promoCodeInput.style.display = 'inline-block'; 
+      promoCodeInput.focus(); 
+  });
+  promoCodeInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); 
+        promoCodeInput.blur(); 
+    }
+});
 
   //  ------------------------------ Fetch meals json data  ------------------------------
   fetch('assets/json/meals.json')
