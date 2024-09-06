@@ -4,9 +4,9 @@
       "imagePath": "assets/images/1@2x.png",
       "speciality": "with Cabbage, Carrots & Chicken",
       "gluten": "Gluten Free",
-      "calories": "530 cals",
-      "carbs": "35 carbs",
-      "protein": "22 protiens",
+      "calories": "530 Cals",
+      "carbs": "35 Carbs",
+      "protein": "22 Protiens",
       "price":10,
       "specialMeal":false
     },
@@ -15,9 +15,9 @@
       "imagePath": "assets/images/2@2x.png",
       "speciality": "with Fruits & Seeds",
       "gluten": "Gluten Free",
-      "calories": "90 cals",
-      "carbs": "52 carbs",
-      "protein": "46 protiens",
+      "calories": "90 Cals",
+      "carbs": "52 Carbs",
+      "protein": "46 Protiens",
       "price":20,
       "specialMeal":false
     },
@@ -26,9 +26,9 @@
       "imagePath": "assets/images/3@2x.png",
       "speciality": "with Avocado & Veggies",
       "gluten": "Gluten Free",
-      "calories": "600 cals",
-      "carbs": "50 carbs",
-      "protein": "12 protiens",
+      "calories": "600 Cals",
+      "carbs": "50 Carbs",
+      "protein": "12 Protiens",
       "price":15,
       "specialMeal":true
     },
@@ -37,9 +37,9 @@
       "imagePath": "assets/images/4@2x.png",
       "speciality": "with Mushroom & Spanish Pepper",
       "gluten": "Gluten Free",
-      "calories": "43 cals",
-      "carbs": "35 carbs",
-      "protein": "6 protiens",
+      "calories": "43 Cals",
+      "carbs": "35 Carbs",
+      "protein": "6 Protiens",
       "price":5,
       "specialMeal":false
 
@@ -50,9 +50,9 @@
       "imagePath": "assets/images/5@2x.png",
       "speciality": "with Chickpea & Cheese",
       "gluten": "Gluten Free",
-      "calories": "10 cals",
-      "carbs": "35 carbs",
-      "protein": "33 protiens",
+      "calories": "10 Cals",
+      "carbs": "35 Carbs",
+      "protein": "33 Protiens",
       "price":25,
       "specialMeal":false
 
@@ -62,9 +62,9 @@
       "imagePath": "assets/images/6@2x.png",
       "speciality": "Keto-Friendly Pasta Bowl",
       "gluten": "Gluten Free",
-      "calories": "73 cals",
-      "carbs": "35 carbs",
-      "protein": "4 protiens",
+      "calories": "73 Cals",
+      "carbs": "35 Carbs",
+      "protein": "4 Protiens",
       "price":28,
       "specialMeal":false
 
@@ -74,9 +74,9 @@
       "imagePath": "assets/images/7@2x.png",
       "speciality": "with Chicken & Sweet Kabu",
       "gluten": "Gluten Free",
-      "calories": "80 cals",
-      "carbs": "52 carbs",
-      "protein": "32 protiens",
+      "calories": "80 Cals",
+      "carbs": "52 Carbs",
+      "protein": "32 Protiens",
       "price":30,
       "specialMeal":false
 
@@ -86,9 +86,9 @@
       "imagePath": "assets/images/8@2x.png",
       "speciality": "with Chicken & Coconut",
       "gluten": "Gluten Free",
-      "calories": "100 cals",
-      "carbs": "35 carbs",
-      "protein": "57 protiens",
+      "calories": "100 Cals",
+      "carbs": "35 Carbs",
+      "protein": "57 Protiens",
       "price":10,
       "specialMeal":false
 
@@ -102,9 +102,9 @@
       "imagePath": "assets/images/1@2x.png",
       "speciality": "with Cabbage, Carrots & Chicken",
       "gluten": "Gluten Free",
-      "calories": "530 cals",
-      "carbs": "35 carbs",
-      "protein": "22 protiens",
+      "calories": "530 Cals",
+      "carbs": "35 Carbs",
+      "protein": "22 Protiens",
       "price":10,
       "specialMeal":false
     },
@@ -113,9 +113,9 @@
       "imagePath": "assets/images/3@2x.png",
       "speciality": "with Avocado & Veggies",
       "gluten": "Gluten Free",
-      "calories": "600 cals",
-      "carbs": "50 carbs",
-      "protein": "12 protiens",
+      "calories": "600 Cals",
+      "carbs": "50 Carbs",
+      "protein": "12 Protiens",
       "price":15,
       "specialMeal":true
     },
@@ -124,9 +124,9 @@
       "imagePath": "assets/images/2@2x.png",
       "speciality": "with Fruits & Seeds",
       "gluten": "Gluten Free",
-      "calories": "90 cals",
-      "carbs": "52 carbs",
-      "protein": "46 protiens",
+      "calories": "90 Cals",
+      "carbs": "52 Carbs",
+      "protein": "46 Protiens",
       "price":20,
       "specialMeal":false
     },
@@ -135,9 +135,9 @@
       "imagePath": "assets/images/4@2x.png",
       "speciality": "with Mushroom & Spanish Pepper",
       "gluten": "Gluten Free",
-      "calories": "43 cals",
-      "carbs": "35 carbs",
-      "protein": "6 protiens",
+      "calories": "43 Cals",
+      "carbs": "35 Carbs",
+      "protein": "6 Protiens",
       "price":5,
       "specialMeal":false
 
@@ -148,9 +148,9 @@
       "imagePath": "assets/images/5@2x.png",
       "speciality": "with Chickpea & Cheese",
       "gluten": "Gluten Free",
-      "calories": "10 cals",
-      "carbs": "35 carbs",
-      "protein": "33 protiens",
+      "calories": "10 Cals",
+      "carbs": "35 Carbs",
+      "protein": "33 Protiens",
       "price":25,
       "specialMeal":false
 
@@ -160,9 +160,9 @@
       "imagePath": "assets/images/6@2x.png",
       "speciality": "Keto-Friendly Pasta Bowl",
       "gluten": "Gluten Free",
-      "calories": "73 cals",
-      "carbs": "35 carbs",
-      "protein": "4 protiens",
+      "calories": "73 Cals",
+      "carbs": "35 Carbs",
+      "protein": "4 Protiens",
       "price":28,
       "specialMeal":false
 
@@ -172,9 +172,9 @@
       "imagePath": "assets/images/7@2x.png",
       "speciality": "with Chicken & Sweet Kabu",
       "gluten": "Gluten Free",
-      "calories": "80 cals",
-      "carbs": "52 carbs",
-      "protein": "32 protiens",
+      "calories": "80 Cals",
+      "carbs": "52 Carbs",
+      "protein": "32 Protiens",
       "price":30,
       "specialMeal":false
 
@@ -184,9 +184,9 @@
       "imagePath": "assets/images/8@2x.png",
       "speciality": "with Chicken & Coconut",
       "gluten": "Gluten Free",
-      "calories": "100 cals",
-      "carbs": "35 carbs",
-      "protein": "57 protiens",
+      "calories": "100 Cals",
+      "carbs": "35 Carbs",
+      "protein": "57 Protiens",
       "price":10,
       "specialMeal":false
 
@@ -200,9 +200,9 @@
       "imagePath": "assets/images/1@2x.png",
       "speciality": "with Cabbage, Carrots & Chicken",
       "gluten": "Gluten Free",
-      "calories": "530 cals",
-      "carbs": "35 carbs",
-      "protein": "22 protiens",
+      "calories": "530 Cals",
+      "carbs": "35 Carbs",
+      "protein": "22 Protiens",
       "price":10,
       "specialMeal":false
     },
@@ -211,9 +211,9 @@
       "imagePath": "assets/images/2@2x.png",
       "speciality": "with Fruits & Seeds",
       "gluten": "Gluten Free",
-      "calories": "90 cals",
-      "carbs": "52 carbs",
-      "protein": "46 protiens",
+      "calories": "90 Cals",
+      "carbs": "52 Carbs",
+      "protein": "46 Protiens",
       "price":20,
       "specialMeal":false
     },
@@ -222,9 +222,9 @@
       "imagePath": "assets/images/3@2x.png",
       "speciality": "with Avocado & Veggies",
       "gluten": "Gluten Free",
-      "calories": "600 cals",
-      "carbs": "50 carbs",
-      "protein": "12 protiens",
+      "calories": "600 Cals",
+      "carbs": "50 Carbs",
+      "protein": "12 Protiens",
       "price":15,
       "specialMeal":true
     },
@@ -233,9 +233,9 @@
       "imagePath": "assets/images/4@2x.png",
       "speciality": "with Mushroom & Spanish Pepper",
       "gluten": "Gluten Free",
-      "calories": "43 cals",
-      "carbs": "35 carbs",
-      "protein": "6 protiens",
+      "calories": "43 Cals",
+      "carbs": "35 Carbs",
+      "protein": "6 Protiens",
       "price":5,
       "specialMeal":false
 
@@ -246,9 +246,9 @@
       "imagePath": "assets/images/5@2x.png",
       "speciality": "with Chickpea & Cheese",
       "gluten": "Gluten Free",
-      "calories": "10 cals",
-      "carbs": "35 carbs",
-      "protein": "33 protiens",
+      "calories": "10 Cals",
+      "carbs": "35 Carbs",
+      "protein": "33 Protiens",
       "price":25,
       "specialMeal":false
 
@@ -258,9 +258,9 @@
       "imagePath": "assets/images/6@2x.png",
       "speciality": "Keto-Friendly Pasta Bowl",
       "gluten": "Gluten Free",
-      "calories": "73 cals",
-      "carbs": "35 carbs",
-      "protein": "4 protiens",
+      "calories": "73 Cals",
+      "carbs": "35 Carbs",
+      "protein": "4 Protiens",
       "price":28,
       "specialMeal":false
 
@@ -270,9 +270,9 @@
       "imagePath": "assets/images/7@2x.png",
       "speciality": "with Chicken & Sweet Kabu",
       "gluten": "Gluten Free",
-      "calories": "80 cals",
-      "carbs": "52 carbs",
-      "protein": "32 protiens",
+      "calories": "80 Cals",
+      "carbs": "52 Carbs",
+      "protein": "32 Protiens",
       "price":30,
       "specialMeal":false
 
@@ -282,9 +282,9 @@
       "imagePath": "assets/images/8@2x.png",
       "speciality": "with Chicken & Coconut",
       "gluten": "Gluten Free",
-      "calories": "100 cals",
-      "carbs": "35 carbs",
-      "protein": "57 protiens",
+      "calories": "100 Cals",
+      "carbs": "35 Carbs",
+      "protein": "57 Protiens",
       "price":10,
       "specialMeal":false
 

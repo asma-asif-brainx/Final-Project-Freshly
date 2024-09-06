@@ -26,7 +26,7 @@
 <body class="body-container">
     <div id="wizard">
        <!--------------------------------- Navigation for steps --------------------------------->
-       <div class="nav-container"> 
+        <div class="nav-container"> 
             <ul class="step-steps steps-container d-flex align-items-center justify-content-center gap-3 pt-2 pb-2 mb-0">
                 <li class="header-list" data-step-target="plan-step">Plans </li>
                 <span> > </span>
@@ -37,7 +37,6 @@
                 <li class="header-list" data-step-target="checkout-step">Checkout</li>
             </ul>
         </div>
-
         <hr class="nav-seperator">
 
         <div class="sections-container">
@@ -329,7 +328,7 @@
                 
                 <div class="row m-0">
                     <div class="col-lg-9 col-md-8 col-12 mb-md-0 pb-md-0 mb-5 pb-5">
-                      <div class="row m-0 mt-2" id="meal-cards-container">
+                      <div class="row m-0 mt-2 pb-sm-0 mb-sm-0 pb-4 mb-4" id="meal-cards-container">
                         <!-- Meal cards will be dynamically inserted here -->
                       </div>
                     </div>
@@ -397,7 +396,7 @@
                         <img class="meal-image" src="" alt="">
                         <div class="meal-info pt-2">
                           <h4 class="meal-name mx-2 mb-1 mt-md-0 mt-3"></h4>
-                          <p class="meal-speciality mx-2"></p>
+                          <p class="meal-speciality mx-2 mb-3"></p>
                           <div class="meal-details mx-2 pb-1 mt-md-0 mt-2 mt-1">
                             <p class="meal-gluten mb-0 pe-2"></p>
                             <p class="meal-calories mb-0  pe-2"></p>
@@ -436,13 +435,13 @@
                  
                     <div class="form-column col-md-7 col-12 d-flex flex-column pe-0">
                         
-                        <p class="ms-lg-0 ps-lg-0 ms-sm-0 ms-3 checkout-form-head mt-sm-0 mt-5">Checkout</p> 
+                        <p class="ms-lg-0 ps-lg-0 ms-sm-0 ms-3 checkout-form-head mt-sm-3 mt-5 ">Checkout</p> 
                             
-                        <div class="d-flex flex-column align-items-end justify-content-end ">
+                        <div class="d-flex flex-column align-items-end justify-content-end mb-4">
                             <!------------------------------------- Checkout form container----------------------------------------------->
                            
                             <div class="form-container px-sm-5 px-3">
-                                <p class="delivery-address-head mt-3">Delivery Address</p>
+                                <p class="delivery-address-head mt-3 mb-4">Delivery Address</p>
 
                                 <form id="checkout-form">
                                     <div class="name-group mb-3">
@@ -509,19 +508,18 @@
                     
                                     <hr>
 
-                                    <button type="submit" id="checkout-btn" class="checkout-buttton mt-2 w-100" disabled >Checkout</button>
+                                    <button type="submit" id="checkout-btn" class="checkout-buttton mt-2 w-100 mb-3" disabled >Checkout</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 
                     <div class="order-checkout-container col-md-5 col-12">
-                        <h1 class="order-summary-head mb-4 ms-md-0 ms-3 mt-sm-0 mt-2">Order Summary</h1>
+                        <h1 class="order-summary-head mb-4 ms-sm-2 ms-3 mt-sm-3 mt-3 ">Order Summary</h1>
 
-                        <div class="card-order-summary">
-                            <div class="promo-code-container mt-2">
-                                <a class="ps-2 promo-code-link" href="">+ Add Promo Code</a>
-                                <input type="text" class="promo-code-input ms-3" placeholder="Enter Promo Code" style="display: none;" />
+                        <div class="card-order-summary ms-sm-2">
+                            <div class="promo-code-container mt-3 ps-2">
+                                <a class="promo-code-link" href="">+ Add Promo Code</a>
                             </div>
                             <hr class="summary-seperator my-2">
                             <p class="delivery-date-head-order ps-2">Delivery Date</p>
@@ -551,9 +549,9 @@
                             </div>
                         </div>
 
-                        <h1 class="meals-summary-head my-4 ms-md-0 ms-3 mt-sm-2 mt-5">My Meals</h1>
+                        <h1 class="meals-summary-head my-4 ms-sm-2 ms-3 mt-sm-4 mt-5">My Meals</h1>
                        
-                        <div class="summary-meal-card">
+                        <div class="summary-meal-card ms-sm-2">
                              <!-- Cards of meals will be displayed here -->
                         </div>
                     </div>
@@ -572,7 +570,7 @@
                     </div>
                 </template>
 
-            <hr class="mt-5">
+            <hr class="mt-5 pb-3">
 
                 <!-------------------------------- Accordian checkout page ----------------------------------------------->
                 <div>
@@ -755,7 +753,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordian-end-space"></div>
+                                    <div class="checkout-accordian-end-space"></div>
                                 </div>
                             </div>
                         </div>

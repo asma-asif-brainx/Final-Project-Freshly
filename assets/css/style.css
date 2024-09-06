@@ -102,6 +102,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 22;
 }
 .steps-container{
     background-color: var(--nav-background);
@@ -515,7 +516,7 @@
     max-height: 735px;
     height: 100%;
     width: 100%; 
-    max-width: 320px; 
+    max-width: 325px; 
     display: flex;
     flex-direction: column;
 }
@@ -697,7 +698,7 @@
 /* ----------------------------- Checkout form ----------------------------- */
 .checkout-form-head{
     font-size: 23px;
-    left: 20%;
+    left: 27%;
     position: relative;
 }
 .form-column{
@@ -709,7 +710,7 @@
     justify-content:space-evenly;
 }
 .form-container{
-    max-width: 591px;
+    max-width: 73%;
     width: 100%;
     min-height: 880px;
     height: 100%;
@@ -760,13 +761,12 @@
     color: var(--red);
     font-size: 10px; 
     display: block;
-    position: absolute; 
 }
 
 /*------------------------------ Order summary ----------------------------- */
 .card-order-summary{
     background-color: var(--nav-background);
-    max-width: 400px;
+    max-width: 370px;
     width: 100%;
     border: 1px solid var(--order-summary-bodrer);
 }
@@ -789,14 +789,14 @@
     padding: 5px;
     border: 1px solid var(--deliver-border);
     border-radius: 4px;
-    max-width: 150px;
+    max-width: 350px;
     width: 100%;
     font-size: 14px;
 }
 .delivery-div{
     border: 1px solid var(--deliver-border); 
     border-radius:5px ;
-    max-width: 380px;
+    max-width: 350px;
     width: 100%;
     min-height: 20px;
     height: 100%;
@@ -810,7 +810,7 @@
 }
 
 .order-summary-meal-card{
-    max-width: 400px;
+    max-width: 370px;
     width: 100%;
     min-height: 77px;
     height: 100%;
@@ -843,10 +843,13 @@
 .total-price-sum{
     color: var(--red-orange-price);
 }
+.checkout-accordian-end-space {
+    min-height: 190px;
+    height: 100%;
+}
 
 
-
-@media (min-width:1500px) and (max-width:1980px){
+@media screen and (min-width:1500px) and (max-width:1980px){
     .add-to-cart-container {
         max-height: 93%;
         height: 100%;
@@ -861,7 +864,7 @@
         height: 100%;
     }
     .form-container{
-        max-width: 800px;
+        max-width: 64%;
         width: 100%;
     }
 
@@ -883,15 +886,28 @@
         overflow-y: auto;  
     }
     .checkout-form-head {
-        left: 28%;
+        left: 36%;
         position: relative;
+    }
+    .promo-code-input {
+        max-width: 430px;
+        width: 100%;
+    }
+    .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality {
+        font-size: 13px;
+    }
+    .meal-name{
+        font-size: 16px;
+    }
+    .meal-speciality{
+        font-size: 13px;
+    }
+    .special-tag{
+        transform: translateY(-105px);
     }
 }
 
-@media (min-width:1300px) and (max-width:1495px){
-    /* .meal-details {
-        gap: 5px;
-    } */
+@media screen and (min-width:1300px) and (max-width:1495px){
     .add-to-cart-container{
         max-height: 93%;
         height: 100%;
@@ -904,12 +920,16 @@
         overflow-y: auto;  
     }
     .checkout-form-head {
-        left: 30%;
+        left: 32%;
         position: relative;
+    }
+    .form-container{
+        max-width: 68%;
+        width: 100%;
     }
 }
 
-@media (max-width:1024px){
+@media screen and (max-width:1024px){
     .checkout-form-head{
         left: 25%;
         position: relative;
@@ -964,15 +984,17 @@
     }
     /* --------Checkout section---------- */
     .form-container {
-        max-width: 447px;
+        max-width: 75%;
         width: 100%;
+        min-height: 895px;
+        height: 100%;
     }
     .card-order-summary {
         max-width: 300px;
         width: 100%;
     }
     .delivery-div {
-        max-width: 274px;
+        max-width: 280px;
         width: 100%;
     }
     .error-message {
@@ -989,7 +1011,7 @@
         font-size: 11px;
     }
     .special-tag{
-        transform: translateY(-82px);
+        transform: translateY(-81px);
     } 
     .fname-input, .lname-input{
         min-width: 170px;
@@ -998,9 +1020,13 @@
     .promo-code-link {
         font-size: 13px;
     }
+    .promo-code-input{
+        max-width: 278px;
+        width: 100%;
+    }
 } 
 
-@media (max-width:980px){
+@media screen and (max-width:980px){
     .plan-cards{
         display: flex;
         align-items: center;
@@ -1055,9 +1081,6 @@
     .meal-name {
         font-size: 13px;
     }
-    /* .meal-details {
-         gap: 16px;
-    } */
     .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
         font-size: 10px;
     }
@@ -1081,9 +1104,19 @@
         left: 5%;
         position: relative;
     }
+    .promo-code-input {
+        max-width: 280px;
+        width: 100%;
+    }
+    .form-container {
+        max-width: 95%;
+        width: 100%;
+        min-height: 910px;
+    height: 100%;
+    }
 }
 
-@media (max-width:767px){
+@media screen and (max-width:767px){
     .logo{
         min-height: 112px;
         height: 100%;
@@ -1175,7 +1208,7 @@
     }
 
     .accordian-end-space {
-        min-height: 170px;
+        min-height: 100px;
         height: 100%;
     }
     .next-button-delivery{
@@ -1294,7 +1327,7 @@
         margin: auto;
       }
       .special-tag {
-        transform: translateY(-126px);  
+        transform: translateY(-135px);  
       }
       .meal-details p:nth-last-child(n+3)::after {
         right: 0px;
@@ -1312,7 +1345,7 @@
         margin: auto;
     }
     .form-container {
-        min-height: 1130px;
+        min-height: 1145px;
         height: 100%;
     }
     .meal-cards-added-cart {
@@ -1329,10 +1362,20 @@
     }
     .promo-code-input{
         font-size: 12px;
+        max-width: 378px;
+        width: 100%;
+    }
+    .checkout-accordian-end-space {
+        min-height: 100px;
+        height: 100%;
+    }
+    .delivery-div {
+        max-width: 380px;
+        width: 100%;
     }
 }
 
-@media (max-width:330px){
+@media screen and (max-width:330px){
     .description-head {
         font-size: 31px;
     }

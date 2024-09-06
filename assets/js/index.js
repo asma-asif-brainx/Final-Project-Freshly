@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
  };
  
  const validateName = value => /^[a-zA-Z]+$/.test(value);
- const validateAddress = value => /^[a-zA-Z0-9#_]+$/.test(value);
+ const validateAddress = value => /^[a-zA-Z0-9#_,]+$/.test(value);
  const validateZip = value => /^\d{5}$/.test(value);
  
  const validateEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -534,19 +534,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const promoCodeLink = document.querySelector('.promo-code-link');
-  const promoCodeInput = document.querySelector('.promo-code-input');
 
   promoCodeLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      promoCodeInput.style.display = 'inline-block'; 
-      promoCodeInput.focus(); 
+    event.preventDefault(); 
+    const promoInput = document.createElement('input');
+    promoInput.type = 'text';
+    promoInput.className = 'promo-code-input';
+    promoInput.placeholder = 'Enter Promo Code';
+    
+    this.parentNode.replaceChild(promoInput, this);
+    
+    promoInput.focus();
+    
+    promoInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            promoInput.blur(); 
+        }
+      });
   });
-  promoCodeInput.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault(); 
-        promoCodeInput.blur(); 
-    }
-});
+
 
   //  ------------------------------ Fetch meals json data  ------------------------------
   fetch('assets/json/meals.json')
