@@ -234,6 +234,19 @@ document.addEventListener('DOMContentLoaded', function () {
   let numOfSpecialMeals;
   let subtotal;
 
+  function toggleOrderSummaryVisibilty(){
+    const orderSummaryCart = document.querySelector('.order-summary-cart');
+    const cartShipping = document.querySelector('.cart-shipping');
+
+    if (mealCart.length > 0) {
+      orderSummaryCart.classList.remove('hidden');
+      cartShipping.classList.remove('hidden');
+    } else {
+        orderSummaryCart.classList.add('hidden');
+        cartShipping.classList.add('hidden');
+    }
+  }
+
   function addToCart(meal) {
     const mealCountLimit = getMealCountFromStorage();
     if (mealCart.length < mealCountLimit) {
@@ -390,8 +403,25 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.meal-cards-added-cart').innerHTML = "";
     const countSpan = document.querySelector('.cart-item-count');
     countSpan.textContent = mealCart.length;
-    toggleOrderSummaryVisibilty()
+    const nextButton = document.querySelector('.next-btn-cart');
+    const readyText= document.querySelector('.enter-msg-cart');
+
+    const mealCountLimit = getMealCountFromStorage();
+
+    if (mealCart.length === mealCountLimit) {
+      nextButton.classList.remove('disabled');
+      nextButton.removeAttribute('disabled');
+      readyText.innerHTML = '<span id="meals-count-cart">Ready to go!</span>';
+    } else {
+      nextButton.classList.add('disabled');
+      nextButton.setAttribute('disabled', 'true');
+
+      readyText.innerHTML = 'Please add <span id="meals-count-cart">' 
+      + (mealCountLimit - mealCart.length) + '' 
+      + '</span> meals to continue.';
+    }
     calculatePrice();
+    toggleOrderSummaryVisibilty()
   }
 
   document.querySelector('.next-btn-cart').addEventListener('click', () => checkoutMealPrice());
@@ -444,18 +474,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
  }
 
-  function toggleOrderSummaryVisibilty(){
-    const orderSummaryCart = document.querySelector('.order-summary-cart');
-    const cartShipping = document.querySelector('.cart-shipping');
-
-    if (mealCart.length > 0) {
-      orderSummaryCart.classList.remove('hidden');
-      cartShipping.classList.remove('hidden');
-    } else {
-        orderSummaryCart.classList.add('hidden');
-        cartShipping.classList.add('hidden');
-    }
-  }
 
   function showCart() {
     const cartItemsContainer = document.querySelector('.cart-items-container');

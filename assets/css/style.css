@@ -494,6 +494,11 @@
     border: none;
 }
 
+.meal-control-plus:active , .meal-control-minus:active, .btn:active:focus-visible:focus:focus-within , .btn{
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
 /* -----------------------Cart----------------------- */
 
 .add-to-cart-container {
