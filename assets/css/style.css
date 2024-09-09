@@ -1389,4 +1389,8 @@
     .meal-details{
         gap:5px;
     }
+    .add-to-cart-container {
+        min-height: 70%;
+        height: 100%;
+    }
 }
