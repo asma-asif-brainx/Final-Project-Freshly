@@ -850,7 +850,7 @@
         width: 100%;
     }
     .meal-cards-added-cart {
-        max-height: 550px;
+        max-height: 350px;
         height: auto;
         overflow-y: auto;  
     }
