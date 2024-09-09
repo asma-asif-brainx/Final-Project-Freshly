@@ -467,11 +467,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add click event listener to the "Next" button for delivery and update cart message
   document.querySelector('.next-button-delivery').addEventListener('click', () => cartMessage());
-
+  
   // Function to display the cart message with the number of meals in the cart
   function cartMessage() {
-    let cartMessage = document.getElementById('meals-count-cart');
-    cartMessage.textContent = getMealCountFromStorage() + ' items';
+    let message = getMealCountFromStorage() + ' items';
+    const readyText = document.querySelector('.enter-msg-cart');
+    readyText.innerHTML = 'Please add total <span id="meals-count-cart">'
+      + message + ''
+      + '</span> to continue.';
   }
 
   // Add event listener to the promo code link to replace it with an input field on click
