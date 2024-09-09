@@ -1294,7 +1294,7 @@
         margin: auto;
       }
       .special-tag {
-        transform: translateY(-135px);  
+        transform: translateY(-128px);  
       }
       .meal-details p:nth-last-child(n+3)::after {
         right: 10%;
