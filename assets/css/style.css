@@ -579,8 +579,7 @@
 }
 .cart-meal-img {
     max-width: 35%;
-    min-height: 60px;
-    height: 100%;
+    width: 100%;
 }
 .cart-icon-container{
     border: 1px solid var(--order-summary-bodrer);
@@ -652,8 +651,9 @@
     font-size: 22px;
     padding: 0;
     color:var(--blackish-grey);
-    font-weight: 700;
+    font-weight: 500;
 }
+
 .meal-details p {
     position: relative;
 }
@@ -983,6 +983,10 @@
     }
     .promo-code-input{
         max-width: 278px;
+        width: 100%;
+    }
+    .cart-meal-img {
+        max-width: 38%;
         width: 100%;
     }
 } 

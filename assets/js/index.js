@@ -258,15 +258,15 @@ document.addEventListener('DOMContentLoaded', function () {
   function toggleDisableAddButton(){
     const mealCountLimit = getMealCountFromStorage();
     const addButtons = document.querySelectorAll('.add-btn');
+  addButtons.forEach(button => {
     if (mealCart.length === mealCountLimit) {
-      addButtons.forEach(button => {
-        button.setAttribute('disabled', 'true');
-      });
+      button.setAttribute('disabled', 'true');
+      button.setAttribute('title', 'Your cart is full'); 
     } else {
-      addButtons.forEach(button => {
-        button.removeAttribute('disabled');
-      });
+      button.removeAttribute('disabled');
+      button.removeAttribute('title'); 
     }
+  });
   }
 
   function updateCart(meal) {
@@ -391,8 +391,12 @@ document.addEventListener('DOMContentLoaded', function () {
     subtotal = (price + numOfSpecialMeals * 11.49).toFixed(2);
   
     document.getElementById('subtotal-order-price').textContent = `$${subtotal}`;
-    document.getElementById('meals-sum-price').textContent = `$${price} + $${(numOfSpecialMeals * 11.49).toFixed(2)}`;
-    document.getElementById('subtotal-cart-price').textContent = `$${subtotal}`;
+    if (numOfSpecialMeals > 0) {
+      document.getElementById('meals-sum-price').textContent = `$${price} + $${(numOfSpecialMeals * 11.49).toFixed(2)}`;
+    } else {
+        document.getElementById('meals-sum-price').textContent = `$${price}`;
+    }
+      document.getElementById('subtotal-cart-price').textContent = `$${subtotal}`;
   }
   
   // ------------------------------ Cart and Checkout Actions ------------------------------
