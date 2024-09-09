@@ -1397,4 +1397,8 @@
         min-height: 70%;
         height: 100%;
     }
+    .meal-cards-added-cart {
+        max-height: 148px;
+        height: auto;
+    }
 }
