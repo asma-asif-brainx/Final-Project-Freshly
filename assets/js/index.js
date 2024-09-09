@@ -15,13 +15,24 @@ document.addEventListener('DOMContentLoaded', function () {
      city: "City must only contain letters (a-z, A-Z).",
      state: "State must only contain letters (a-z, A-Z).",
      zip: "Zip must contain exactly 5 digits from 0-9.",
+     zipAlphabet: "Zip must only contain digits",
      address: "Address must contain only alphabets (a-z, A-Z), digits (0-9), and special characters (#, _)."
  };
  
- const validateName = value => /^[a-zA-Z]+$/.test(value);
- const validateAddress = value => /^[a-zA-Z0-9#_,]+$/.test(value);
- const validateZip = value => /^\d{5}$/.test(value);
- const validateEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+ const validateName = value => /^[a-zA-Z ]+$/.test(value);
+ const validateAddress = value => /^[a-zA-Z0-9#_, ]+$/.test(value);
+ const validateZip = value => {
+  if (/[^0-9]/.test(value)) {
+      // If ZIP contains anything other than digits, show zipAlphabet error
+      return errorMessages.zipAlphabet;
+  }
+  if (value.length !== 5) {
+      // If ZIP code is not exactly 5 digits
+      return errorMessages.zip;
+  }
+  return '';
+ };
+ const validateEmail = value => /^[^\s@]+@[^\s@]+\.com$/.test(value);
  // Validate multiple emails
  const validateEmails = value => {
      const emailList = value.split(',').map(email => email.trim());
@@ -32,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
  };
  const validateContact = value => {
      const contactPattern = /^\+?\d{11,12}$/;
-     return contactPattern.test(value) && (value.startsWith('+') ? value.length === 12 : value.length === 11);
+     return contactPattern.test(value) && (value.startsWith('+') ? value.length === 13 : value.length === 11);
  };
  const validators = {
      fname: value => validateName(value) ? '' : errorMessages.name,
@@ -41,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
      'full-delivery-address-two': value => validateName(value) ? '' : errorMessages.fullName,
      city: value => validateName(value) ? '' : errorMessages.city,
      state: value => validateName(value) ? '' : errorMessages.state,
-     zip: value => validateZip(value) ? '' : errorMessages.zip,
+     zip: value => validateZip(value), 
      'first-address-name': value => validateAddress(value) ? '' : errorMessages.address,
      'second-address-name': value => validateAddress(value) ? '' : errorMessages.address,
      email: value => {
@@ -443,7 +454,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }  
 
   // Add click event listener to the cart icon to show the cart when clicked in mobile screen
-  const cartIcon = document.querySelector('.cart-icon');
+  const cartIcon = document.querySelector('.cart-icon-container');
   cartIcon.addEventListener('click', showCart);
 
  // Add click event listener to the cart down arrow to hide the cart when clicked in mobile screen

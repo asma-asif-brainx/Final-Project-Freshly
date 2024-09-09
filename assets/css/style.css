@@ -457,7 +457,7 @@
     align-items: center;
 }
 .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
-    font-size: 10px;
+    font-size: 11px;
     color: var(--date-item-border);
 }
 .special-meal-div {
@@ -1211,7 +1211,7 @@
         margin-bottom: 0;
     }
     .meal-name {
-        font-size: 20px;
+        font-size: 14px;
     }
     .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
         font-size: 14px;
@@ -1383,6 +1383,6 @@
     }
      /*-------------------- Meals page------------------ */
     .meal-details{
-        gap:10px;
+        gap:5px;
     }
 }
