@@ -8,25 +8,25 @@
 
     <!------------------------------------ Bootstrap------------------------------------------------------->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
     
     <!------------------------------------ Jquery------------------------------------------------------->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
-    <script src="assets/jquery/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js" defer></script>
+    <script src="assets/jquery/jquery.js" defer></script>
 
     <!------------------------------------Font awesome ------------------------------------------------------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!------------------------------------ Custom CSS and JS----------------------------------------------------->
-    <script src="assets/js/index.js"></script> 
+    <script src="assets/js/index.js" defer></script> 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="body-container">
     <div id="wizard">
        <!--------------------------------- Navigation for steps --------------------------------->
-        <div class="nav-container"> 
+        <nav class="nav-container"> 
             <ul class="step-steps steps-container d-flex align-items-center justify-content-center gap-3 pt-2 pb-2 mb-0">
                 <li class="header-list" data-step-target="plan-step">Plans </li>
                 <span> > </span>
@@ -36,9 +36,8 @@
                 <span> > </span>
                 <li class="header-list" data-step-target="checkout-step">Checkout</li>
             </ul>
-        </div>
+        </nav>
         <hr class="nav-seperator">
-
         <div class="sections-container">
             <!----------------------------------------------- Plan Section --------------------------------------------------->
             <section data-step="plan-step" class="active">
@@ -46,13 +45,14 @@
                 <div class="logo-description-section">
                     <img class="logo mt-3" src="assets/images/logo.svg">
                     <p class="description-head mt-3 mb-3">Flexible plans that fits your life</p>
-                    <p class="description-text  mb-md-4 mb-1">We offer anywhere from 4–12 meals per week, starting at <span class="bigger-box-price">$11.49/meal</span>.
-                        <span class="bigger-box-text"> The bigger your box, the more you’ll save </span> — and 
-                        you can always pause, cancel, or change your plan at any time.</p>
+                    <p class="description-text  mb-md-4 mb-1">We offer anywhere from 4–12 meals per week, starting at 
+                        <span class="bigger-box-price">$11.49/meal</span>.
+                        <span class="bigger-box-text"> The bigger your box, the more you’ll save </span> 
+                        — and you can always pause, cancel, or change your plan at any time.
+                    </p>
                 </div>
 
                 <!------------------------------------ Cards section------------------------------------------------------->
-                   
                 <div class="row mx-0 mt-3 gap-0 d-flex justify-content-center">
                     <div class="plan-cards gap-md-3 gap-2 ">
                         <div id="four-meals" class="col-md-3 col-xs-6 plan-meals-card mb-0 mb-xs-4 gap-4 ">
@@ -103,28 +103,24 @@
                     <p class="shipping-text">Shipping and tax added at checkout</p>
                     <button class="get-started-btn" type="button">Get Started</button>
                 </div>
-
             </section>
 
             <!------------------------------------ Day Section ------------------------------------------------------->
             <section data-step="day-step">
                 <p class="delivery-day-head text-center pt-md-5 pt-4">Choose your delivery day</p>
-
                 <div class="container mt-md-3 mt-0">
                     <div class="date-container">
                         <!-- 10 Dates will be dynamically inserted here -->
                     </div>
                 </div>
-
                 <div class="next-button mt-md-3 mt-4 ">
                     <button class="next-button-delivery">Next</button>
                 </div>
-
                 <div class="first-delivery-description text-center">
                     <p class="first-delivery-text mt-2">First Delivery Date: <span class="first-delivery-date"></span></p>
                 </div>
 
-                <!-- Template for date items -->
+                <!-- Template for rendering date items -->
                 <template id="date-template">
                     <div class="date-item">
                         <span class="date-text-item"><!-- Date will be inserted here --></span>
@@ -180,7 +176,8 @@
                                                 perfect for a person looking for 6 dinners (or lunches!) a week. On average, our meals weigh in
                                                 at about 13 ounces and range from 300 to 650 calories. If you have a larger household, we do
                                                 offer a 12 meal per week subscription (it’s perfect for couples or a family of 4 looking for 3
-                                                meals per week). Plus, you can always order multiple subscriptions. </p>
+                                                meals per week). Plus, you can always order multiple subscriptions. 
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -322,10 +319,8 @@
                 </div>
             </section>
 
-
             <!------------------------------------ Meals Section 3 ------------------------------------------------------->
             <section data-step="meals-step">
-                
                 <div class="row m-0">
                     <div class="col-lg-9 col-md-8 col-12 mb-md-0 pb-md-0 mb-5 pb-5">
                       <div class="row m-0 mt-2 pb-sm-0 mb-sm-0 pb-4 mb-4" id="meal-cards-container">
@@ -344,43 +339,33 @@
                                 </p>
                                 <a class="clear-all mt-3">Clear all</a>
                             </div>
-
                             <hr class="">
-
                             <div class="meal-cards-added-cart px-2">
                                     <!--selected meal cards will be added to cart here  -->
                             </div>
-
                             <div class="d-sm-block d-none">
                             <div class="order-summary-cart px-2 hidden">
                                 <p class="cart-order-summary-head mt-3 mb-2">Order Summary</p>
-
                                 <div class="d-flex flex-row justify-content-between"> 
                                     <p class="order-cart-meal-count mb-1"></p>
                                     <span id="meals-sum-price"></span>
                                 </div>
-
                                 <div class="d-flex flex-row justify-content-between">
                                     <p class="subtotal-text-order-cart mb-1">Subtotal</p>
                                     <span id="subtotal-order-price"></span>
                                 </div>
-
                             </div>
                             <p class="cart-shipping text-center hidden">Tax and shipping calculated at checkout</p>
-
                         </div>
                         </div>
-
                         <div class="subtotal-container">
                             <div class="subtotal-row d-flex flex-row justify-content-between">
                                 <p class="mt-1 subtotal-text">Subtotal <span id="subtotal-cart-price">$</span></p>
-
                                 <div class="cart-icon-container py-2">
                                     <img class="cart-icon" src="assets/images/cart-icon.png">
                                     <span class="cart-item-count badge">0</span>
                                 </div>
                             </div>
-
                             <div class="d-flex align-items-center justify-content-center flex-column ">
                                 <button class="mt-1 next-btn-cart disabled" type="button" disabled>Next</button>
                                 <p class="enter-msg-cart mt-2">Please add total <span id="meals-count-cart"> </span> to continue</p>
@@ -409,7 +394,6 @@
                     </div>
                   </template>
 
-
                   <!-- Template for selected meal added in the cart -->
                   <template id="selected-meal-template">
                     <div class="cart-meals col-md-12 col-sm-6 col-12 p w-xl-25 w-lg-25 w-md-25 w-sm-100 w-xs-100 p-1">
@@ -425,24 +409,18 @@
                       </div>
                     </div>
                   </template>
-
             </section>
 
             <!------------------------------------ Checkout Section 4 ------------------------------------------------------->
             <section data-step="checkout-step">
-            
                 <div class="row me-0  mt-4 d-flex flex-md-row">
-                 
                     <div class="form-column col-md-7 col-12 d-flex flex-column pe-0">
-                        
                         <p class="ms-lg-0 ps-lg-0 ms-sm-0 ms-3 checkout-form-head mt-sm-3 mt-5 ">Checkout</p> 
-                            
                         <div class="d-flex flex-column align-items-end justify-content-end mb-4">
+
                             <!------------------------------------- Checkout form container----------------------------------------------->
-                           
                             <div class="form-container px-sm-5 px-3">
                                 <p class="delivery-address-head mt-3 mb-4">Delivery Address</p>
-
                                 <form id="checkout-form">
                                     <div class="name-group mb-3">
                                         <div class="row">
@@ -456,7 +434,6 @@
                                             </div>
                                         </div>
                                     </div>
-                    
                                     <div class="mb-3 full-name-delivery-address-group">
                                         <label class="custom-label full-name-delivery-address-label mb-2" for="full-delivery-address">Full Name for Delivery Address</label>
                                         <input class="custom-input full-name-delivery-address-input input-block-height w-100" id="full-delivery-address" name="full-delivery-address" type="text">
@@ -465,17 +442,14 @@
                                         <label class="custom-label full-name-delivery-address-label mb-2" for="full-delivery-address-two">Full Name for Delivery Address</label>
                                         <input class="custom-input full-name-delivery-address-input input-block-height w-100" id="full-delivery-address-two" name="full-delivery-address-two" type="text">
                                     </div>
-                    
                                     <div class="mb-3 address-line-one-group">
                                         <label class="custom-label first-address-label mb-2">Address Line 1</label>
                                         <input class="custom-input first-address-input input-block-height w-100" name="first-address-name" type="text">
                                     </div>
-                    
                                     <div class="mb-3 address-line-two-group">
                                         <label class="custom-label second-address-label mb-2">Address Line 2 (optional)</label>
                                         <input class="custom-input second-address-input input-block-height w-100" name="second-address-name" type="text">
                                     </div>
-                    
                                     <div class="row city-group">
                                         <div class="mb-3 col-md-4">
                                             <label class="custom-label city-label mb-2" for="city">City</label>
@@ -490,24 +464,19 @@
                                             <input class="custom-input zip input-block-height w-100" id="zip" name="zip" type="text">
                                         </div>
                                     </div>                            
-                    
                                     <div class="mb-3 phone-group">
                                         <label class="custom-label phone-label mb-2" for="phone">Phone</label>
                                         <input class="custom-input ph input-block-height w-100" id="phone" name="phone" type="text">
                                     </div>
-                    
                                     <label class="sms-update-checbox mb-3">
                                         <input type="checkbox" value="sms-updates">
                                         Receive SMS text message updates on my orders
                                     </label>
-
                                     <div class="mb-3 email-group">
                                         <label class="custom-label email-label mb-2" for="email">Email (We require your email to send you receipts and order updates)</label>
                                         <input class="custom-input email-field input-block-height w-100" id="email" name="email" type="email">
                                     </div>
-                    
                                     <hr>
-
                                     <button type="submit" id="checkout-btn" class="checkout-buttton mt-2 w-100 mb-3" disabled >Checkout</button>
                                 </form>
                             </div>
@@ -516,7 +485,6 @@
                 
                     <div class="order-checkout-container col-md-5 col-12">
                         <h1 class="order-summary-head mb-4 ms-sm-2 ms-3 mt-sm-3 mt-3 ">Order Summary</h1>
-
                         <div class="card-order-summary ms-sm-2">
                             <div class="promo-code-container mt-3 ps-2">
                                 <a class="promo-code-link" href="">+ Add Promo Code</a>
@@ -548,15 +516,14 @@
                                 <span class="total-price-sum pe-2"></span>
                             </div>
                         </div>
-
                         <h1 class="meals-summary-head my-4 ms-sm-2 ms-3 mt-sm-4 mt-5">My Meals</h1>
-                       
                         <div class="summary-meal-card ms-sm-2">
                              <!-- Cards of meals will be displayed here -->
                         </div>
                     </div>
                 </div>
 
+                <!-- Template to render meals summary in checkout section -->
                 <template id="order-summary-meal-template">
                     <div class="order-summary-meal-card d-flex flex-row  align-items-center gap-3" >
                         <div class="order-summary-meal-card-content d-flex flex-row justify-content-center align-items-center">
@@ -569,9 +536,7 @@
                         </div>
                     </div>
                 </template>
-
-            <hr class="mt-5 pb-3">
-
+                <hr class="mt-5 pb-3">
                 <!-------------------------------- Accordian checkout page ----------------------------------------------->
                 <div>
                     <h1 class="text-center common-question-head my-5">Common Questions</h1>
@@ -762,6 +727,5 @@
             </section>
         </div>
     </div>
-
 </body>
 </html>

@@ -499,7 +499,7 @@
     max-height: 735px;
     height: 100%;
     width: 100%; 
-    max-width: 325px; 
+    max-width: 25.5%; 
     display: flex;
     flex-direction: column;
 }
@@ -920,8 +920,6 @@
         height: 100%;
     }
     .add-to-cart-container {
-        width: 100%;
-        max-width: 262px;
         min-height: 500px;
         max-height: 537px;
         height: 100%;
