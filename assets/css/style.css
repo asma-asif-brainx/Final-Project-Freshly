@@ -456,6 +456,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
     font-size: 11px;
     color: var(--date-item-border);
@@ -660,7 +661,7 @@
     content: '';
     position: absolute;
     top: 50%;
-    right: 3px;
+    right: 10%;
     width: 1px;
     height: 100%;
     background-color: var(--greyish-white); 
@@ -1073,6 +1074,9 @@
         min-height: 910px;
         height: 100%;
     }
+    .meal-details p:nth-last-child(n+3)::after {
+        right: 22%;
+    }
 }
 
 @media screen and (max-width:767px){
@@ -1289,7 +1293,7 @@
         transform: translateY(-135px);  
       }
       .meal-details p:nth-last-child(n+3)::after {
-        right: 0px;
+        right: 10%;
       }
       .order-summary-head, .meals-summary-head, .checkout-form-head {
         font-size: 30px;
