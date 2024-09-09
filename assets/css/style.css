@@ -649,7 +649,7 @@
     transform: translateX(38px);
 }
 .meal-control-plus, .meal-control-minus{
-    font-size: 18px;
+    font-size: 22px;
     padding: 0;
     color:var(--blackish-grey);
     font-weight: 700;
