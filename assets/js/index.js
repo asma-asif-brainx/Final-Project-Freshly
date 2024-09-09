@@ -613,5 +613,7 @@ fetch('assets/json/meals.json')
     errorMessage.textContent = 'Unable to load meal data at this time. Please check your connection and try again later.';
     container.appendChild(errorMessage); // Append error message to the container
   });
-
+  
+  //clearCart as a global scope for plan meal value change
+  window.clearCart = clearCart;
 });

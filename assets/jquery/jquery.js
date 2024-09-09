@@ -30,15 +30,21 @@ $(document).ready(function () {
     // Function to set up plan card click and move to the next step
     function setupPlanCardClick() {
       $('.plan-meals-card').on('click', function () {
-        const selectedMealCount = $(this).find('.meal-count').text().trim();
-        updateLocalStorage('selectedMealCount', selectedMealCount);
-        console.log(`Meal plan selected: ${selectedMealCount}`);
-  
-        updateLocalStorage('currentStep', 'day-step');
-        showSection('day-step');
+          const selectedMealCount = $(this).find('.meal-count').text().trim();
+          
+          if (typeof window.clearCart === 'function') {
+              window.clearCart();
+          } else {
+              console.error('clearCart function is not available.');
+          }
+
+          updateLocalStorage('selectedMealCount', selectedMealCount);
+
+          updateLocalStorage('currentStep', 'day-step');
+          showSection('day-step');
       });
-    }
-  
+  }
+
     // Function to handle day step and store the selected day
     function setupDayStep() {
       $('.next-button-delivery').on('click', function () {
