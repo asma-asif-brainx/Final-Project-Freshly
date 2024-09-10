@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
  const validateAddress = value => /^[a-zA-Z0-9#_, ]+$/.test(value);
  const validateZip = value => {
   if (/[^0-9]/.test(value)) {
-      // If ZIP contains anything other than digits, show zipAlphabet error
-      return errorMessages.zipAlphabet;
+      showErrorMessage(document.getElementById('zip'), errorMessages.zipAlphabet);
+      return false;
   }
   if (value.length !== 5) {
-      // If ZIP code is not exactly 5 digits
-      return errorMessages.zip;
+      showErrorMessage(document.getElementById('zip'), errorMessages.zip);
+      return false;
   }
-  return '';
+  return true;
  };
  const validateEmail = value => /^[^\s@]+@[^\s@]+\.com$/.test(value);
  // Validate multiple emails
@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
      'full-delivery-address-two': value => validateName(value) ? '' : errorMessages.fullName,
      city: value => validateName(value) ? '' : errorMessages.city,
      state: value => validateName(value) ? '' : errorMessages.state,
-     zip: value => validateZip(value), 
      'first-address-name': value => validateAddress(value) ? '' : errorMessages.address,
      'second-address-name': value => validateAddress(value) ? '' : errorMessages.address,
      email: value => {
@@ -148,6 +147,9 @@ document.addEventListener('DOMContentLoaded', function () {
  form.addEventListener('submit', event => {
   if (submitButton.disabled) {
       event.preventDefault();
+  }
+  else{
+    alert('Your order placed sucessfully');
   }
  });
 
@@ -467,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add click event listener to the "Next" button for delivery and update cart message
   document.querySelector('.next-button-delivery').addEventListener('click', () => cartMessage());
-  
+
   // Function to display the cart message with the number of meals in the cart
   function cartMessage() {
     let message = getMealCountFromStorage() + ' items';
