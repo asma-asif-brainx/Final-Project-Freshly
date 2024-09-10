@@ -1044,6 +1044,9 @@
         height: 100%;
     }
     .meal-name {
+        font-size: 13px;
+    }
+    .cart-meal-name {
         font-size: 11px;
     }
     .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
