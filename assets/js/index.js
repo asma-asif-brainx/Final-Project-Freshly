@@ -459,9 +459,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }  
 
-  // Add click event listener to the cart icon to show the cart when clicked in mobile screen
+ // Function to toggle cart visibility on cart icon click
+ function toggleCart() {
+  const cartItemsContainer = document.querySelector('.cart-items-container');
+  
+  if (cartItemsContainer.classList.contains('show')) {
+    hideCart();
+  } else {
+    showCart();
+  }
+ }
+
+  // Add click event listener to the cart icon to toggle cart visibility
   const cartIcon = document.querySelector('.cart-icon-container');
-  cartIcon.addEventListener('click', showCart);
+  cartIcon.addEventListener('click', toggleCart);
+
 
  // Add click event listener to the cart down arrow to hide the cart when clicked in mobile screen
   const cartDownArrow = document.querySelector('.cart-down-arrow');
