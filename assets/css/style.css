@@ -762,6 +762,8 @@
     max-width: 350px;
     width: 100%;
     font-size: 14px;
+    min-height: 38px;
+    height: 100%;
 }
 .delivery-div{
     border: 1px solid var(--deliver-border); 
