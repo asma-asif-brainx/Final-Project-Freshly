@@ -1044,7 +1044,7 @@
         height: 100%;
     }
     .meal-name {
-        font-size: 13px;
+        font-size: 11px;
     }
     .meal-gluten, .meal-calories, .meal-carbs, .meal-protein, .meal-speciality{
         font-size: 10px;
@@ -1079,7 +1079,7 @@
         height: 100%;
     }
     .meal-details p:nth-last-child(n+3)::after {
-        right: 22%;
+        right: 14%;
     }
 }
 
