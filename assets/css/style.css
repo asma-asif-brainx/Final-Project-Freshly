@@ -1087,6 +1087,9 @@
     .order-summary-meal-name{
         font-size: 12px;
     }
+    .sms-update-checbox{
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width:767px){
@@ -1331,7 +1334,7 @@
     }
     .promo-code-input{
         font-size: 12px;
-        max-width: 378px;
+        max-width: 97%;
         width: 100%;
     }
     .checkout-accordian-end-space {
