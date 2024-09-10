@@ -71,7 +71,7 @@
 }
 
 /* ----------------------------------------Font size ---------------------------------------------------------*/
-.header-list, .sale-tag , .plan-week, .date-item , #delivery-day-value,.meals-summary, .shipping-summary p, .tax-summary ,
+.header-list, .sale-tag , .plan-week, .date-item , #delivery-day-value,.meals-summary, .shipping-summary, .tax-summary ,
 .total-summary, .sms-update-checbox, .delivery-date-head-order, .name-feild-label, .fname-input, .lname-input,
 .full-name-delivery-address-label, .first-address-label, .second-address-label, .city-label, .state-label, 
 .zip-label, .phone-label, .email-label, .shipping-text, .meal-name, .count-same-meal-added, .order-summary-meal-name,
@@ -1064,7 +1064,7 @@
         overflow-y: auto;  
     }
     .fname-input, .lname-input{
-        min-width: 166px;
+        min-width: 150px;
         width: 100%;
     }
     .checkout-form-head{
@@ -1083,6 +1083,9 @@
     }
     .meal-details p:nth-last-child(n+3)::after {
         right: 14%;
+    }
+    .order-summary-meal-name{
+        font-size: 12px;
     }
 }
 
@@ -1336,7 +1339,7 @@
         height: 100%;
     }
     .delivery-div {
-        max-width: 380px;
+        max-width: 95%;
         width: 100%;
     }
 }
